@@ -1,0 +1,10 @@
+D:\Documents\Fall 2020\Database\Catering-Database-Management-System\CateringDatabaseSystem\bin\Debug\CateringDatabaseSystem.exe.config
+D:\Documents\Fall 2020\Database\Catering-Database-Management-System\CateringDatabaseSystem\bin\Debug\CateringDatabaseSystem.exe
+D:\Documents\Fall 2020\Database\Catering-Database-Management-System\CateringDatabaseSystem\bin\Debug\CateringDatabaseSystem.pdb
+D:\Documents\Fall 2020\Database\Catering-Database-Management-System\CateringDatabaseSystem\obj\Debug\CateringDatabaseSystem.csprojAssemblyReference.cache
+D:\Documents\Fall 2020\Database\Catering-Database-Management-System\CateringDatabaseSystem\obj\Debug\CateringDatabaseSystem.Form1.resources
+D:\Documents\Fall 2020\Database\Catering-Database-Management-System\CateringDatabaseSystem\obj\Debug\CateringDatabaseSystem.Properties.Resources.resources
+D:\Documents\Fall 2020\Database\Catering-Database-Management-System\CateringDatabaseSystem\obj\Debug\CateringDatabaseSystem.csproj.GenerateResource.cache
+D:\Documents\Fall 2020\Database\Catering-Database-Management-System\CateringDatabaseSystem\obj\Debug\CateringDatabaseSystem.csproj.CoreCompileInputs.cache
+D:\Documents\Fall 2020\Database\Catering-Database-Management-System\CateringDatabaseSystem\obj\Debug\CateringDatabaseSystem.exe
+D:\Documents\Fall 2020\Database\Catering-Database-Management-System\CateringDatabaseSystem\obj\Debug\CateringDatabaseSystem.pdb

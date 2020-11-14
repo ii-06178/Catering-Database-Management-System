@@ -35,6 +35,12 @@ namespace CateringDatabaseSystem
                 Admin.Show();
                 this.Hide();
             }
+            else if (comboBox1.Text.Equals("Rider"))
+            {
+                var Rider = new Rider();
+                Rider.Show();
+                this.Hide();
+            }
         }
     }
 }

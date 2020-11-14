@@ -150,6 +150,9 @@
     <EmbeddedResource Include="Region.resx">
       <DependentUpon>Region.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Rider.resx">
+      <DependentUpon>Rider.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RiderAdminView.resx">
       <DependentUpon>RiderAdminView.cs</DependentUpon>
     </EmbeddedResource>

@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace CateringDatabaseSystem
 {
-    public partial class CustomersAdminView : Form
+    public partial class RiderAdminView : Form
     {
-        public CustomersAdminView()
+        public RiderAdminView()
         {
             InitializeComponent();
+        }
+
+        private void groupBox3_Enter(object sender, EventArgs e)
+        {
+
         }
 
         private void button5_Click(object sender, EventArgs e)

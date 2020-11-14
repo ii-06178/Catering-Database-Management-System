@@ -52,11 +52,35 @@
     <Compile Include="Admin.Designer.cs">
       <DependentUpon>Admin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Customer Details.cs">
+    <Compile Include="Categories.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Customer Details.Designer.cs">
-      <DependentUpon>Customer Details.cs</DependentUpon>
+    <Compile Include="Categories.Designer.cs">
+      <DependentUpon>Categories.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomersAdminView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomersAdminView.Designer.cs">
+      <DependentUpon>CustomersAdminView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Deals.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Deals.Designer.cs">
+      <DependentUpon>Deals.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FoodItems.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FoodItems.Designer.cs">
+      <DependentUpon>FoodItems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ingredients.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ingredients.Designer.cs">
+      <DependentUpon>Ingredients.cs</DependentUpon>
     </Compile>
     <Compile Include="Order.cs">
       <SubType>Form</SubType>
@@ -64,17 +88,35 @@
     <Compile Include="Order.Designer.cs">
       <DependentUpon>Order.cs</DependentUpon>
     </Compile>
+    <Compile Include="Region.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Region.Designer.cs">
+      <DependentUpon>Region.cs</DependentUpon>
+    </Compile>
     <Compile Include="Rider.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Rider.Designer.cs">
       <DependentUpon>Rider.cs</DependentUpon>
     </Compile>
-    <Compile Include="Update Orders.cs">
+    <Compile Include="OrdersAdminView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Update Orders.Designer.cs">
-      <DependentUpon>Update Orders.cs</DependentUpon>
+    <Compile Include="OrdersAdminView.Designer.cs">
+      <DependentUpon>OrdersAdminView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RiderAdminView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RiderAdminView.Designer.cs">
+      <DependentUpon>RiderAdminView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WeeklyMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WeeklyMenu.Designer.cs">
+      <DependentUpon>WeeklyMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="Welcome screen.cs">
       <SubType>Form</SubType>
@@ -87,8 +129,32 @@
     <EmbeddedResource Include="Admin.resx">
       <DependentUpon>Admin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Update Orders.resx">
-      <DependentUpon>Update Orders.cs</DependentUpon>
+    <EmbeddedResource Include="Categories.resx">
+      <DependentUpon>Categories.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomersAdminView.resx">
+      <DependentUpon>CustomersAdminView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Deals.resx">
+      <DependentUpon>Deals.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FoodItems.resx">
+      <DependentUpon>FoodItems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ingredients.resx">
+      <DependentUpon>Ingredients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrdersAdminView.resx">
+      <DependentUpon>OrdersAdminView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Region.resx">
+      <DependentUpon>Region.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RiderAdminView.resx">
+      <DependentUpon>RiderAdminView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WeeklyMenu.resx">
+      <DependentUpon>WeeklyMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Welcome screen.resx">
       <DependentUpon>Welcome screen.cs</DependentUpon>

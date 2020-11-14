@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace CateringDatabaseSystem
 {
-    public partial class Update_Orders : Form
+    public partial class OrdersAdminView : Form
     {
-        public Update_Orders()
+        public OrdersAdminView()
         {
             InitializeComponent();
         }

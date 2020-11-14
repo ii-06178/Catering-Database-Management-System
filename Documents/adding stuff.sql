@@ -14,4 +14,6 @@ select * from FoodItem
 insert into deal (DealID, DealPrice, ValidTill) values (3, 500, '2020-12-10')
 select * from Deal
 
+insert into Deal_has_FoodItem(Deal_DealID, FoodItem_FoodItemID) values (3, 5)
+select * from Deal_has_FoodItem
 

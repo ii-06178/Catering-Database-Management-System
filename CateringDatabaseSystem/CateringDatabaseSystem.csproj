@@ -70,6 +70,12 @@
     <Compile Include="Rider.Designer.cs">
       <DependentUpon>Rider.cs</DependentUpon>
     </Compile>
+    <Compile Include="Update Orders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Update Orders.Designer.cs">
+      <DependentUpon>Update Orders.cs</DependentUpon>
+    </Compile>
     <Compile Include="Welcome screen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +84,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Admin.resx">
+      <DependentUpon>Admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Update Orders.resx">
+      <DependentUpon>Update Orders.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Welcome screen.resx">
       <DependentUpon>Welcome screen.cs</DependentUpon>
     </EmbeddedResource>

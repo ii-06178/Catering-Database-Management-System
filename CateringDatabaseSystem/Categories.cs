@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace CateringDatabaseSystem
 {
-    public partial class CustomersAdminView : Form
+    public partial class Categories : Form
     {
-        public CustomersAdminView()
+        public Categories()
         {
             InitializeComponent();
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void button6_Click(object sender, EventArgs e)
         {
             this.Close();
         }

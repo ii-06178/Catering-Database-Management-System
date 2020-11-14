@@ -33,14 +33,14 @@
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
@@ -48,6 +48,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.button5 = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -111,6 +112,23 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add Ingredient";
             // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(196, 118);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(175, 28);
+            this.textBox6.TabIndex = 6;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Montserrat", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(15, 125);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(151, 22);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "Quantity In Stock:";
+            // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Montserrat", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -169,23 +187,6 @@
             this.groupBox3.TabIndex = 5;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Update Ingredient";
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(196, 118);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(175, 28);
-            this.textBox6.TabIndex = 6;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Montserrat", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(15, 125);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(151, 22);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Quantity In Stock:";
             // 
             // textBox3
             // 
@@ -253,11 +254,23 @@
             this.dataGridView1.Size = new System.Drawing.Size(815, 472);
             this.dataGridView1.TabIndex = 11;
             // 
+            // button5
+            // 
+            this.button5.Font = new System.Drawing.Font("Montserrat", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.Location = new System.Drawing.Point(745, 971);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(82, 36);
+            this.button5.TabIndex = 15;
+            this.button5.Text = "Close";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // Ingredients
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(855, 975);
+            this.ClientSize = new System.Drawing.Size(855, 1017);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.groupBox3);
@@ -299,5 +312,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button button5;
     }
 }

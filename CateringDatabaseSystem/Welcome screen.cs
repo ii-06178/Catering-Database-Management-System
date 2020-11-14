@@ -16,5 +16,25 @@ namespace CateringDatabaseSystem
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (comboBox1.Text.Equals("Admin") || comboBox1.Text.Equals("Rider"))
+            {
+                textBox1.Enabled = true;
+                textBox2.Enabled = true;
+                button2.Enabled = true;
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (comboBox1.Text.Equals("Admin"))
+            {
+                var Admin = new Admin();
+                Admin.Show();
+                this.Hide();
+            }
+        }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace CateringDatabaseSystem
 {
-    partial class Update_Orders
+    partial class OrdersAdminView
     {
         /// <summary>
         /// Required designer variable.

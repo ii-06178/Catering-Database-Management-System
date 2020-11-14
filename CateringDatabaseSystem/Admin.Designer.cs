@@ -60,14 +60,15 @@
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.button4 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.hScrollBar1 = new System.Windows.Forms.HScrollBar();
-            this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.button5 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -127,9 +128,9 @@
             // 
             this.groupBox4.Controls.Add(this.comboBox1);
             this.groupBox4.Font = new System.Drawing.Font("Cera Pro", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(432, 255);
+            this.groupBox4.Location = new System.Drawing.Point(432, 224);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(472, 102);
+            this.groupBox4.Size = new System.Drawing.Size(472, 133);
             this.groupBox4.TabIndex = 1;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Update Database";
@@ -346,7 +347,7 @@
             "Customers",
             "Orders",
             "Riders"});
-            this.comboBox1.Location = new System.Drawing.Point(176, 43);
+            this.comboBox1.Location = new System.Drawing.Point(28, 58);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(272, 30);
             this.comboBox1.TabIndex = 0;
@@ -354,15 +355,13 @@
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.vScrollBar1);
-            this.groupBox5.Controls.Add(this.hScrollBar1);
             this.groupBox5.Controls.Add(this.dataGridView1);
             this.groupBox5.Controls.Add(this.button4);
             this.groupBox5.Controls.Add(this.comboBox2);
             this.groupBox5.Font = new System.Drawing.Font("Cera Pro", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.Location = new System.Drawing.Point(432, 363);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(472, 538);
+            this.groupBox5.Size = new System.Drawing.Size(1252, 538);
             this.groupBox5.TabIndex = 2;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Generate Report";
@@ -375,7 +374,7 @@
             "Today",
             "This Week",
             "This Month"});
-            this.comboBox2.Location = new System.Drawing.Point(176, 52);
+            this.comboBox2.Location = new System.Drawing.Point(28, 61);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(272, 30);
             this.comboBox2.TabIndex = 1;
@@ -384,7 +383,7 @@
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("Montserrat", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(279, 92);
+            this.button4.Location = new System.Drawing.Point(28, 107);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(169, 42);
             this.button4.TabIndex = 20;
@@ -398,29 +397,39 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(420, 349);
+            this.dataGridView1.Size = new System.Drawing.Size(1189, 349);
             this.dataGridView1.TabIndex = 21;
             // 
-            // hScrollBar1
+            // dataGridView2
             // 
-            this.hScrollBar1.Location = new System.Drawing.Point(28, 489);
-            this.hScrollBar1.Name = "hScrollBar1";
-            this.hScrollBar1.Size = new System.Drawing.Size(420, 26);
-            this.hScrollBar1.TabIndex = 22;
+            this.dataGridView2.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(923, 81);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowHeadersWidth = 62;
+            this.dataGridView2.RowTemplate.Height = 28;
+            this.dataGridView2.Size = new System.Drawing.Size(761, 276);
+            this.dataGridView2.TabIndex = 15;
             // 
-            // vScrollBar1
+            // button5
             // 
-            this.vScrollBar1.Location = new System.Drawing.Point(422, 166);
-            this.vScrollBar1.Name = "vScrollBar1";
-            this.vScrollBar1.Size = new System.Drawing.Size(26, 323);
-            this.vScrollBar1.TabIndex = 23;
+            this.button5.Font = new System.Drawing.Font("Montserrat", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.Location = new System.Drawing.Point(923, 37);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(214, 36);
+            this.button5.TabIndex = 14;
+            this.button5.Text = "Show All Admins";
+            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button5.UseVisualStyleBackColor = true;
             // 
             // Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ClientSize = new System.Drawing.Size(970, 925);
+            this.ClientSize = new System.Drawing.Size(1696, 920);
+            this.Controls.Add(this.dataGridView2);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox3);
@@ -437,6 +446,7 @@
             this.groupBox4.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -473,9 +483,9 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.VScrollBar vScrollBar1;
-        private System.Windows.Forms.HScrollBar hScrollBar1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.Button button5;
     }
 }

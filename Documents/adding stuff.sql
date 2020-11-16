@@ -1,7 +1,7 @@
 
 
 insert into Customers (CustomerID, CustomerName, CustomerContactNo, CustomerAddress, AlternatePhone, Email) 
-values (3, 'Artemis Fowl', 88744822,'Defense, Lahore',NULL,'artemisfowl@gmail.com')
+values (1, 'Artemis Fowl', 88744822,'Defense, Lahore',NULL,'artemisfowl@gmail.com')
 --update Customers set CustomerName = 'Magnus Chase' where CustomerID = 1
 select * from Customers
 
@@ -17,3 +17,5 @@ select * from Deal
 insert into Deal_has_FoodItem(Deal_DealID, FoodItem_FoodItemID) values (3, 5)
 select * from Deal_has_FoodItem
 
+insert into orders (orderid,Payment_PaymentID, Region_RegionID,Rider_RiderID,Customers_CustomerID, OrderDate, RequiredDate, OrderStatus) values (1,2,1,1,1, '2020-11-12','2020-11-12','In Process')
+select * from orders

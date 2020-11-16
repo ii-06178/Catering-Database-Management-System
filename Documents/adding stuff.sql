@@ -17,5 +17,5 @@ select * from Deal
 insert into Deal_has_FoodItem(Deal_DealID, FoodItem_FoodItemID) values (3, 5)
 select * from Deal_has_FoodItem
 
-insert into orders (orderid,Payment_PaymentID, Region_RegionID,Rider_RiderID,Customers_CustomerID, OrderDate, RequiredDate, OrderStatus) values (1,2,1,1,1, '2020-11-12','2020-11-12','In Process')
+insert into orders (orderid,Payment_PaymentID, Region_RegionID,Rider_RiderID,Customers_CustomerID, OrderDate, RequiredDate, OrderStatus) values (2,2,1,1,1, '2020-11-12','2020-11-12','In Process')
 select * from orders

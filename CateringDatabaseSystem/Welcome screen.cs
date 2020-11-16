@@ -25,6 +25,11 @@ namespace CateringDatabaseSystem
                 textBox2.Enabled = true;
                 button2.Enabled = true;
             }
+            else if (comboBox1.Text.Equals("Customer"))
+            {
+                var CustomerOrder = new CustomerOrder();
+                CustomerOrder.Show();
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)

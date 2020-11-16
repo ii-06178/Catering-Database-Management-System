@@ -29,10 +29,6 @@ namespace CateringDatabaseSystem
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
-            if (radioButton1.Checked)
-            {
-                comboBox1.Enabled = true;
-            }
         }
 
         private void groupBox2_Enter(object sender, EventArgs e)
@@ -61,6 +57,19 @@ namespace CateringDatabaseSystem
         private void textBox4_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButton8_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton8.Checked)
+            {
+                comboBox3.Enabled = true;
+            }
         }
     }
 }

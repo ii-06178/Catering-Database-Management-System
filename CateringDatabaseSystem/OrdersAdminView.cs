@@ -35,5 +35,10 @@ namespace CateringDatabaseSystem
             ConnectingData c = new ConnectingData();
             dataGridView1.DataSource = c.Select("select * from orders");
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

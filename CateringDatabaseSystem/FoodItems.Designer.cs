@@ -41,6 +41,8 @@
             this.button2 = new System.Windows.Forms.Button();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.listView2 = new System.Windows.Forms.ListView();
+            this.textBox6 = new System.Windows.Forms.TextBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.listView1 = new System.Windows.Forms.ListView();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -55,8 +57,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.listView2 = new System.Windows.Forms.ListView();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -88,15 +92,19 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.comboBox3);
+            this.groupBox3.Controls.Add(this.label9);
             this.groupBox3.Controls.Add(this.label3);
+            this.groupBox3.Controls.Add(this.textBox8);
             this.groupBox3.Controls.Add(this.label7);
+            this.groupBox3.Controls.Add(this.label10);
             this.groupBox3.Controls.Add(this.textBox3);
             this.groupBox3.Controls.Add(this.button3);
             this.groupBox3.Controls.Add(this.textBox7);
             this.groupBox3.Font = new System.Drawing.Font("Cera Pro", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(459, 169);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(377, 185);
+            this.groupBox3.Size = new System.Drawing.Size(377, 272);
             this.groupBox3.TabIndex = 14;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Update Food Item";
@@ -132,7 +140,7 @@
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(268, 134);
+            this.button3.Location = new System.Drawing.Point(268, 218);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(82, 36);
             this.button3.TabIndex = 11;
@@ -214,6 +222,24 @@
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add Food Item";
+            // 
+            // listView2
+            // 
+            this.listView2.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listView2.HideSelection = false;
+            this.listView2.Location = new System.Drawing.Point(351, 283);
+            this.listView2.Name = "listView2";
+            this.listView2.Size = new System.Drawing.Size(75, 174);
+            this.listView2.TabIndex = 15;
+            this.listView2.UseCompatibleStateImageBehavior = false;
+            // 
+            // textBox6
+            // 
+            this.textBox6.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox6.Location = new System.Drawing.Point(351, 208);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(75, 28);
+            this.textBox6.TabIndex = 14;
             // 
             // comboBox2
             // 
@@ -363,23 +389,47 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // textBox6
+            // comboBox3
             // 
-            this.textBox6.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(351, 208);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(75, 28);
-            this.textBox6.TabIndex = 14;
+            this.comboBox3.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Items.AddRange(new object[] {
+            "Rice",
+            "Burgers",
+            "Rolls",
+            "Frozen"});
+            this.comboBox3.Location = new System.Drawing.Point(137, 174);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(213, 29);
+            this.comboBox3.TabIndex = 19;
             // 
-            // listView2
+            // label9
             // 
-            this.listView2.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listView2.HideSelection = false;
-            this.listView2.Location = new System.Drawing.Point(351, 283);
-            this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(75, 174);
-            this.listView2.TabIndex = 15;
-            this.listView2.UseCompatibleStateImageBehavior = false;
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(15, 179);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(83, 21);
+            this.label9.TabIndex = 18;
+            this.label9.Text = "Category:";
+            // 
+            // textBox8
+            // 
+            this.textBox8.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox8.Location = new System.Drawing.Point(137, 133);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(213, 28);
+            this.textBox8.TabIndex = 17;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(15, 136);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(93, 21);
+            this.label10.TabIndex = 16;
+            this.label10.Text = "Item Name:";
             // 
             // FoodItems
             // 
@@ -436,5 +486,9 @@
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.ListView listView2;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.Label label10;
     }
 }

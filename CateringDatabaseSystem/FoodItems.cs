@@ -49,7 +49,18 @@ namespace CateringDatabaseSystem
         private void button3_Click(object sender, EventArgs e)
         {//update food item
             ConnectingData c = new ConnectingData();
-            c.Inserts("update fooditem set unitprice = " + textBox3.Text + "where fooditemID = " + textBox7.Text);
+            if (textBox3.Text != "")
+            {//updating unitprice
+                c.Inserts("update fooditem set unitprice = " + textBox3.Text + "where fooditemID = " + textBox7.Text);
+            }
+            if (textBox8.Text != "")
+            {//updating item name
+                c.Inserts("update fooditem set itemName = '" + textBox8.Text + "' where fooditemID = " + textBox7.Text);
+            }
+            if (comboBox3.Text != "")
+            {//updating item category
+                c.Inserts("update fooditem set Categories_CategoriesID = (select categoriesID from categories where categoryname = '" + comboBox3.Text + "') where fooditemID = " + textBox7.Text);
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)

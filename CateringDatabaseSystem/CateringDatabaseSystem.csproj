@@ -89,12 +89,6 @@
     <Compile Include="Ingredients.Designer.cs">
       <DependentUpon>Ingredients.cs</DependentUpon>
     </Compile>
-    <Compile Include="Order.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Order.Designer.cs">
-      <DependentUpon>Order.cs</DependentUpon>
-    </Compile>
     <Compile Include="Region.cs">
       <SubType>Form</SubType>
     </Compile>

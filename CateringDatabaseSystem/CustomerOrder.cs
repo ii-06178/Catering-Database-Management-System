@@ -29,7 +29,10 @@ namespace CateringDatabaseSystem
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (radioButton1.Checked)
+            {
+                comboBox1.Enabled = true;
+            }
         }
 
         private void groupBox2_Enter(object sender, EventArgs e)

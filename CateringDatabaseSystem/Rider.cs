@@ -26,5 +26,10 @@ namespace CateringDatabaseSystem
         {
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("The following orders have been selected:");
+        }
     }
 }

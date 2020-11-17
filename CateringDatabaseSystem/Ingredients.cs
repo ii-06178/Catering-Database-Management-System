@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace CateringDatabaseSystem
 {
-    public partial class Customer_Details : Form
+    public partial class Ingredients : Form
     {
-        public Customer_Details()
+        public Ingredients()
         {
             InitializeComponent();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

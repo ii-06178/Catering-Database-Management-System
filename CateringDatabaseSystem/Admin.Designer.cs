@@ -64,6 +64,8 @@
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.button5 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.textBox11 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -104,6 +106,7 @@
             this.button1.TabIndex = 10;
             this.button1.Text = "Add";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label5
             // 
@@ -197,7 +200,9 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.button2);
+            this.groupBox2.Controls.Add(this.textBox11);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.textBox6);
             this.groupBox2.Controls.Add(this.label7);
@@ -207,26 +212,28 @@
             this.groupBox2.Font = new System.Drawing.Font("Cera Pro", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(25, 354);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(414, 241);
+            this.groupBox2.Size = new System.Drawing.Size(414, 259);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Update Admin";
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(310, 183);
+            this.button2.Location = new System.Drawing.Point(312, 199);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(85, 42);
             this.button2.TabIndex = 11;
             this.button2.Text = "Update";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(35, 139);
+            this.label6.Location = new System.Drawing.Point(24, 162);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(49, 21);
             this.label6.TabIndex = 19;
@@ -235,7 +242,7 @@
             // textBox6
             // 
             this.textBox6.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(137, 141);
+            this.textBox6.Location = new System.Drawing.Point(137, 159);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(258, 28);
             this.textBox6.TabIndex = 14;
@@ -244,7 +251,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(35, 95);
+            this.label7.Location = new System.Drawing.Point(24, 121);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(85, 21);
             this.label7.TabIndex = 18;
@@ -253,16 +260,17 @@
             // textBox10
             // 
             this.textBox10.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox10.Location = new System.Drawing.Point(137, 46);
+            this.textBox10.Location = new System.Drawing.Point(137, 36);
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new System.Drawing.Size(258, 28);
             this.textBox10.TabIndex = 10;
+            this.textBox10.Text = "Enter your ID";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(35, 52);
+            this.label10.Location = new System.Drawing.Point(24, 39);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(78, 21);
             this.label10.TabIndex = 15;
@@ -271,7 +279,7 @@
             // textBox7
             // 
             this.textBox7.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.Location = new System.Drawing.Point(137, 95);
+            this.textBox7.Location = new System.Drawing.Point(137, 118);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(258, 28);
             this.textBox7.TabIndex = 13;
@@ -284,9 +292,9 @@
             this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Controls.Add(this.textBox8);
             this.groupBox3.Font = new System.Drawing.Font("Cera Pro", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(25, 601);
+            this.groupBox3.Location = new System.Drawing.Point(25, 619);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(414, 193);
+            this.groupBox3.Size = new System.Drawing.Size(414, 187);
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Remove Admin";
@@ -294,18 +302,19 @@
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(305, 137);
+            this.button3.Location = new System.Drawing.Point(305, 119);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(90, 41);
             this.button3.TabIndex = 20;
             this.button3.Text = "Delete";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(24, 98);
+            this.label9.Location = new System.Drawing.Point(24, 84);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(95, 42);
             this.label9.TabIndex = 13;
@@ -314,7 +323,7 @@
             // textBox9
             // 
             this.textBox9.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox9.Location = new System.Drawing.Point(137, 95);
+            this.textBox9.Location = new System.Drawing.Point(137, 81);
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(258, 28);
             this.textBox9.TabIndex = 12;
@@ -324,7 +333,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(24, 56);
+            this.label8.Location = new System.Drawing.Point(24, 45);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(78, 21);
             this.label8.TabIndex = 11;
@@ -333,7 +342,7 @@
             // textBox8
             // 
             this.textBox8.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox8.Location = new System.Drawing.Point(137, 54);
+            this.textBox8.Location = new System.Drawing.Point(137, 43);
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(258, 28);
             this.textBox8.TabIndex = 10;
@@ -451,6 +460,7 @@
             this.button5.Text = "Show All Admins";
             this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button7
             // 
@@ -462,6 +472,25 @@
             this.button7.Text = "Close";
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(24, 63);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(86, 42);
+            this.label11.TabIndex = 22;
+            this.label11.Text = "Admin\r\nToUpdate:";
+            // 
+            // textBox11
+            // 
+            this.textBox11.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox11.Location = new System.Drawing.Point(137, 77);
+            this.textBox11.Name = "textBox11";
+            this.textBox11.Size = new System.Drawing.Size(258, 28);
+            this.textBox11.TabIndex = 21;
+            this.textBox11.Text = "Enter ID of Admin to update";
             // 
             // Admin
             // 
@@ -531,5 +560,7 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox textBox11;
     }
 }

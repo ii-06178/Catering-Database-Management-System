@@ -25,10 +25,10 @@ namespace CateringDatabaseSystem
         private void button1_Click(object sender, EventArgs e)
         {//add customer
             ConnectingData c = new ConnectingData();
-            c.Inserts("insert into customers (CustomerID, CustomerName, CustomerContactNo, CustomerAddress, AlternatePhone,Email) values (" + textBox1.Text + ", '" + textBox2.Text + "', " + textBox6.Text + ", '" + textBox9.Text + "', " + textBox8.Text + ", '" + textBox11.Text + "'" + ")");
+            c.Inserts("insert into customers (CustomerID, CustomerName, CustomerContactNo, CustomerAddress, AlternatePhone,Email) values (" + textBox1.Text + ", '" + textBox2.Text + "', '" + textBox6.Text + "', '" + textBox9.Text + "', '" + textBox8.Text + "', '" + textBox11.Text + "'" + ")");
             if (textBox10.Text != "")
             {
-                c.Inserts("insert into customers (CreditCardNo) values (" + textBox10.Text + ")");
+                c.Inserts("insert into customers (CreditCardNo) values ('" + textBox10.Text + "')");
             }
         }
 

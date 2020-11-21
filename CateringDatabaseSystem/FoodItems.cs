@@ -33,16 +33,17 @@ namespace CateringDatabaseSystem
         {//adding each item to fooditems table, and adding itemid and ingid to junction table
             //int i = listView1.Items.Count;
             ConnectingData c = new ConnectingData();
-            c.Inserts("insert into fooditem (fooditemID, itemName, Categories_CategoriesID, unitprice) values (" + textBox1.Text + ", '" + textBox2.Text + "', (select categoriesID from categories where categoryname = '" + comboBox1.Text + "'), " + textBox5.Text + ")");
+            c.Inserts("insert into fooditem (fooditemID, itemName, Categories_CategoriesID, unitprice) values (" + textBox1.Text + ", '" + textBox2.Text + "', (select categoriesID from categories where categoryname = '" + comboBox2.Text + "'), " + textBox5.Text + ")");
             for (int i = 0; i < listView1.Items.Count; i++)
             {
-                c.Inserts("insert into ingredients_for_fooditem (ingredients_ingredientsID, fooditem_fooditemID, quantity) values ((select ingredientsid from ingredients where ingredientname = '" + listView1.Items[i] + "')," + textBox1.Text + "," + listView2.Items[i] + ")");
+                c.Inserts("insert into ingredients_for_fooditem (fooditem_fooditemID, ingredients_ingredientsID, quantity) values ("+textBox1.Text + ",(select ingredientsid from ingredients where ingredientname = '" + listView1.Items[i].Text + "')," + listView2.Items[i].Text + ")");
             }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {//delete food item
             ConnectingData c = new ConnectingData();
+            c.Inserts("delete from ingredients_for_fooditem where fooditem_fooditemID =" + textBox4.Text);
             c.Inserts("delete from fooditem where fooditemID =" + textBox4.Text);
         }
 

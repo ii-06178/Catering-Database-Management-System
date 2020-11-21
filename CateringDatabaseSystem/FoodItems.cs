@@ -69,5 +69,11 @@ namespace CateringDatabaseSystem
             ConnectingData c = new ConnectingData();
             dataGridView1.DataSource = c.Select("select * from fooditem");
         }
+
+        private void button7_Click(object sender, EventArgs e)
+        {//show ingredients for selected food item
+            ConnectingData c = new ConnectingData();
+            dataGridView1.DataSource = c.Select("select itemname as 'Food Item', ingredientname as 'Ingredients', Quantity from fooditem f inner join ingredients_for_fooditem fi on f.fooditemid = fi.fooditem_fooditemID inner join ingredients i on i.ingredientsid = fi.ingredients_ingredientsid where f.fooditemid = " + textBox9.Text + "order by itemname");
+        }
     }
 }

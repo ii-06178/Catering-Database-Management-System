@@ -19,7 +19,17 @@ namespace CateringDatabaseSystem
 
         private void CustomerDetails_Load(object sender, EventArgs e)
         {
+            //populating categories combobox with values from the database (categories table)
+            ConnectingData c = new ConnectingData();   
+            DataTable ds = c.Select("Select CategoriesID, CategoryName from Categories"); 
+            DataRow row = ds.NewRow(); //adding default null value as first element in combobox
+            row[0] = 0;
+            row[1] = "";
+            ds.Rows.InsertAt(row, 0);
 
+            comboBox3.DataSource = ds;
+            comboBox3.DisplayMember = "CategoryName";
+            comboBox3.ValueMember = "CategoriesID";
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -61,7 +71,19 @@ namespace CateringDatabaseSystem
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+            if (radioButton8.Checked == true & comboBox3.Text != "")
+            {//search by category
+                //populating list box with food items in selected category
+                ConnectingData c = new ConnectingData();    
+                DataTable ds = c.Select("Select fooditemid, itemname, unitprice from fooditem where categories_categoriesid = (select categoriesid from categories where categoryname = '" + comboBox3.Text + "')");
+                listBox1.DataSource = ds; 
+                listBox1.DisplayMember = "itemname";
+                listBox1.ValueMember = "fooditemid";
+            }
+            else if (radioButton8.Checked == true & comboBox3.Text == "")
+            {//error message if no category selected
+                MessageBox.Show("Please select a category!");
+            }
         }
 
         private void radioButton8_CheckedChanged(object sender, EventArgs e)
@@ -69,6 +91,49 @@ namespace CateringDatabaseSystem
             if (radioButton8.Checked)
             {
                 comboBox3.Enabled = true;
+            }
+        }
+
+        private void radioButton7_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton7.Checked == true)
+            {
+                comboBox3.Enabled = false;
+            }
+        }
+
+        private void radioButton6_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton6.Checked == true)
+            {
+                comboBox3.Enabled = false;
+            }
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //string measuredIn;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {//enabling quantity or weight textboxes based on the type of food selected
+            if (listBox1.SelectedItem.ToString() != "")
+            {
+                string fooditem = listBox1.SelectedItem.ToString();
+                ConnectingData c = new ConnectingData();
+                string measuredIn = c.getStringValue("Select measuredIn from Categories where categoriesid = (select categories_categoriesid from fooditem where itemname = " + fooditem + ")");
+                if (measuredIn == "Quantity")
+                {
+                    textBox7.Enabled = true;
+                    textBox5.Clear();
+                    textBox5.Enabled = false;
+                }
+                else if (measuredIn == "Weight (Kg)")
+                {
+                    textBox5.Enabled = true;
+                    textBox7.Clear();
+                    textBox7.Enabled = false;
+                }
             }
         }
     }

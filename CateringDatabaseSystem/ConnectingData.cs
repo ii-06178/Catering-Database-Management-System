@@ -43,5 +43,18 @@ namespace CateringDatabaseSystem
             conn.Close();
             return dt;
         }
+
+        public string getStringValue(string query)
+        {
+            conn.Open();
+            cmd.CommandText = query;
+            cmd.Connection = conn;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            string result = (string)cmd.ExecuteScalar();
+            //DataTable dt = new DataTable();
+            //da.Fill(dt);
+            conn.Close();
+            return result;
+        }
     }
 }

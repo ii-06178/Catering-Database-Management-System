@@ -48,6 +48,7 @@ namespace CateringDatabaseSystem
 
         private void button6_Click(object sender, EventArgs e)
         {// show all items with this ingredient
+            ConnectingData c = new ConnectingData();
             dataGridView1.DataSource = c.Select("select ingredientName as 'Ingredient', itemName as 'Food Item', quantity as 'Quantity Required' from ingredients i inner join ingredients_for_fooditem fi on i.ingredientsID = fi.Ingredients_IngredientsID inner join fooditem f on fi.FoodItem_FoodItemID = f.FoodItemID where i.ingredientsID = " + textBox9.Text);
         }
     }

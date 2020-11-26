@@ -19,3 +19,6 @@ select * from Deal_has_FoodItem
 
 insert into orders (orderid,Payment_PaymentID, Region_RegionID,Rider_RiderID,Customers_CustomerID, OrderDate, RequiredDate, OrderStatus) values (2,2,1,1,1, '2020-11-12','2020-11-12','In Process')
 select * from orders
+
+update FoodItem set UnitQuantity = 0.5 where FoodItemID = 2
+select * from FoodItem

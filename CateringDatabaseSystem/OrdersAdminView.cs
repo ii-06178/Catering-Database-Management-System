@@ -40,5 +40,38 @@ namespace CateringDatabaseSystem
         {
             this.Close();
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {//show all orders with particular food item or customer
+            ConnectingData c = new ConnectingData();
+            if (textBox2.Text != "")
+            {//select by customer
+                dataGridView1.DataSource = c.Select("select * from orders where customers_customerid = " + textBox2.Text);
+            }
+            else if (textBox3.Text != "")
+            {//select by food item
+                dataGridView1.DataSource = c.Select("select * from orders o inner join orderbyitem oi on o.orderid = oi.orders_orderid where fooditem_fooditemid = (select fooditemid from fooditem where itemname = '" + textBox3.Text + "')");
+            }
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton1.Enabled == true)
+            {
+                textBox2.Enabled = true;
+                textBox3.Clear();
+                textBox3.Enabled = false;
+            }
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton2.Enabled == true)
+            {
+                textBox3.Enabled = true;
+                textBox2.Clear();
+                textBox2.Enabled = false;
+            }
+        }
     }
 }

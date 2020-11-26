@@ -54,6 +54,7 @@ namespace CateringDatabaseSystem
                 textBox1.Enabled = true;
                 textBox2.Enabled = true;
                 button2.Enabled = true;
+                button1.Enabled = false;
             }
             else if (comboBox1.Text == "Customer")
             {
@@ -62,6 +63,7 @@ namespace CateringDatabaseSystem
                 textBox1.Enabled = false;
                 textBox2.Enabled = false;
                 button2.Enabled = false;
+                button1.Enabled = true;
             }
         }
     }

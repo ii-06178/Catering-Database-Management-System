@@ -38,8 +38,8 @@ namespace CateringDatabaseSystem
             }
             else if (comboBox1.Text.Equals("Ingredients"))
             {
-                var Ingredients = new Ingredients();
-                Ingredients.Show();
+                var IngredientsAdmin = new IngredientsAdmin();
+                IngredientsAdmin.Show();
                 //this.Hide();
             }
             else if (comboBox1.Text.Equals("Food Items"))

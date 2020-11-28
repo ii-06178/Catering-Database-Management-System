@@ -30,6 +30,18 @@ namespace CateringDatabaseSystem
             comboBox3.DataSource = ds;
             comboBox3.DisplayMember = "CategoryName";
             comboBox3.ValueMember = "CategoriesID";
+
+            //populating region combobox with values from the database (region table)
+            ConnectingData c2 = new ConnectingData();
+            DataTable ds2 = c2.Select("Select regionID, regionDescription from region");
+            DataRow row2 = ds2.NewRow(); //adding default null value as first element in combobox
+            row2[0] = 0;
+            row2[1] = "";
+            ds2.Rows.InsertAt(row2, 0);
+
+            comboBox2.DataSource = ds2;
+            comboBox2.DisplayMember = "regionDescription";
+            comboBox2.ValueMember = "regionID";
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -57,7 +69,7 @@ namespace CateringDatabaseSystem
         }
 
         private void radioButton5_CheckedChanged(object sender, EventArgs e)
-        {
+        {//if payment method is online, enabling credit card textbox
             if (radioButton5.Checked)
             {
                 textBox4.Enabled = true;
@@ -68,24 +80,7 @@ namespace CateringDatabaseSystem
         {
 
         }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            if (radioButton8.Checked == true & comboBox3.Text != "")
-            {//search by category
-                //populating list box with food items in selected category
-                ConnectingData c = new ConnectingData();    
-                DataTable ds = c.Select("Select fooditemid, itemname, unitprice from fooditem where categories_categoriesid = (select categoriesid from categories where categoryname = '" + comboBox3.Text + "')");
-                listBox1.DataSource = ds; 
-                listBox1.DisplayMember = "itemname";
-                listBox1.ValueMember = "fooditemid";
-            }
-            else if (radioButton8.Checked == true & comboBox3.Text == "")
-            {//error message if no category selected
-                MessageBox.Show("Please select a category!");
-            }
-        }
-
+        //enabling categories combobox only if categories is selected
         private void radioButton8_CheckedChanged(object sender, EventArgs e)
         {
             if (radioButton8.Checked)
@@ -112,29 +107,120 @@ namespace CateringDatabaseSystem
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //string measuredIn;
+            
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {//enabling quantity or weight textboxes based on the type of food selected
-            if (listBox1.SelectedItem.ToString() != "")
+        private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {//enabling textbox for either unit amount or weight for order quantity based on the unit of measurement of food item
+            if (listBox2.SelectedItem != null)
             {
-                string fooditem = listBox1.SelectedItem.ToString();
-                ConnectingData c = new ConnectingData();
-                string measuredIn = c.getStringValue("Select measuredIn from Categories where categoriesid = (select categories_categoriesid from fooditem where itemname = " + fooditem + ")");
-                if (measuredIn == "Quantity")
-                {
-                    textBox7.Enabled = true;
-                    textBox5.Clear();
-                    textBox5.Enabled = false;
-                }
-                else if (measuredIn == "Weight (Kg)")
-                {
+                textBox3.Text = "0"; //resetting price to 0
+                if (listBox2.GetItemText(listBox2.SelectedItem) == "Weight (Kg)")
+                {//measured in weight 
+                    textBox5_TextChanged(sender, e); //if diff food item selected from list, update price
                     textBox5.Enabled = true;
-                    textBox7.Clear();
-                    textBox7.Enabled = false;
+                    textBox7.Text = "Enter Amount"; //reset default
+                    textBox7.Enabled = false; //disable amount textbox
+                }
+                else
+                {//measured in units 
+                    textBox7_TextChanged(sender, e);//if diff food item selected from list, update price
+                    textBox7.Enabled = true;
+                    textBox5.Text = "Enter Weight (Kg)"; //reset default
+                    textBox5.Enabled = false; //disable weight textbox
                 }
             }
+        }
+
+        private void textBox7_TextChanged(object sender, EventArgs e)
+        {//calculating price of amount entered of food item 
+            if (textBox7.Text != "Enter Amount")
+            {
+                int temp;
+                if (!int.TryParse(textBox7.Text, out temp))
+                {//checking if the value entered is invalid
+                    textBox1.Text = "Invalid, please enter a whole number!";
+                }
+                else
+                {
+                    textBox1.Text = ""; 
+                    string unitprice = listBox3.GetItemText(listBox3.SelectedItem);
+                    string unitquantity = listBox4.GetItemText(listBox4.SelectedItem);
+                    textBox3.Text = (double.Parse(textBox7.Text) * double.Parse(unitprice) / double.Parse(unitquantity)).ToString();
+                }
+            }
+        }
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {//search by category
+            textBox3.Text = "0"; //resetting price to 0
+            if (radioButton8.Checked == true & comboBox3.Text != "")
+            {//populating list box with food items in selected category
+                ConnectingData c = new ConnectingData();
+                DataTable ds = c.Select("Select fooditemid, itemname, unitprice,unitquantity,measuredin from fooditem f inner join categories c on f.categories_categoriesid = c.categoriesid  where categoryname = '" + comboBox3.Text + "'");
+                listBox1.DataSource = ds;
+                listBox2.DataSource = ds;
+                listBox3.DataSource = ds;
+                listBox4.DataSource = ds;
+                listBox1.DisplayMember = "itemname";
+                listBox2.DisplayMember = "measuredin";
+                listBox3.DisplayMember = "unitprice";
+                listBox4.DisplayMember = "unitquantity";
+                listBox1.ValueMember = "fooditemid";
+                listBox2.ValueMember = "fooditemid";
+                listBox3.ValueMember = "fooditemid";
+                listBox4.ValueMember = "fooditemid";
+            }
+            else if (radioButton8.Checked == true & comboBox3.Text == "")
+            {//error message if no category selected
+                MessageBox.Show("Please select a category!");
+            }
+        }
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
+        {//calculating price of amount entered of food item by weight
+            if (textBox5.Text != "Enter Weight (Kg)")
+            {
+                double temp;
+                if (!double.TryParse(textBox5.Text, out temp))
+                {//checking if the value entered is invalid
+                    textBox1.Text = "Invalid, please enter a number!";
+                }
+                else
+                {
+                    textBox1.Text = "";
+                    string unitprice = listBox3.GetItemText(listBox3.SelectedItem);
+                    string unitquantity = listBox4.GetItemText(listBox4.SelectedItem);
+                    textBox3.Text = (double.Parse(textBox5.Text) * double.Parse(unitprice) / double.Parse(unitquantity)).ToString();
+                }
+            }
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {//add to cart  
+            if (textBox3.Text == "0")
+            {//error message if quantity not specified
+                MessageBox.Show("Please enter quantity to order!");
+            }
+            else
+            {
+                listView1.Items.Add(listBox1.GetItemText(listBox4.SelectedItem));
+                if (textBox5.Enabled)
+                {
+                    listView2.Items.Add(textBox5.Text);
+                }
+                if (textBox7.Enabled)
+                {
+                    listView2.Items.Add(textBox7.Text);
+                }
+                listView3.Items.Add(textBox3.Text);
+            }
+        }
+
+        private void comboBox2_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

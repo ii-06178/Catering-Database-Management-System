@@ -65,21 +65,26 @@
             this.label3 = new System.Windows.Forms.Label();
             this.listView1 = new System.Windows.Forms.ListView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.listBox4 = new System.Windows.Forms.ListBox();
+            this.listBox3 = new System.Windows.Forms.ListBox();
+            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
-            this.button4 = new System.Windows.Forms.Button();
             this.radioButton6 = new System.Windows.Forms.RadioButton();
             this.radioButton7 = new System.Windows.Forms.RadioButton();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.radioButton8 = new System.Windows.Forms.RadioButton();
             this.label19 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -109,7 +114,7 @@
             // 
             // comboBox2
             // 
-            this.comboBox2.Font = new System.Drawing.Font("CeraPRO-Regular", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox2.Font = new System.Drawing.Font("Glacial Indifference", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Items.AddRange(new object[] {
             "Defense",
@@ -118,48 +123,49 @@
             "North Nazimabad"});
             this.comboBox2.Location = new System.Drawing.Point(188, 145);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(210, 34);
+            this.comboBox2.Size = new System.Drawing.Size(210, 30);
             this.comboBox2.TabIndex = 16;
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged_1);
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Glacial Indifference", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Font = new System.Drawing.Font("Glacial Indifference", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(18, 150);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(75, 24);
+            this.label10.Size = new System.Drawing.Size(68, 22);
             this.label10.TabIndex = 15;
             this.label10.Text = "Region:";
             // 
             // textBox11
             // 
-            this.textBox11.Font = new System.Drawing.Font("CeraPRO-Regular", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox11.Font = new System.Drawing.Font("Glacial Indifference", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox11.Location = new System.Drawing.Point(188, 305);
             this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(210, 33);
+            this.textBox11.Size = new System.Drawing.Size(210, 29);
             this.textBox11.TabIndex = 14;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Glacial Indifference", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Font = new System.Drawing.Font("Glacial Indifference", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(18, 265);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(152, 24);
+            this.label11.Size = new System.Drawing.Size(140, 22);
             this.label11.TabIndex = 13;
             this.label11.Text = "Alternate Phone:";
             // 
             // textBox8
             // 
-            this.textBox8.Font = new System.Drawing.Font("CeraPRO-Regular", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox8.Font = new System.Drawing.Font("Glacial Indifference", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox8.Location = new System.Drawing.Point(188, 260);
             this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(210, 33);
+            this.textBox8.Size = new System.Drawing.Size(210, 29);
             this.textBox8.TabIndex = 10;
             // 
             // textBox9
             // 
-            this.textBox9.Font = new System.Drawing.Font("CeraPRO-Regular", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox9.Font = new System.Drawing.Font("Glacial Indifference", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox9.Location = new System.Drawing.Point(188, 191);
             this.textBox9.Multiline = true;
             this.textBox9.Name = "textBox9";
@@ -169,56 +175,56 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Glacial Indifference", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("Glacial Indifference", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(18, 310);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(61, 24);
+            this.label8.Size = new System.Drawing.Size(57, 22);
             this.label8.TabIndex = 8;
             this.label8.Text = "Email:";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Glacial Indifference", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Font = new System.Drawing.Font("Glacial Indifference", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(18, 197);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(82, 24);
+            this.label9.Size = new System.Drawing.Size(76, 22);
             this.label9.TabIndex = 7;
             this.label9.Text = "Address:";
             // 
             // textBox6
             // 
-            this.textBox6.Font = new System.Drawing.Font("CeraPRO-Regular", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox6.Font = new System.Drawing.Font("Glacial Indifference", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox6.Location = new System.Drawing.Point(188, 100);
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(210, 33);
+            this.textBox6.Size = new System.Drawing.Size(210, 29);
             this.textBox6.TabIndex = 6;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Glacial Indifference", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Glacial Indifference", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(18, 105);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(138, 24);
+            this.label6.Size = new System.Drawing.Size(128, 22);
             this.label6.TabIndex = 5;
             this.label6.Text = "Phone Number:";
             // 
             // textBox2
             // 
-            this.textBox2.Font = new System.Drawing.Font("CeraPRO-Regular", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Font = new System.Drawing.Font("Glacial Indifference", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.Location = new System.Drawing.Point(188, 55);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(210, 33);
+            this.textBox2.Size = new System.Drawing.Size(210, 29);
             this.textBox2.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Glacial Indifference", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Glacial Indifference", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(18, 60);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(64, 24);
+            this.label2.Size = new System.Drawing.Size(60, 22);
             this.label2.TabIndex = 1;
             this.label2.Text = "Name:";
             // 
@@ -247,7 +253,7 @@
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.listView1);
             this.groupBox2.Font = new System.Drawing.Font("Cera Pro", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(932, 12);
+            this.groupBox2.Location = new System.Drawing.Point(1043, 12);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(541, 751);
             this.groupBox2.TabIndex = 21;
@@ -290,13 +296,14 @@
             // 
             // listView3
             // 
-            this.listView3.Font = new System.Drawing.Font("Glacial Indifference", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listView3.Font = new System.Drawing.Font("Glacial Indifference", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listView3.HideSelection = false;
             this.listView3.Location = new System.Drawing.Point(369, 79);
             this.listView3.Name = "listView3";
             this.listView3.Size = new System.Drawing.Size(127, 239);
             this.listView3.TabIndex = 31;
             this.listView3.UseCompatibleStateImageBehavior = false;
+            this.listView3.View = System.Windows.Forms.View.List;
             // 
             // label16
             // 
@@ -459,19 +466,20 @@
             this.label4.Font = new System.Drawing.Font("Cera Pro", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(232, 50);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(82, 23);
+            this.label4.Size = new System.Drawing.Size(89, 23);
             this.label4.TabIndex = 20;
-            this.label4.Text = "Amount:";
+            this.label4.Text = "Quantity:";
             // 
             // listView2
             // 
-            this.listView2.Font = new System.Drawing.Font("Glacial Indifference", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listView2.Font = new System.Drawing.Font("Glacial Indifference", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listView2.HideSelection = false;
             this.listView2.Location = new System.Drawing.Point(236, 79);
             this.listView2.Name = "listView2";
             this.listView2.Size = new System.Drawing.Size(127, 239);
             this.listView2.TabIndex = 19;
             this.listView2.UseCompatibleStateImageBehavior = false;
+            this.listView2.View = System.Windows.Forms.View.List;
             // 
             // label3
             // 
@@ -485,26 +493,32 @@
             // 
             // listView1
             // 
-            this.listView1.Font = new System.Drawing.Font("Glacial Indifference", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listView1.Font = new System.Drawing.Font("Glacial Indifference", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(23, 79);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(206, 239);
             this.listView1.TabIndex = 10;
             this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.List;
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.button2);
+            this.groupBox3.Controls.Add(this.textBox3);
+            this.groupBox3.Controls.Add(this.textBox1);
+            this.groupBox3.Controls.Add(this.label28);
+            this.groupBox3.Controls.Add(this.label27);
+            this.groupBox3.Controls.Add(this.label26);
+            this.groupBox3.Controls.Add(this.listBox4);
+            this.groupBox3.Controls.Add(this.listBox3);
+            this.groupBox3.Controls.Add(this.listBox2);
             this.groupBox3.Controls.Add(this.listBox1);
             this.groupBox3.Controls.Add(this.label25);
             this.groupBox3.Controls.Add(this.label24);
             this.groupBox3.Controls.Add(this.button1);
-            this.groupBox3.Controls.Add(this.label17);
             this.groupBox3.Controls.Add(this.label18);
             this.groupBox3.Controls.Add(this.textBox5);
             this.groupBox3.Controls.Add(this.textBox7);
-            this.groupBox3.Controls.Add(this.button4);
             this.groupBox3.Controls.Add(this.radioButton6);
             this.groupBox3.Controls.Add(this.radioButton7);
             this.groupBox3.Controls.Add(this.comboBox3);
@@ -513,39 +527,119 @@
             this.groupBox3.Font = new System.Drawing.Font("Cera Pro", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(435, 12);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(491, 766);
+            this.groupBox3.Size = new System.Drawing.Size(602, 766);
             this.groupBox3.TabIndex = 21;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Choose Your Order";
             // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Glacial Indifference", 8.999999F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.Location = new System.Drawing.Point(352, 295);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(106, 22);
+            this.label28.TabIndex = 51;
+            this.label28.Text = "UnitQuantity";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Glacial Indifference", 8.999999F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.Location = new System.Drawing.Point(247, 295);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(79, 22);
+            this.label27.TabIndex = 50;
+            this.label27.Text = "UnitPrice";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Glacial Indifference", 8.999999F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.Location = new System.Drawing.Point(36, 299);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(44, 22);
+            this.label26.TabIndex = 49;
+            this.label26.Text = "Item";
+            // 
+            // listBox4
+            // 
+            this.listBox4.Font = new System.Drawing.Font("Glacial Indifference", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBox4.FormattingEnabled = true;
+            this.listBox4.ItemHeight = 22;
+            this.listBox4.Location = new System.Drawing.Point(356, 324);
+            this.listBox4.Name = "listBox4";
+            this.listBox4.Size = new System.Drawing.Size(80, 202);
+            this.listBox4.TabIndex = 48;
+            // 
+            // listBox3
+            // 
+            this.listBox3.Font = new System.Drawing.Font("Glacial Indifference", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBox3.FormattingEnabled = true;
+            this.listBox3.ItemHeight = 22;
+            this.listBox3.Location = new System.Drawing.Point(251, 324);
+            this.listBox3.Name = "listBox3";
+            this.listBox3.Size = new System.Drawing.Size(99, 202);
+            this.listBox3.TabIndex = 47;
+            // 
+            // listBox2
+            // 
+            this.listBox2.Font = new System.Drawing.Font("Glacial Indifference", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBox2.FormattingEnabled = true;
+            this.listBox2.ItemHeight = 22;
+            this.listBox2.Location = new System.Drawing.Point(435, 324);
+            this.listBox2.Name = "listBox2";
+            this.listBox2.Size = new System.Drawing.Size(116, 202);
+            this.listBox2.TabIndex = 46;
+            this.listBox2.SelectedIndexChanged += new System.EventHandler(this.listBox2_SelectedIndexChanged);
+            // 
+            // listBox1
+            // 
+            this.listBox1.Font = new System.Drawing.Font("Glacial Indifference", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 22;
+            this.listBox1.Location = new System.Drawing.Point(36, 324);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(209, 202);
+            this.listBox1.TabIndex = 44;
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Cera Pro", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.Location = new System.Drawing.Point(36, 549);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(326, 23);
+            this.label25.TabIndex = 42;
+            this.label25.Text = "Enter the quantity you want to order:";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Cera Pro", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(36, 260);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(110, 23);
+            this.label24.TabIndex = 41;
+            this.label24.Text = "Select item:";
+            // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Glacial Indifference", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(43, 706);
+            this.button1.Location = new System.Drawing.Point(36, 684);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(135, 45);
             this.button1.TabIndex = 40;
             this.button1.Text = "Add To Cart";
             this.button1.UseVisualStyleBackColor = true;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label17.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label17.Font = new System.Drawing.Font("Glacial Indifference", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(128, 639);
-            this.label17.Name = "label17";
-            this.label17.Padding = new System.Windows.Forms.Padding(3, 1, 3, 1);
-            this.label17.Size = new System.Drawing.Size(34, 28);
-            this.label17.TabIndex = 39;
-            this.label17.Text = " 0";
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label18
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Glacial Indifference", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(46, 639);
+            this.label18.Location = new System.Drawing.Point(36, 626);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(58, 24);
             this.label18.TabIndex = 38;
@@ -553,38 +647,31 @@
             // 
             // textBox5
             // 
+            this.textBox5.Enabled = false;
             this.textBox5.Font = new System.Drawing.Font("Glacial Indifference", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(207, 597);
+            this.textBox5.Location = new System.Drawing.Point(207, 584);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(158, 29);
             this.textBox5.TabIndex = 37;
-            this.textBox5.Text = "Enter Weight";
+            this.textBox5.Text = "Enter Weight (Kg)";
+            this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
             // textBox7
             // 
+            this.textBox7.Enabled = false;
             this.textBox7.Font = new System.Drawing.Font("Glacial Indifference", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.Location = new System.Drawing.Point(43, 597);
+            this.textBox7.Location = new System.Drawing.Point(36, 584);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(158, 29);
             this.textBox7.TabIndex = 36;
-            this.textBox7.Text = "Enter Quantity";
-            // 
-            // button4
-            // 
-            this.button4.Font = new System.Drawing.Font("Glacial Indifference", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(247, 183);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(99, 42);
-            this.button4.TabIndex = 34;
-            this.button4.Text = "Search";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.textBox7.Text = "Enter Amount";
+            this.textBox7.TextChanged += new System.EventHandler(this.textBox7_TextChanged);
             // 
             // radioButton6
             // 
             this.radioButton6.AutoSize = true;
             this.radioButton6.Font = new System.Drawing.Font("Glacial Indifference", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton6.Location = new System.Drawing.Point(33, 191);
+            this.radioButton6.Location = new System.Drawing.Point(36, 191);
             this.radioButton6.Name = "radioButton6";
             this.radioButton6.Size = new System.Drawing.Size(78, 26);
             this.radioButton6.TabIndex = 33;
@@ -597,7 +684,7 @@
             // 
             this.radioButton7.AutoSize = true;
             this.radioButton7.Font = new System.Drawing.Font("Glacial Indifference", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton7.Location = new System.Drawing.Point(33, 151);
+            this.radioButton7.Location = new System.Drawing.Point(36, 151);
             this.radioButton7.Name = "radioButton7";
             this.radioButton7.Size = new System.Drawing.Size(136, 26);
             this.radioButton7.TabIndex = 32;
@@ -620,13 +707,14 @@
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(189, 30);
             this.comboBox3.TabIndex = 31;
+            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
             // 
             // radioButton8
             // 
             this.radioButton8.AutoSize = true;
             this.radioButton8.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.radioButton8.Font = new System.Drawing.Font("Glacial Indifference", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton8.Location = new System.Drawing.Point(33, 110);
+            this.radioButton8.Location = new System.Drawing.Point(36, 110);
             this.radioButton8.Name = "radioButton8";
             this.radioButton8.Size = new System.Drawing.Size(119, 27);
             this.radioButton8.TabIndex = 30;
@@ -639,53 +727,33 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Cera Pro", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(33, 46);
+            this.label19.Location = new System.Drawing.Point(36, 46);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(313, 46);
             this.label19.TabIndex = 29;
             this.label19.Text = "Search for food items by any of the \r\nfollowing criteria:";
             // 
-            // label24
+            // textBox1
             // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Cera Pro", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(33, 260);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(226, 23);
-            this.label24.TabIndex = 41;
-            this.label24.Text = "Select the item you want:";
+            this.textBox1.BackColor = System.Drawing.SystemColors.Menu;
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Font = new System.Drawing.Font("Glacial Indifference", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(388, 586);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(172, 79);
+            this.textBox1.TabIndex = 52;
             // 
-            // label25
+            // textBox3
             // 
-            this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("Cera Pro", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(39, 562);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(320, 23);
-            this.label25.TabIndex = 42;
-            this.label25.Text = "Enter the amount you want to order:";
-            // 
-            // listBox1
-            // 
-            this.listBox1.Font = new System.Drawing.Font("Glacial Indifference", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 22;
-            this.listBox1.Location = new System.Drawing.Point(37, 289);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(302, 202);
-            this.listBox1.TabIndex = 44;
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
-            // 
-            // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("Glacial Indifference", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(37, 505);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(107, 39);
-            this.button2.TabIndex = 45;
-            this.button2.Text = "Select";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.textBox3.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.textBox3.Font = new System.Drawing.Font("Glacial Indifference", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.Location = new System.Drawing.Point(101, 622);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
+            this.textBox3.Size = new System.Drawing.Size(104, 29);
+            this.textBox3.TabIndex = 53;
+            this.textBox3.Text = "0";
             // 
             // CustomerOrder
             // 
@@ -743,13 +811,11 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.RadioButton radioButton6;
         private System.Windows.Forms.RadioButton radioButton7;
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.RadioButton radioButton8;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.Label label23;
@@ -763,6 +829,13 @@
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.ListBox listBox3;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.ListBox listBox4;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox3;
     }
 }

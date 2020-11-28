@@ -22,3 +22,6 @@ select * from orders
 
 update FoodItem set UnitQuantity = 0.5 where FoodItemID = 2
 select * from FoodItem
+
+insert into region (regionID, regionDescription) values (1, 'Malir')
+select * from region

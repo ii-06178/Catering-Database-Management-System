@@ -90,6 +90,10 @@ namespace CateringDatabaseSystem
             {
                 MessageBox.Show("Please select items to order!");
             }
+            else if (!radioButton4.Checked && !radioButton5.Checked)
+            {
+                MessageBox.Show("Please select a payment method!");
+            }
             else if (radioButton4.Checked && textBox4.Text == "")
             {
                 MessageBox.Show("Please enter your credit card number.");
@@ -98,7 +102,26 @@ namespace CateringDatabaseSystem
             {
                 MessageBox.Show("Invalid date!\nAn order can not be placed for before today.");
             }
-            //this.Close();
+             else
+            {//adding customer details in customers table
+                ConnectingData c = new ConnectingData();
+                c.Inserts("insert into customers (customerID, customerName, customerContactNo, customerAddress, alternatePhone, email, creditCardNo) values ((select max(customerID) from customers)+1, '"+ textBox2.Text + "' , '" + textBox6.Text + "' , '" + textBox9.Text + "' , '" + textBox8.Text + "' , '" + textBox11.Text + "' , '" + textBox4.Text + "')");
+                if (radioButton4.Checked)
+                {
+                    c.Inserts("insert into payment (paymentID, paymentType) values ((select max(paymentID) from payment)+1, 'Credit Card')");
+                }
+                else if (radioButton5.Checked)
+                {
+                    c.Inserts("insert into payment (paymentID, paymentType) values ((select max(paymentID) from payment)+1, 'COD')");
+                }
+                c.Inserts("insert into orders (orderID, Payment_PaymentID, Region_RegionID, Customers_CustomerID, OrderDate, RequiredDate, OrderStatus, TotalPrice) values ((select max(orderID) from orders)+1, (select max(paymentID) from payment), (select regionID from region where regionDescription = '" + comboBox2.Text + "'), (select max(customerID) from customers), getdate(), " + dateTimePicker1.Value + ", 'In Process', " + textBox10.Text + ")");
+
+                foreach (ListViewItem item in listView1.Items)
+                {
+                    int quantity = int.Parse(listView2.Items[item.Index].Text); //getting quantity of food item from listview2
+                    c.Inserts("insert into orderByItem (orders_orderID, FoodItem_FoodItemID, quantity, discount, unitprice) values ((select max(orderID) from orders), ) ");
+                }
+            }
         }
 
         private void radioButton5_CheckedChanged(object sender, EventArgs e)

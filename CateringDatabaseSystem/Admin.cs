@@ -28,55 +28,46 @@ namespace CateringDatabaseSystem
             {
                 var OrdersAdminView = new OrdersAdminView();
                 OrdersAdminView.Show();
-                //this.Hide();
             }
             else if (comboBox1.Text.Equals("Customers"))
             {
                 var CustomersAdminView = new CustomersAdminView();
                 CustomersAdminView.Show();
-                //this.Hide();
             }
             else if (comboBox1.Text.Equals("Ingredients"))
             {
                 var IngredientsAdmin = new IngredientsAdmin();
                 IngredientsAdmin.Show();
-                //this.Hide();
             }
             else if (comboBox1.Text.Equals("Food Items"))
             {
                 var FoodItems = new FoodItems();
                 FoodItems.Show();
-                //this.Hide();
             }
             else if (comboBox1.Text.Equals("Weekly Menu"))
             {
                 var WeeklyMenu = new WeeklyMenu();
                 WeeklyMenu.Show();
-                //this.Hide();
             }
             else if (comboBox1.Text.Equals("Riders"))
             {
                 var RiderAdminView = new RiderAdminView();
                 RiderAdminView.Show();
-                //this.Hide();
             }
             else if (comboBox1.Text.Equals("Categories"))
             {
                 var Categories = new Categories();
                 Categories.Show();
-                //this.Hide();
             }
             else if (comboBox1.Text.Equals("Region"))
             {
                 var Region = new Region();
                 Region.Show();
-                //this.Hide();
             }
             else if (comboBox1.Text.Equals("Deals"))
             {
                 var Deals = new Deals();
                 Deals.Show();
-                //this.Hide();
             }
         }
 
@@ -99,28 +90,49 @@ namespace CateringDatabaseSystem
 
         private void button1_Click(object sender, EventArgs e)
         {//Inserting admins
-            ConnectingData c = new ConnectingData();
-            c.Inserts("Insert into Admin(AdminID, [Name], Role, Email, Password_2, DateAdded)\n" +
-                "values(" + textBox1.Text + ", '" + textBox2.Text + "', '" + textBox5.Text + "', '" + textBox3.Text + "', '" + textBox4.Text + "' , getdate())");
+            if (textBox2.Text == "" || textBox3.Text == "" || textBox4.Text == "" || textBox5.Text == "")
+            {//error message
+                MessageBox.Show("Please fill all fields!");
+            }
+            else
+            {
+                ConnectingData c = new ConnectingData();
+                c.Inserts("Insert into Admin(AdminID, [Name], Role, Email, Password_2, DateAdded)\n" + "values((select max(AdminID) from Admin)+1, '" + textBox2.Text + "', '" + textBox5.Text + "', '" + textBox3.Text + "', '" + textBox4.Text + "' , getdate())");
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {//updating admins, working fine
             ConnectingData c = new ConnectingData();
-            if (textBox7.Text != "")
+            if (textBox11.Text != "" && textBox11.Text != "Enter ID of Admin to update")
             {
-                c.Inserts("Update Admin set Password_2 = '" + textBox7.Text + "' where AdminId = " + textBox10.Text);
+                if (textBox7.Text != "")
+                {
+                    c.Inserts("Update Admin set Password_2 = '" + textBox7.Text + "' where AdminId = " + textBox11.Text);
+                }
+                if (textBox6.Text != "")
+                {
+                    c.Inserts("Update Admin set Role = '" + textBox6.Text + "' where AdminId = " + textBox11.Text);
+                }
             }
-            if (textBox6.Text != "")
-            {
-                c.Inserts("Update Admin set Role = '" + textBox6.Text + "' where AdminId = " + textBox10.Text);
+            else
+            {//error message
+                MessageBox.Show("Please enter the ID of admin to update.");
             }
+            
         }
 
         private void button3_Click(object sender, EventArgs e)
         {//delete admin - only owner can delete
             ConnectingData c = new ConnectingData();
-            c.Inserts("Delete from Admin where AdminId = " + textBox9.Text);
+            if (textBox9.Text != "" && textBox9.Text != "Enter ID of Admin to remove")
+            {
+                c.Inserts("Delete from Admin where AdminId = " + textBox9.Text);
+            }
+            else
+            {//error message if null
+                MessageBox.Show("Please enter the ID of admin to remove.");
+            }
 
             /**The if condition isn't working right now, I'll fix it later**/
             /*if (textBox8.Text == c.Select("Select AdminID from Admin where Role = 'owner'").ToString())

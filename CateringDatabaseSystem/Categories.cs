@@ -25,7 +25,7 @@ namespace CateringDatabaseSystem
         private void button1_Click(object sender, EventArgs e)
         {//add category
             ConnectingData c = new ConnectingData();
-            c.Inserts("insert into categories (CategoriesID, CategoryName, MeasuredIn) values (" + textBox1.Text + ", '" + textBox2.Text + "', '" + comboBox2.Text + "')");
+            c.Inserts("insert into categories (CategoriesID, CategoryName, MeasuredIn) values ((select max(CategoriesID) from categories)+1, '" + textBox2.Text + "', '" + comboBox2.Text + "')");
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -43,7 +43,15 @@ namespace CateringDatabaseSystem
         private void button3_Click(object sender, EventArgs e)
         {//update category
             ConnectingData c = new ConnectingData();
-            c.Inserts("update Categories set CategoryName = '" + textBox3.Text + "'" + "where CategoriesID = " + textBox7.Text);
+            if (textBox3.Text != "")
+            {//name
+                c.Inserts("update Categories set CategoryName = '" + textBox3.Text + "'" + "where CategoriesID = " + textBox7.Text);
+            }
+            if (comboBox1.Text != "")
+            {//measured in
+                c.Inserts("update Categories set MeasuredIn = '" + comboBox1.Text + "'" + "where CategoriesID = " + textBox7.Text);
+            }
+
         }
     }
 }

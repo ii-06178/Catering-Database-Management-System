@@ -103,9 +103,11 @@ namespace CateringDatabaseSystem
                 MessageBox.Show("Invalid date!\nAn order can not be placed for before today.");
             }
              else
-            {//adding customer details in customers table
+            {//add order to database
+                //adding customer details in customers table
                 ConnectingData c = new ConnectingData();
                 c.Inserts("insert into customers (customerID, customerName, customerContactNo, customerAddress, alternatePhone, email, creditCardNo) values ((select max(customerID) from customers)+1, '"+ textBox2.Text + "' , '" + textBox6.Text + "' , '" + textBox9.Text + "' , '" + textBox8.Text + "' , '" + textBox11.Text + "' , '" + textBox4.Text + "')");
+                //adding payment details to payment table
                 if (radioButton4.Checked)
                 {
                     c.Inserts("insert into payment (paymentID, paymentType) values ((select max(paymentID) from payment)+1, 'Credit Card')");
@@ -114,12 +116,13 @@ namespace CateringDatabaseSystem
                 {
                     c.Inserts("insert into payment (paymentID, paymentType) values ((select max(paymentID) from payment)+1, 'COD')");
                 }
-                c.Inserts("insert into orders (orderID, Payment_PaymentID, Region_RegionID, Customers_CustomerID, OrderDate, RequiredDate, OrderStatus, TotalPrice) values ((select max(orderID) from orders)+1, (select max(paymentID) from payment), (select regionID from region where regionDescription = '" + comboBox2.Text + "'), (select max(customerID) from customers), getdate(), " + dateTimePicker1.Value + ", 'In Process', " + textBox10.Text + ")");
+                //adding order to orders table
+                c.Inserts("insert into orders (orderID, Payment_PaymentID, Region_RegionID, Customers_CustomerID, OrderDate, RequiredDate, OrderStatus, TotalPrice) values ((select max(orderID) from orders)+1, (select max(paymentID) from payment), (select regionID from region where regionDescription = '" + comboBox2.Text + "'), (select max(customerID) from customers), getdate(), '" + dateTimePicker1.Value + "', 'In Process', " + textBox10.Text + ")");
 
                 foreach (ListViewItem item in listView1.Items)
-                {
+                {//adding each food item in order to orderByItem table
                     int quantity = int.Parse(listView2.Items[item.Index].Text); //getting quantity of food item from listview2
-                    c.Inserts("insert into orderByItem (orders_orderID, FoodItem_FoodItemID, quantity, discount, unitprice) values ((select max(orderID) from orders), ) ");
+                    c.Inserts("insert into orderByItem (orderID, FoodItem_FoodItemID, quantity, discount, unitprice) values ((select max(orderID) from orders), (select foodItemID from foodItem where itemName = '" + item.Text + "'), " + quantity + ", " + textBox13.Text + ", (select unitprice from foodItem where itemName = '" + item.Text + "')) ");
                 }
             }
         }

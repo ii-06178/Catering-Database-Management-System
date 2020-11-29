@@ -28,12 +28,37 @@ select * from region
 
 
 
-
-
-
 insert into Customers (CustomerID, CustomerName, CustomerContactNo, CustomerAddress, alternatePhone, Email, creditCardNo) 
 values ((select max(CustomerID) from Customers)+1, 'Nancy Drew', '0974828373', 'Defense, Karachi', null, 'nancydrew@gmail.com', null) 
 where not exists (select * from Customers where CustomerName = 'Nancy Drew' and CustomerContactNo = '0974828373' and Email = 'nancydrew@gmail.com' and CustomerAddress = 'Defense, Karachi' and CreditCardNo = null) 
 
 select * from Customers
 
+insert into payment (paymentID, paymentType) values (1, 'COD')
+select * from Payment
+
+delete from Payment where PaymentID >= 2 
+delete from Customers where CustomerID = 5
+delete from Orders where OrderID = 2
+
+
+select * from Customers
+select * from Payment
+select * from Orders
+select * from OrderbyItem
+
+
+
+insert into orders (orderID, Payment_PaymentID, Region_RegionID, Customers_CustomerID, OrderDate, RequiredDate, OrderStatus, TotalPrice) values ((select max(orderID) from orders)+1, (select max(paymentID) from payment), (select regionID from region where regionDescription = 'Defense'), (select max(customerID) from customers), getdate(), '11/29/2020' , 'In Process', 677)
+
+ALTER TABLE OrderbyItem
+ADD CONSTRAINT FoodItem_FoodItemID
+FOREIGN KEY (FoodItem_FoodItemID) REFERENCES fooditem(fooditemid);
+
+ALTER TABLE OrderbyItem
+ADD FoodItem_FoodItemID int 
+
+ALTER TABLE OrderbyItem
+DROP CONSTRAINT Orders_OrderID
+ALTER TABLE OrderbyItem
+ADD CONSTRAINT PK_OrderbyItem PRIMARY KEY (Orders_OrderID,FoodItem_FoodItemID)

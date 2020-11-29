@@ -21,6 +21,10 @@ namespace CateringDatabaseSystem
         {//update order status
             ConnectingData c = new ConnectingData();
             c.Inserts("update orders set orderstatus = '" + comboBox1.Text + "'" + "where OrderID = " + textBox1.Text);
+            if (comboBox1.Text == "Dispatched" || comboBox1.Text == "Delivered")
+            {//set shipped date to the day it was delivered
+                c.Inserts("update orders set shippedDate = getdate() where OrderID = " + textBox1.Text);
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -33,7 +37,7 @@ namespace CateringDatabaseSystem
         private void button4_Click(object sender, EventArgs e)
         {//show all orders
             ConnectingData c = new ConnectingData();
-            dataGridView1.DataSource = c.Select("select * from orders");
+            dataGridView1.DataSource = c.Select("select orderID as 'ID',customers_customerID as 'Customer ID', paymentType as 'Payment Type', region_regionID as 'Region ID', rider_riderID as 'Rider ID', orderDate as 'Order Date', requiredDate as 'Required Date', shippedDate as 'Shipped Date', OrderStatus as 'Order Status', totalPrice as 'Total Price/Rs.'  from payment p inner join orders o on p.paymentid = o.payment_paymentid");
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -50,7 +54,9 @@ namespace CateringDatabaseSystem
             }
             else if (textBox3.Text != "")
             {//select by food item
-                dataGridView1.DataSource = c.Select("select * from orders o inner join orderbyitem oi on o.orderid = oi.orders_orderid where fooditem_fooditemid = (select fooditemid from fooditem where itemname = '" + textBox3.Text + "')");
+                dataGridView1.DataSource = c.Select("select o.orderID as 'ID',customers_customerID as 'Customer ID', paymentType as 'Payment Type', region_regionID as 'Region ID', rider_riderID as 'Rider ID', orderDate as 'Order Date', requiredDate as 'Required Date', shippedDate as 'Shipped Date', OrderStatus as 'Order Status', totalPrice as 'Total Price/Rs.'  from payment p inner join orders o on p.paymentid = o.payment_paymentid inner join orderbyitem oi on o.orderid = oi.orderid where fooditem_fooditemid = (select fooditemid from fooditem where itemname = '" + textBox3.Text + "')");
+
+                    //"select orderID as 'ID', customers_customerID as 'Customer ID',  from orders o inner join orderbyitem oi on o.orderid = oi.orderid where fooditem_fooditemid = (select fooditemid from fooditem where itemname = '" + textBox3.Text + "')");
             }
         }
 

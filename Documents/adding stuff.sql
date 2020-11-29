@@ -25,3 +25,15 @@ select * from FoodItem
 
 insert into region (regionID, regionDescription) values (1, 'Malir')
 select * from region
+
+
+
+
+
+
+insert into Customers (CustomerID, CustomerName, CustomerContactNo, CustomerAddress, alternatePhone, Email, creditCardNo) 
+values ((select max(CustomerID) from Customers)+1, 'Nancy Drew', '0974828373', 'Defense, Karachi', null, 'nancydrew@gmail.com', null) 
+where not exists (select * from Customers where CustomerName = 'Nancy Drew' and CustomerContactNo = '0974828373' and Email = 'nancydrew@gmail.com' and CustomerAddress = 'Defense, Karachi' and CreditCardNo = null) 
+
+select * from Customers
+

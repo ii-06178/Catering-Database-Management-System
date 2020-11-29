@@ -73,7 +73,7 @@ namespace CateringDatabaseSystem
         private void button4_Click(object sender, EventArgs e)
         {//show all food items
             ConnectingData c = new ConnectingData();
-            dataGridView1.DataSource = c.Select("select fooditemID as 'ID', itemname as 'Item', categoryname as 'Category', unitquantity as 'Unit Quantity', unitprice as 'Unit Price (Rs.)' from fooditem f inner join categories c on f.Categories_CategoriesID = c.CategoriesID");
+            dataGridView1.DataSource = c.Select("select fooditemID as 'ID', itemname as 'Item', categoryname as 'Category', unitquantity as 'Unit Quantity', measuredin as 'Measured In', unitprice as 'Unit Price (Rs.)' from fooditem f inner join categories c on f.Categories_CategoriesID = c.CategoriesID");
         }
 
         private void button7_Click(object sender, EventArgs e)

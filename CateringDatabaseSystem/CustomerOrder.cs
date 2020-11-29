@@ -64,15 +64,49 @@ namespace CateringDatabaseSystem
         }
 
         private void button3_Click(object sender, EventArgs e)
-        {
-            this.Close();
+        {//confirm order 
+            // error messages for null values
+             if (textBox2.Text == "")
+            {
+                MessageBox.Show("Please enter your name.");
+            }
+            else if (textBox6.Text == "")
+            {
+                MessageBox.Show("Please enter your contact number.");
+            }
+            else if (comboBox2.Text == "")
+            {
+                MessageBox.Show("Please select your region.");
+            }
+            else if (textBox9.Text == "")
+            {
+                MessageBox.Show("Please enter your address.");
+            }
+            else if (textBox11.Text == "")
+            {
+                MessageBox.Show("Please enter your email.");
+            }
+            else if (textBox14.Text == "0")
+            {
+                MessageBox.Show("Please select items to order!");
+            }
+            else if (radioButton4.Checked && textBox4.Text == "")
+            {
+                MessageBox.Show("Please enter your credit card number.");
+            }
+            else if (dateTimePicker1.Value < DateTime.Today)
+            {
+                MessageBox.Show("Invalid date!\nAn order can not be placed for before today.");
+            }
+            //this.Close();
         }
 
         private void radioButton5_CheckedChanged(object sender, EventArgs e)
-        {//if payment method is online, enabling credit card textbox
+        {//if payment method is COD, disabling credit card textbox
             if (radioButton5.Checked)
             {
-                textBox4.Enabled = true;
+                textBox4.Clear();
+                textBox4.Enabled = false;
             }
         }
 
@@ -201,7 +235,7 @@ namespace CateringDatabaseSystem
         {//add to cart  
             if (textBox3.Text == "0")
             {//error message if quantity not specified
-                MessageBox.Show("Please enter quantity to order!");
+                MessageBox.Show("Please determine item and quantity to order!");
             }
             else
             {
@@ -216,11 +250,52 @@ namespace CateringDatabaseSystem
                 }
                 listView3.Items.Add(textBox3.Text);
             }
+            //calculating and displaying cart total
+            double cart_total = 0;
+            foreach (ListViewItem item in listView3.Items)
+            {
+                cart_total = cart_total + double.Parse(item.Text);
+                textBox14.Text = cart_total.ToString();
+            }
+            //calculating and displaying total cost
+            double total_cost = 200 + ( cart_total * (100 - int.Parse(textBox13.Text)) / 100);
+            textBox10.Text = total_cost.ToString();
         }
 
         private void comboBox2_SelectedIndexChanged_1(object sender, EventArgs e)
         {
 
         }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {//if date selected is before today, it is invalid
+            if (dateTimePicker1.Value < DateTime.Today)
+            {
+                textBox15.Text = "Invalid \n date!";
+            }
+            else
+            {
+                textBox15.Text = "";
+            }
+        }
+
+        private void radioButton4_CheckedChanged(object sender, EventArgs e)
+        {//if payment method is online, enabling credit card textbox
+            if (radioButton4.Checked)
+            {
+                textBox4.Enabled = true;
+            }
+        }
+
+        private void groupBox3_ControlAdded(object sender, ControlEventArgs e)
+        {
+
+        }
+
+        private void listView1_ControlAdded(object sender, ControlEventArgs e)
+        {
+            
+        }
     }
 }
+

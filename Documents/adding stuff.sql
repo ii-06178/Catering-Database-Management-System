@@ -26,7 +26,8 @@ select * from FoodItem
 insert into region (regionID, regionDescription) values (1, 'Malir')
 select * from region
 
-
+insert into rider (riderID, riderName, riderPhoneNo, RiderCNIC, RiderCompany, RiderEmail, RiderPassword) values (1, 'Ali Ahmed', '0303032992', '35202-939393-2', 'XYZ', 'aliahmed@gmail.com', 'kajhdkaa')
+select * from Rider
 
 insert into Customers (CustomerID, CustomerName, CustomerContactNo, CustomerAddress, alternatePhone, Email, creditCardNo) 
 values ((select max(CustomerID) from Customers)+1, 'Nancy Drew', '0974828373', 'Defense, Karachi', null, 'nancydrew@gmail.com', null) 
@@ -47,10 +48,7 @@ select * from Payment
 select * from Orders
 select * from OrderbyItem
 
-
-
-insert into orders (orderID, Payment_PaymentID, Region_RegionID, Customers_CustomerID, OrderDate, RequiredDate, OrderStatus, TotalPrice) values ((select max(orderID) from orders)+1, (select max(paymentID) from payment), (select regionID from region where regionDescription = 'Defense'), (select max(customerID) from customers), getdate(), '11/29/2020' , 'In Process', 677)
-
+/*
 ALTER TABLE OrderbyItem
 ADD CONSTRAINT FoodItem_FoodItemID
 FOREIGN KEY (FoodItem_FoodItemID) REFERENCES fooditem(fooditemid);
@@ -61,4 +59,10 @@ ADD FoodItem_FoodItemID int
 ALTER TABLE OrderbyItem
 DROP CONSTRAINT Orders_OrderID
 ALTER TABLE OrderbyItem
-ADD CONSTRAINT PK_OrderbyItem PRIMARY KEY (Orders_OrderID,FoodItem_FoodItemID)
+ADD CONSTRAINT PK_OrderbyItem PRIMARY KEY (Orders_OrderID,FoodItem_FoodItemID) */
+
+--get details of rider that appeared most times in orders table
+select * from rider where riderID = (select top(1) Rider_RiderID, count(*) from Orders group by Rider_RiderID)
+--select * from rider where RiderID = (select Rider_RiderID from Orders having max(count(*)))
+select top(1) RiderID, RiderName, RiderPhoneNo, RiderCNIC, RiderCompany, RiderEmail, RiderPassword, count(OrderID) as 'No of Orders Delivered' from rider r inner join orders o on r.riderID = o.Rider_RiderID group by riderID, RiderName, RiderPhoneNo, RiderCNIC, RiderCompany, RiderEmail, RiderPassword
+

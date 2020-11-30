@@ -18,12 +18,23 @@ namespace CateringDatabaseSystem
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {//update order status
+        {//update order 
             ConnectingData c = new ConnectingData();
-            c.Inserts("update orders set orderstatus = '" + comboBox1.Text + "'" + "where OrderID = " + textBox1.Text);
-            if (comboBox1.Text == "Dispatched" || comboBox1.Text == "Delivered")
-            {//set shipped date to the day it was delivered
-                c.Inserts("update orders set shippedDate = getdate() where OrderID = " + textBox1.Text);
+            if (comboBox1.Text != "")
+            {//update order status
+                c.Inserts("update orders set orderstatus = '" + comboBox1.Text + "'" + "where OrderID = " + textBox1.Text);
+                if (comboBox1.Text == "Dispatched" || comboBox1.Text == "Delivered")
+                {//set shipped date to the day it was delivered
+                    c.Inserts("update orders set shippedDate = getdate() where OrderID = " + textBox1.Text);
+                }
+            }
+            if (radioButton5.Checked && textBox6.Text != "")
+            {//update assigned rider
+                c.Inserts("update orders set rider_riderID = " + textBox6.Text + " where OrderID = " + textBox1.Text);
+            }
+            if (radioButton6.Checked)
+            {//remove rider by assigning null
+                c.Inserts("update orders set rider_riderID = null where OrderID = " + textBox1.Text);
             }
         }
 
@@ -123,6 +134,19 @@ namespace CateringDatabaseSystem
                 textBox3.Enabled = false;
                 textBox5.Clear();
                 textBox5.Enabled = false;
+            }
+        }
+
+        private void radioButton5_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton5.Checked)
+            {
+                textBox6.Enabled = true;
+            }
+            else
+            {
+                textBox6.Clear();
+                textBox6.Enabled = false;
             }
         }
     }

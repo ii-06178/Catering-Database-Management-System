@@ -119,8 +119,9 @@ namespace CateringDatabaseSystem
                 //adding order to orders table
                 c.Inserts("insert into orders (orderID, Payment_PaymentID, Region_RegionID, Customers_CustomerID, OrderDate, RequiredDate, OrderStatus, TotalPrice) values ((select max(orderID) from orders)+1, (select max(paymentID) from payment), (select regionID from region where regionDescription = '" + comboBox2.Text + "'), (select max(customerID) from customers), getdate(), '" + dateTimePicker1.Value + "', 'In Process', " + textBox10.Text + ")");
 
+                //adding each food item in order to orderByItem table
                 foreach (ListViewItem item in listView1.Items)
-                {//adding each food item in order to orderByItem table
+                {
                     int quantity = int.Parse(listView2.Items[item.Index].Text); //getting quantity of food item from listview2
                     c.Inserts("insert into orderByItem (orderID, FoodItem_FoodItemID, quantity, discount, unitprice) values ((select max(orderID) from orders), (select foodItemID from foodItem where itemName = '" + item.Text + "'), " + quantity + ", " + textBox13.Text + ", (select unitprice from foodItem where itemName = '" + item.Text + "')) ");
                 }

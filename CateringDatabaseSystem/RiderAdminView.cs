@@ -66,5 +66,59 @@ namespace CateringDatabaseSystem
                 c.Inserts("update rider set riderPassword = '" + textBox12.Text + "'" + "where riderID = " + textBox7.Text);
             }
         }
+        
+        private void button6_Click(object sender, EventArgs e)
+        {//search
+            ConnectingData c = new ConnectingData();
+            if (comboBox1.Text == "Rider ID")
+            {
+                dataGridView1.DataSource = c.Select("select * from rider where riderID = " + textBox3.Text);
+            }
+            else if (comboBox1.Text == "All Orders Delivered By Rider")
+            {
+                dataGridView1.DataSource = c.Select("select orderID as 'ID',customers_customerID as 'Customer ID', paymentType as 'Payment Type', region_regionID as 'Region ID', rider_riderID as 'Rider ID', orderDate as 'Order Date', requiredDate as 'Required Date', shippedDate as 'Shipped Date', OrderStatus as 'Order Status', totalPrice as 'Total Price/Rs.'  from payment p inner join orders o on p.paymentid = o.payment_paymentid where rider_riderID = " + textBox3.Text);
+            }
+            else if (comboBox1.Text == "Rider Name")
+            {
+                dataGridView1.DataSource = c.Select("select * from rider where riderName = '" + textBox3.Text + "'");
+            }
+            else if (comboBox1.Text == "Rider Company")
+            {
+                dataGridView1.DataSource = c.Select("select * from rider where riderCompany = '" + textBox3.Text + "'");
+            }
+            else if (comboBox1.Text == "Delivered Most Orders")
+            {
+                dataGridView1.DataSource = c.Select("select top(1) RiderID, RiderName, RiderPhoneNo, RiderCNIC, RiderCompany, RiderEmail, RiderPassword, count(OrderID) as 'No of Orders Delivered' from rider r inner join orders o on r.riderID = o.Rider_RiderID group by riderID, RiderName, RiderPhoneNo, RiderCNIC, RiderCompany, RiderEmail, RiderPassword");
+            }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox1.Text == "Rider ID")
+            {
+                textBox3.Enabled = true;
+                textBox3.Text = "Enter Rider ID";
+            }
+            else if (comboBox1.Text == "All Orders Delivered By Rider")
+            {
+                textBox3.Enabled = true;
+                textBox3.Text = "Enter Rider ID";
+            }
+            else if (comboBox1.Text == "Rider Name")
+            {
+                textBox3.Enabled = true;
+                textBox3.Text = "Enter Rider Name";
+            }
+            else if (comboBox1.Text == "Rider Company")
+            {
+                textBox3.Enabled = true;
+                textBox3.Text = "Enter Company Name";
+            }
+            else if (comboBox1.Text == "Delivered Most Orders")
+            {
+                textBox3.Clear();
+                textBox3.Enabled = false;
+            }
+        }
     }
 }

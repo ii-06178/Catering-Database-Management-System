@@ -54,7 +54,7 @@
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(439, 336);
+            this.button4.Location = new System.Drawing.Point(433, 153);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(394, 36);
             this.button4.TabIndex = 19;
@@ -131,7 +131,7 @@
             this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.textBox4);
             this.groupBox2.Font = new System.Drawing.Font("Cera Pro", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(439, 195);
+            this.groupBox2.Location = new System.Drawing.Point(433, 12);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(388, 135);
             this.groupBox2.TabIndex = 17;
@@ -213,7 +213,7 @@
             // button5
             // 
             this.button5.Font = new System.Drawing.Font("Montserrat", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(439, 378);
+            this.button5.Location = new System.Drawing.Point(433, 195);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(82, 36);
             this.button5.TabIndex = 20;

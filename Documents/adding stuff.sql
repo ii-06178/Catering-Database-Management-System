@@ -39,8 +39,9 @@ insert into payment (paymentID, paymentType) values (1, 'COD')
 select * from Payment
 
 delete from Payment where PaymentID >= 2 
-delete from Customers where CustomerID = 5
-delete from Orders where OrderID = 2
+delete from Customers where CustomerID >= 5
+delete from Orders where OrderID >= 2
+delete from OrderbyItem
 
 
 select * from Customers

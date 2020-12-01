@@ -41,8 +41,19 @@ namespace CateringDatabaseSystem
         private void button2_Click(object sender, EventArgs e)
         {//delete order
             ConnectingData c = new ConnectingData();
-            c.Inserts("delete from Orders where OrderID =" + textBox4.Text);
-
+            if (textBox4.Text == "")
+            {//error message for null
+                MessageBox.Show("Enter ID of order to remove.");
+            }
+            else
+            {//delete data from all tables
+                //delete payment details from payment table
+                c.Inserts("delete from Payment where PaymentID = (select payment_paymentID from orders where orderID = " + textBox4.Text + ")");
+                //delete order item details from orderbyitem table
+                c.Inserts("delete from OrderbyItem where OrderID = " + textBox4.Text);
+                //delete order from orders table
+                c.Inserts("delete from Orders where OrderID = " + textBox4.Text);
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)

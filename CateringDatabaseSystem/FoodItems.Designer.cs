@@ -47,6 +47,8 @@
             this.button2 = new System.Windows.Forms.Button();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.listView3 = new System.Windows.Forms.ListView();
+            this.textBox11 = new System.Windows.Forms.TextBox();
             this.listView2 = new System.Windows.Forms.ListView();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
@@ -67,8 +69,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.button7 = new System.Windows.Forms.Button();
             this.textBox9 = new System.Windows.Forms.TextBox();
-            this.listView3 = new System.Windows.Forms.ListView();
-            this.textBox11 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -297,11 +297,30 @@
             this.groupBox1.Text = "Add Food Item";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // listView3
+            // 
+            this.listView3.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listView3.HideSelection = false;
+            this.listView3.Location = new System.Drawing.Point(428, 287);
+            this.listView3.Name = "listView3";
+            this.listView3.Size = new System.Drawing.Size(75, 174);
+            this.listView3.TabIndex = 17;
+            this.listView3.UseCompatibleStateImageBehavior = false;
+            this.listView3.View = System.Windows.Forms.View.List;
+            // 
+            // textBox11
+            // 
+            this.textBox11.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox11.Location = new System.Drawing.Point(428, 211);
+            this.textBox11.Name = "textBox11";
+            this.textBox11.Size = new System.Drawing.Size(75, 28);
+            this.textBox11.TabIndex = 16;
+            // 
             // listView2
             // 
             this.listView2.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listView2.HideSelection = false;
-            this.listView2.Location = new System.Drawing.Point(170, 319);
+            this.listView2.Location = new System.Drawing.Point(347, 287);
             this.listView2.Name = "listView2";
             this.listView2.Size = new System.Drawing.Size(75, 174);
             this.listView2.TabIndex = 15;
@@ -311,7 +330,7 @@
             // textBox6
             // 
             this.textBox6.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(170, 243);
+            this.textBox6.Location = new System.Drawing.Point(347, 211);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(75, 28);
             this.textBox6.TabIndex = 14;
@@ -338,7 +357,7 @@
             this.listView1.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listView1.GridLines = true;
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(15, 319);
+            this.listView1.Location = new System.Drawing.Point(192, 287);
             this.listView1.Name = "listView1";
             this.listView1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.listView1.Size = new System.Drawing.Size(149, 174);
@@ -358,7 +377,7 @@
             "Garlic",
             "Ginger",
             "Spices"});
-            this.comboBox1.Location = new System.Drawing.Point(15, 242);
+            this.comboBox1.Location = new System.Drawing.Point(192, 210);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(149, 29);
             this.comboBox1.TabIndex = 11;
@@ -376,7 +395,7 @@
             // button6
             // 
             this.button6.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(15, 277);
+            this.button6.Location = new System.Drawing.Point(192, 245);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(311, 36);
             this.button6.TabIndex = 9;
@@ -415,7 +434,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(370, 453);
+            this.button1.Location = new System.Drawing.Point(370, 468);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(133, 36);
             this.button1.TabIndex = 4;
@@ -511,25 +530,6 @@
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(213, 28);
             this.textBox9.TabIndex = 7;
-            // 
-            // listView3
-            // 
-            this.listView3.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listView3.HideSelection = false;
-            this.listView3.Location = new System.Drawing.Point(251, 319);
-            this.listView3.Name = "listView3";
-            this.listView3.Size = new System.Drawing.Size(75, 174);
-            this.listView3.TabIndex = 17;
-            this.listView3.UseCompatibleStateImageBehavior = false;
-            this.listView3.View = System.Windows.Forms.View.List;
-            // 
-            // textBox11
-            // 
-            this.textBox11.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox11.Location = new System.Drawing.Point(251, 243);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(75, 28);
-            this.textBox11.TabIndex = 16;
             // 
             // FoodItems
             // 

@@ -125,6 +125,8 @@ namespace CateringDatabaseSystem
                     int quantity = int.Parse(listView2.Items[item.Index].Text); //getting quantity of food item from listview2
                     c.Inserts("insert into orderByItem (orderID, FoodItem_FoodItemID, quantity, discount, unitprice) values ((select max(orderID) from orders), (select foodItemID from foodItem where itemName = '" + item.Text + "'), " + quantity + ", " + textBox13.Text + ", (select unitprice from foodItem where itemName = '" + item.Text + "')) ");
                 }
+                MessageBox.Show("Thank You! \nYour order has been recorded.");
+                this.Close();
             }
         }
 

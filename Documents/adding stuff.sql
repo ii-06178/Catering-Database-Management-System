@@ -43,6 +43,7 @@ delete from Customers where CustomerID >= 5
 delete from Orders where OrderID >= 2
 delete from OrderbyItem
 
+update orders set Payment_PaymentID = 1 where OrderID = 1
 
 select * from Customers
 select * from Payment

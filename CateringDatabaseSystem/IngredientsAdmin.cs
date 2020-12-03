@@ -79,7 +79,7 @@ namespace CateringDatabaseSystem
         }
 
         private void button6_Click(object sender, EventArgs e)
-        {// show all items with this ingredient
+        {// show all items with this ingredient using VIEW
             ConnectingData c = new ConnectingData();
             if (textBox9.Text == "")
             {
@@ -87,7 +87,7 @@ namespace CateringDatabaseSystem
             }
             else
             {
-                dataGridView1.DataSource = c.Select("select ingredientName as 'Ingredient', itemName as 'Food Item', quantity_grams as 'Quantity Required (grams)' from ingredients i inner join ingredients_for_fooditem fi on i.ingredientsID = fi.Ingredients_IngredientsID inner join fooditem f on fi.FoodItem_FoodItemID = f.FoodItemID where i.ingredientsID = " + textBox9.Text);
+                dataGridView1.DataSource = c.Select("select [Food Item], Ingredient, [Quantity Required (grams)] from ItemsWithIngrnt where ID = " + textBox9.Text);
             }
         }
     }

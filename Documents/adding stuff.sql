@@ -29,11 +29,14 @@ select * from region
 insert into rider (riderID, riderName, riderPhoneNo, RiderCNIC, RiderCompany, RiderEmail, RiderPassword) values (1, 'Ali Ahmed', '0303032992', '35202-939393-2', 'XYZ', 'aliahmed@gmail.com', 'kajhdkaa')
 select * from Rider
 
+if not exists (select * from Customers where (CustomerName = 'Nancy Drew' and CustomerContactNo = '0974828373' and CustomerAddress = 'Defense, Karachi' and Email = 'nancydrew@gmail.com' and CreditCardNo is null)) 
+begin 
 insert into Customers (CustomerID, CustomerName, CustomerContactNo, CustomerAddress, alternatePhone, Email, creditCardNo) 
 values ((select max(CustomerID) from Customers)+1, 'Nancy Drew', '0974828373', 'Defense, Karachi', null, 'nancydrew@gmail.com', null) 
-where not exists (select * from Customers where CustomerName = 'Nancy Drew' and CustomerContactNo = '0974828373' and Email = 'nancydrew@gmail.com' and CustomerAddress = 'Defense, Karachi' and CreditCardNo = null) 
-
-select * from Customers
+end
+ 
+ update customers set CreditCardNo = '' where CreditCardNo is null
+ select * from Customers
 
 insert into payment (paymentID, paymentType) values (1, 'COD')
 select * from Payment
@@ -68,3 +71,14 @@ select * from rider where riderID = (select top(1) Rider_RiderID, count(*) from 
 --select * from rider where RiderID = (select Rider_RiderID from Orders having max(count(*)))
 select top(1) RiderID, RiderName, RiderPhoneNo, RiderCNIC, RiderCompany, RiderEmail, RiderPassword, count(OrderID) as 'No of Orders Delivered' from rider r inner join orders o on r.riderID = o.Rider_RiderID group by riderID, RiderName, RiderPhoneNo, RiderCNIC, RiderCompany, RiderEmail, RiderPassword
 
+
+select * from Ingredients_for_FoodItem
+select * from FoodItem
+
+
+if not exists (select ingredients_ingredientsID from ingredients_for_fooditem where ingredients_ingredientsID = (select ingredientsid from ingredients where ingredientname = 'rice'))
+begin 
+insert into ingredients_for_fooditem (fooditem_fooditemID, ingredients_ingredientsID, quantity_grams) values (1,(select ingredientsid from ingredients where ingredientname = 'rice'),500)
+end
+select * from Ingredients_for_FoodItem where FoodItem_FoodItemID = 1
+select * from Ingredients

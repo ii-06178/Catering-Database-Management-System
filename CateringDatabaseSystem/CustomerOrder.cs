@@ -104,20 +104,20 @@ namespace CateringDatabaseSystem
             }
              else
             {//add order to database
-                //adding customer details in customers table
+                //adding customer details in customers table only if the exact record doesn't exist
                 ConnectingData c = new ConnectingData();
-                c.Inserts("insert into customers (customerID, customerName, customerContactNo, customerAddress, alternatePhone, email, creditCardNo) values ((select max(customerID) from customers)+1, '"+ textBox2.Text + "' , '" + textBox6.Text + "' , '" + textBox9.Text + "' , '" + textBox8.Text + "' , '" + textBox11.Text + "' , '" + textBox4.Text + "')");
+                c.Inserts("if not exists (select * from Customers where (CustomerFName = '" + textBox16.Text + "' and CustomerLName = '" + textBox2.Text + "' and CustomerContactNo = '" + textBox6.Text + "' and CustomerAddress = '" + textBox9.Text + "' and Email = '" + textBox11.Text + "' and CreditCardNo = '" + textBox4.Text + "')) begin insert into customers (customerID, customerFName, customerLName, customerContactNo, customerAddress, alternatePhone, email, creditCardNo) values ((select max(customerID) from customers)+1, '" + textBox16.Text + "', '" + textBox2.Text + "' , '" + textBox6.Text + "' , '" + textBox9.Text + "' , '" + textBox8.Text + "' , '" + textBox11.Text + "' , '" + textBox4.Text + "') end");
                 //adding payment details to payment table
                 if (radioButton4.Checked)
                 {
                     c.Inserts("insert into payment (paymentID, paymentType) values ((select max(paymentID) from payment)+1, 'Credit Card')");
-                }
+                } 
                 else if (radioButton5.Checked)
                 {
                     c.Inserts("insert into payment (paymentID, paymentType) values ((select max(paymentID) from payment)+1, 'COD')");
                 }
                 //adding order to orders table
-                c.Inserts("insert into orders (orderID, Payment_PaymentID, Region_RegionID, Customers_CustomerID, OrderDate, RequiredDate, OrderStatus, TotalPrice) values ((select max(orderID) from orders)+1, (select max(paymentID) from payment), (select regionID from region where regionDescription = '" + comboBox2.Text + "'), (select max(customerID) from customers), getdate(), '" + dateTimePicker1.Value + "', 'In Process', " + textBox10.Text + ")");
+                c.Inserts("insert into orders (orderID, Payment_PaymentID, Region_RegionID, Customers_CustomerID, OrderDate, RequiredDate, OrderStatus, TotalPrice) values ((select max(orderID) from orders)+1, (select max(paymentID) from payment), (select regionID from region where regionDescription = '" + comboBox2.Text + "'), (select customerID from customers where (customerFName = '" + textBox16.Text + "' and customerLName = '" + textBox2.Text + "' and customerContactNo = '" + textBox6.Text + "' and customerAddress = '" + textBox9.Text + "' and email = '" + textBox11.Text + "' and creditCardNo = '" + textBox4.Text + "')), getdate(), '" + dateTimePicker1.Value + "', 'In Process', " + textBox10.Text + ")");
 
                 //adding each food item in order to orderByItem table
                 foreach (ListViewItem item in listView1.Items)
@@ -160,13 +160,7 @@ namespace CateringDatabaseSystem
             }
         }
 
-        private void radioButton6_CheckedChanged(object sender, EventArgs e)
-        {
-            if (radioButton6.Checked == true)
-            {
-                comboBox3.Enabled = false;
-            }
-        }
+       
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {

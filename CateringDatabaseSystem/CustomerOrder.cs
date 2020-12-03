@@ -17,6 +17,7 @@ namespace CateringDatabaseSystem
             InitializeComponent();
         }
 
+        DataTable cart = new DataTable(); //globally declaring cart to add and remove items from
         private void CustomerDetails_Load(object sender, EventArgs e)
         {
             //populating categories combobox with values from the database (categories table)
@@ -118,13 +119,13 @@ namespace CateringDatabaseSystem
                 }
                 //adding order to orders table
                 c.Inserts("insert into orders (orderID, Payment_PaymentID, Region_RegionID, Customers_CustomerID, OrderDate, RequiredDate, OrderStatus, TotalPrice) values ((select max(orderID) from orders)+1, (select max(paymentID) from payment), (select regionID from region where regionDescription = '" + comboBox2.Text + "'), (select customerID from customers where (customerFName = '" + textBox16.Text + "' and customerLName = '" + textBox2.Text + "' and customerContactNo = '" + textBox6.Text + "' and customerAddress = '" + textBox9.Text + "' and email = '" + textBox11.Text + "' and creditCardNo = '" + textBox4.Text + "')), getdate(), '" + dateTimePicker1.Value + "', 'In Process', " + textBox10.Text + ")");
-
+                
                 //adding each food item in order to orderByItem table
-                foreach (ListViewItem item in listView1.Items)
+                foreach (DataGridViewRow row in dataGridView2.Rows)
                 {
-                    int quantity = int.Parse(listView2.Items[item.Index].Text); //getting quantity of food item from listview2
-                    c.Inserts("insert into orderByItem (orderID, FoodItem_FoodItemID, quantity, discount, unitprice) values ((select max(orderID) from orders), (select foodItemID from foodItem where itemName = '" + item.Text + "'), " + quantity + ", " + textBox13.Text + ", (select unitprice from foodItem where itemName = '" + item.Text + "')) ");
-                }
+                    int quantity = int.Parse(row.Cells[1].Value.ToString()); //getting quantity of food item from listview2
+                    c.Inserts("insert into orderByItem (orderID, FoodItem_FoodItemID, quantity, discount, unitprice) values ((select max(orderID) from orders), (select foodItemID from foodItem where itemName = '" + row.Cells[0].Value.ToString() + "'), " + quantity + ", " + textBox13.Text + ", (select unitprice from foodItem where itemName = '" + row.Cells[0].Value.ToString() + "')) ");
+                } 
                 MessageBox.Show("Thank You! \nYour order has been recorded.");
                 this.Close();
             }
@@ -143,6 +144,7 @@ namespace CateringDatabaseSystem
         {
 
         }
+
         //enabling categories combobox only if categories is selected
         private void radioButton8_CheckedChanged(object sender, EventArgs e)
         {
@@ -167,30 +169,8 @@ namespace CateringDatabaseSystem
             
         }
 
-        private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {//enabling textbox for either unit amount or weight for order quantity based on the unit of measurement of food item
-            if (listBox2.SelectedItem != null)
-            {
-                textBox3.Text = "0"; //resetting price to 0
-                if (listBox2.GetItemText(listBox2.SelectedItem) == "Weight (Kg)")
-                {//measured in weight 
-                    textBox5_TextChanged(sender, e); //if diff food item selected from list, update price
-                    textBox5.Enabled = true;
-                    textBox7.Text = "Enter Amount"; //reset default
-                    textBox7.Enabled = false; //disable amount textbox
-                }
-                else
-                {//measured in units 
-                    textBox7_TextChanged(sender, e);//if diff food item selected from list, update price
-                    textBox7.Enabled = true;
-                    textBox5.Text = "Enter Weight (Kg)"; //reset default
-                    textBox5.Enabled = false; //disable weight textbox
-                }
-            }
-        }
-
         private void textBox7_TextChanged(object sender, EventArgs e)
-        {//calculating price of amount entered of food item 
+        {//calculating and displaying price of amount entered of food item 
             if (textBox7.Text != "Enter Amount")
             {
                 int temp;
@@ -200,33 +180,38 @@ namespace CateringDatabaseSystem
                 }
                 else
                 {
-                    textBox1.Text = ""; 
-                    string unitprice = listBox3.GetItemText(listBox3.SelectedItem);
-                    string unitquantity = listBox4.GetItemText(listBox4.SelectedItem);
+                    textBox1.Text = "";
+                    string unitprice = dataGridView1.SelectedCells[1].Value.ToString();
+                    string unitquantity = dataGridView1.SelectedCells[2].Value.ToString();
                     textBox3.Text = (double.Parse(textBox7.Text) * double.Parse(unitprice) / double.Parse(unitquantity)).ToString();
                 }
-            }
+            } 
         }
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
-        {//search by category
+        {//search by category/ category selected changed
             textBox3.Text = "0"; //resetting price to 0
             if (radioButton8.Checked == true & comboBox3.Text != "")
             {//populating list box with food items in selected category
                 ConnectingData c = new ConnectingData();
-                DataTable ds = c.Select("Select fooditemid, itemname, unitprice,unitquantity,measuredin from fooditem f inner join categories c on f.categories_categoriesid = c.categoriesid  where categoryname = '" + comboBox3.Text + "'");
-                listBox1.DataSource = ds;
-                listBox2.DataSource = ds;
-                listBox3.DataSource = ds;
-                listBox4.DataSource = ds;
-                listBox1.DisplayMember = "itemname";
-                listBox2.DisplayMember = "measuredin";
-                listBox3.DisplayMember = "unitprice";
-                listBox4.DisplayMember = "unitquantity";
-                listBox1.ValueMember = "fooditemid";
-                listBox2.ValueMember = "fooditemid";
-                listBox3.ValueMember = "fooditemid";
-                listBox4.ValueMember = "fooditemid";
+                dataGridView1.DataSource = c.Select("Select itemname as 'Item', unitprice as 'Price/unit' ,unitquantity 'Serving Size',measuredin as 'Measured In' from fooditem f inner join categories c on f.categories_categoriesid = c.categoriesid  where categoryname = '" + comboBox3.Text + "'");
+                //enabling relevant textbox for quantity
+                foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+                {
+                    textBox3.Text = "0"; //resetting price to 0
+                    if (row.Cells[3].Value.ToString() == "Weight (Kg)")
+                    {//measured in weight 
+                        textBox5.Enabled = true;
+                        textBox7.Text = "Enter Amount"; //reset default
+                        textBox7.Enabled = false; //disable amount textbox
+                    }
+                    else
+                    {//measured in units 
+                        textBox7.Enabled = true;
+                        textBox5.Text = "Enter Weight (Kg)"; //reset default
+                        textBox5.Enabled = false; //disable weight textbox
+                    }
+                }
             }
             else if (radioButton8.Checked == true & comboBox3.Text == "")
             {//error message if no category selected
@@ -235,7 +220,7 @@ namespace CateringDatabaseSystem
         }
 
         private void textBox5_TextChanged(object sender, EventArgs e)
-        {//calculating price of amount entered of food item by weight
+        {//calculating and displaying price of amount entered of food item by weight
             if (textBox5.Text != "Enter Weight (Kg)")
             {
                 double temp;
@@ -246,13 +231,13 @@ namespace CateringDatabaseSystem
                 else
                 {
                     textBox1.Text = "";
-                    string unitprice = listBox3.GetItemText(listBox3.SelectedItem);
-                    string unitquantity = listBox4.GetItemText(listBox4.SelectedItem);
+                    string unitprice = dataGridView1.SelectedCells[1].Value.ToString();
+                    string unitquantity = dataGridView1.SelectedCells[2].Value.ToString();
                     textBox3.Text = (double.Parse(textBox5.Text) * double.Parse(unitprice) / double.Parse(unitquantity)).ToString();
                 }
-            }
+            } 
 
-        }
+        } 
 
         private void button1_Click(object sender, EventArgs e)
         {//add to cart  
@@ -262,28 +247,27 @@ namespace CateringDatabaseSystem
             }
             else
             {
-                listView1.Items.Add(listBox1.GetItemText(listBox4.SelectedItem));
+                if (dataGridView2.Rows.Count <= 0 && cart.Columns.Count <= 0)
+                {
+                    cart.Columns.Add("Item");
+                    cart.Columns.Add("Quantity");
+                    cart.Columns.Add("TotalPrice");
+                }
+
                 if (textBox5.Enabled)
                 {
-                    listView2.Items.Add(textBox5.Text);
+                    cart.Rows.Add(dataGridView1.SelectedCells[0].Value, textBox5.Text, textBox3.Text);
                 }
                 if (textBox7.Enabled)
                 {
-                    listView2.Items.Add(textBox7.Text);
+                    cart.Rows.Add(dataGridView1.SelectedCells[0].Value, textBox7.Text, textBox3.Text);
                 }
-                listView3.Items.Add(textBox3.Text);
+                dataGridView2.DataSource = cart;
+                button2.Enabled = true;
+                button4.Enabled = true;
             }
-            //calculating and displaying cart total
-            double cart_total = 0;
-            foreach (ListViewItem item in listView3.Items)
-            {
-                cart_total = cart_total + double.Parse(item.Text);
-                textBox14.Text = cart_total.ToString();
-            }
-            //calculating and displaying total cost
-            double total_cost = 200 + ( cart_total * (100 - int.Parse(textBox13.Text)) / 100);
-            textBox10.Text = total_cost.ToString();
-        }
+            
+        } 
 
         private void comboBox2_SelectedIndexChanged_1(object sender, EventArgs e)
         {
@@ -301,14 +285,14 @@ namespace CateringDatabaseSystem
                 textBox15.Text = "";
             }
         }
-
+        
         private void radioButton4_CheckedChanged(object sender, EventArgs e)
         {//if payment method is online, enabling credit card textbox
             if (radioButton4.Checked)
             {
                 textBox4.Enabled = true;
             }
-        }
+        } 
 
         private void groupBox3_ControlAdded(object sender, ControlEventArgs e)
         {
@@ -318,6 +302,83 @@ namespace CateringDatabaseSystem
         private void listView1_ControlAdded(object sender, ControlEventArgs e)
         {
             
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {//remove selected item(s) from cart
+            foreach (DataGridViewRow row in dataGridView2.SelectedRows)
+            {
+                //cart.Rows.Remove();
+                dataGridView2.Rows.Remove(row);
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {//clear cart
+            cart.Rows.Clear();
+            
+            foreach (DataGridViewRow row in dataGridView2.Rows)
+            {
+                dataGridView2.Rows.Remove(row);
+            }
+            
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {//if diff food item selected from list, update price
+            textBox3.Text = "0"; //resetting price to 0
+            if (dataGridView1.SelectedCells[3].Value.ToString() == "Weight (Kg)")
+            {//measured in weight
+                textBox5_TextChanged(sender, e); 
+            }
+            else
+            {//measured in units
+                textBox7_TextChanged(sender, e);
+            }
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dataGridView2_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {//update costs when a row is removed
+            if (dataGridView2.Rows.Count <= 0)
+            {//reset to default if cart is empty
+                button2.Enabled = false;
+                button4.Enabled = false;
+                textBox14.Text = "0";
+                textBox10.Text = "200";
+            }
+            //calculating and displaying cart total
+            double cart_total = 0;
+            foreach (DataGridViewRow row in dataGridView2.Rows)
+            {
+                cart_total = cart_total + double.Parse(row.Cells[2].Value.ToString());
+                textBox14.Text = cart_total.ToString();
+            }
+            //calculating and displaying total cost
+            double total_cost = 200 + (cart_total * (100 - int.Parse(textBox13.Text)) / 100);
+            textBox10.Text = total_cost.ToString();
+        }
+
+        private void dataGridView2_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {//updating cost when item added to cart
+            //calculating and displaying cart total
+            double cart_total = 0;
+            foreach (DataGridViewRow row in dataGridView2.Rows)
+            {
+                cart_total = cart_total + double.Parse(row.Cells[2].Value.ToString());
+                textBox14.Text = cart_total.ToString();
+            }
+            //calculating and displaying total cost
+            double total_cost = 200 + ( cart_total * (100 - int.Parse(textBox13.Text)) / 100);
+            textBox10.Text = total_cost.ToString();  
         }
     }
 }

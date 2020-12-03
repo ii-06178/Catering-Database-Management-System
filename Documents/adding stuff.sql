@@ -83,10 +83,26 @@ select * from Ingredients_for_FoodItem where FoodItem_FoodItemID = 1
 select * from Ingredients
 
 --CREATING VIEWS
+
 create view showFoodItemIngredients as select itemname 'Food Item', ingredientname 'Ingredients', Quantity_grams 'Quantity (grams)' from fooditem f inner join ingredients_for_fooditem fi on f.fooditemid = fi.fooditem_fooditemID inner join ingredients i on i.ingredientsid = fi.ingredients_ingredientsid 
+--select * from showFoodItemIngredients where [Item ID] = 1
+--drop view showFoodItems
 
-select * from showFoodItemIngredients where [Item ID] = 1
+create view showAllFoodItems as select fooditemID as 'ID', itemname as 'Item', categoryname as 'Category', unitquantity as 'Unit Quantity', measuredin as 'Measured In', unitprice as 'Unit Price (Rs.)' from fooditem f inner join categories c on f.Categories_CategoriesID = c.CategoriesID
 
-drop view showFoodItems
+--select * from showAllFoodItems
 
+create view ItemsWithIngrnt as select ingredientsID as 'ID', ingredientName as 'Ingredient', itemName as 'Food Item', quantity_grams as 'Quantity Required (grams)' from ingredients i inner join ingredients_for_fooditem fi on i.ingredientsID = fi.Ingredients_IngredientsID inner join fooditem f on fi.FoodItem_FoodItemID = f.FoodItemID
+
+--select [Food Item], Ingredient, [Quantity Required (grams)] from ItemsWithIngrnt where ID = 6
+
+create view ViewOrder as select orderID as 'ID',customers_customerID as 'Customer ID', paymentType as 'Payment Type', region_regionID as 'Region ID', rider_riderID as 'Rider ID', orderDate as 'Order Date', requiredDate as 'Required Date', shippedDate as 'Shipped Date', OrderStatus as 'Order Status', totalPrice as 'Total Price/Rs.'  from payment p inner join orders o on p.paymentid = o.payment_paymentid
+
+select * from ViewOrder 
+
+create view ViewOrderExt as select o.orderID as 'ID',customers_customerID as 'Customer ID', paymentType as 'Payment Type', region_regionID as 'Region ID', rider_riderID as 'Rider ID', orderDate as 'Order Date', requiredDate as 'Required Date', shippedDate as 'Shipped Date', OrderStatus as 'Order Status', totalPrice as 'Total Price/Rs.'  from payment p inner join orders o on p.paymentid = o.payment_paymentid inner join orderbyitem oi on o.orderid = oi.orderid
+
+
+select * from ViewOrder
+select * from ViewOrderExt
 

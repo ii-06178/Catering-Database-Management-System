@@ -72,7 +72,7 @@ namespace CateringDatabaseSystem
             ConnectingData c = new ConnectingData();
             if (textBox2.Text != "")
             {//select by customer
-                dataGridView1.DataSource = c.Select("select orderID as 'ID',customers_customerID as 'Customer ID', paymentType as 'Payment Type', region_regionID as 'Region ID', rider_riderID as 'Rider ID', orderDate as 'Order Date', requiredDate as 'Required Date', shippedDate as 'Shipped Date', OrderStatus as 'Order Status', totalPrice as 'Total Price/Rs.'  from payment p inner join orders o on p.paymentid = o.payment_paymentid where customers_customerid = " + textBox2.Text);
+                dataGridView1.DataSource = c.Select("select * from ViewOrder where [Customer ID] = " + textBox2.Text);
             }
             else if (textBox3.Text != "")
             {//select by food item

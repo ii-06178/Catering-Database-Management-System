@@ -100,13 +100,15 @@ namespace CateringDatabaseSystem
         private void button4_Click(object sender, EventArgs e)
         {//show all food items
             ConnectingData c = new ConnectingData();
-            dataGridView1.DataSource = c.Select("select fooditemID as 'ID', itemname as 'Item', categoryname as 'Category', unitquantity as 'Unit Quantity', measuredin as 'Measured In', unitprice as 'Unit Price (Rs.)' from fooditem f inner join categories c on f.Categories_CategoriesID = c.CategoriesID");
+            //using VIEW
+            dataGridView1.DataSource = c.Select("select * from showAllFoodItems");
         }
 
         private void button7_Click(object sender, EventArgs e)
         {//show ingredients for selected food item
             ConnectingData c = new ConnectingData();
-            dataGridView1.DataSource = c.Select("select itemname as 'Food Item', ingredientname as 'Ingredients', Quantity_grams as 'Quantity (grams)' from fooditem f inner join ingredients_for_fooditem fi on f.fooditemid = fi.fooditem_fooditemID inner join ingredients i on i.ingredientsid = fi.ingredients_ingredientsid where f.fooditemid = " + textBox9.Text + "order by itemname");
+            //using VIEW
+            dataGridView1.DataSource = c.Select("select * from showFoodItemIngredients where [Item ID] = " + textBox9.Text);
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)

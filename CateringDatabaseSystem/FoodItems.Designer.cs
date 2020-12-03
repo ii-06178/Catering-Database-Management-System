@@ -92,7 +92,7 @@
             // 
             // button4
             // 
-            this.button4.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.Location = new System.Drawing.Point(484, 519);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(334, 36);
@@ -120,106 +120,106 @@
             this.groupBox3.Controls.Add(this.textBox3);
             this.groupBox3.Controls.Add(this.button3);
             this.groupBox3.Controls.Add(this.textBox7);
-            this.groupBox3.Font = new System.Drawing.Font("Cera Pro", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Font = new System.Drawing.Font("Cera Pro", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(484, 16);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(377, 365);
+            this.groupBox3.Size = new System.Drawing.Size(403, 365);
             this.groupBox3.TabIndex = 14;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Update Food Item";
             // 
             // textBox10
             // 
-            this.textBox10.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox10.Location = new System.Drawing.Point(148, 184);
+            this.textBox10.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox10.Location = new System.Drawing.Point(167, 184);
             this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(204, 28);
+            this.textBox10.Size = new System.Drawing.Size(204, 30);
             this.textBox10.TabIndex = 17;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.Location = new System.Drawing.Point(17, 187);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(111, 21);
+            this.label12.Size = new System.Drawing.Size(125, 23);
             this.label12.TabIndex = 16;
             this.label12.Text = "Unit Quantity:";
             // 
             // comboBox3
             // 
-            this.comboBox3.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox3.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox3.FormattingEnabled = true;
             this.comboBox3.Items.AddRange(new object[] {
             "Rice",
             "Burgers",
             "Rolls",
             "Frozen"});
-            this.comboBox3.Location = new System.Drawing.Point(148, 145);
+            this.comboBox3.Location = new System.Drawing.Point(167, 145);
             this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(204, 29);
+            this.comboBox3.Size = new System.Drawing.Size(204, 31);
             this.comboBox3.TabIndex = 19;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(17, 148);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(83, 21);
+            this.label9.Size = new System.Drawing.Size(94, 23);
             this.label9.TabIndex = 18;
             this.label9.Text = "Category:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(17, 72);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(85, 21);
+            this.label3.Size = new System.Drawing.Size(94, 23);
             this.label3.TabIndex = 15;
             this.label3.Text = "Unit Price:";
             // 
             // textBox8
             // 
-            this.textBox8.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox8.Location = new System.Drawing.Point(148, 107);
+            this.textBox8.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox8.Location = new System.Drawing.Point(167, 107);
             this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(204, 28);
+            this.textBox8.Size = new System.Drawing.Size(204, 30);
             this.textBox8.TabIndex = 17;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(17, 34);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(63, 21);
+            this.label7.Size = new System.Drawing.Size(71, 23);
             this.label7.TabIndex = 14;
             this.label7.Text = "ItemID:";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(17, 110);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(93, 21);
+            this.label10.Size = new System.Drawing.Size(107, 23);
             this.label10.TabIndex = 16;
             this.label10.Text = "Item Name:";
             // 
             // textBox3
             // 
-            this.textBox3.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(148, 69);
+            this.textBox3.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.Location = new System.Drawing.Point(167, 69);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(204, 28);
+            this.textBox3.Size = new System.Drawing.Size(204, 30);
             this.textBox3.TabIndex = 13;
             // 
             // button3
             // 
-            this.button3.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(270, 307);
+            this.button3.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(289, 307);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(82, 36);
             this.button3.TabIndex = 11;
@@ -229,10 +229,10 @@
             // 
             // textBox7
             // 
-            this.textBox7.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.Location = new System.Drawing.Point(148, 31);
+            this.textBox7.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox7.Location = new System.Drawing.Point(167, 31);
             this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(204, 28);
+            this.textBox7.Size = new System.Drawing.Size(204, 30);
             this.textBox7.TabIndex = 9;
             // 
             // groupBox2
@@ -240,7 +240,7 @@
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.textBox4);
-            this.groupBox2.Font = new System.Drawing.Font("Cera Pro", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Font = new System.Drawing.Font("Cera Pro", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(21, 539);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(457, 119);
@@ -251,16 +251,16 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(11, 36);
+            this.label8.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(42, 32);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(63, 21);
+            this.label8.Size = new System.Drawing.Size(71, 23);
             this.label8.TabIndex = 10;
             this.label8.Text = "ItemID:";
             // 
             // button2
             // 
-            this.button2.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Location = new System.Drawing.Point(340, 69);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(82, 36);
@@ -271,10 +271,10 @@
             // 
             // textBox4
             // 
-            this.textBox4.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox4.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox4.Location = new System.Drawing.Point(192, 29);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(230, 28);
+            this.textBox4.Size = new System.Drawing.Size(230, 30);
             this.textBox4.TabIndex = 7;
             // 
             // groupBox1
@@ -294,7 +294,7 @@
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Font = new System.Drawing.Font("Cera Pro", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Font = new System.Drawing.Font("Cera Pro", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(21, 16);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(457, 517);
@@ -305,7 +305,7 @@
             // 
             // listView2
             // 
-            this.listView2.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listView2.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listView2.HideSelection = false;
             this.listView2.Location = new System.Drawing.Point(347, 275);
             this.listView2.Name = "listView2";
@@ -316,15 +316,15 @@
             // 
             // textBox6
             // 
-            this.textBox6.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox6.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox6.Location = new System.Drawing.Point(347, 199);
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(75, 28);
+            this.textBox6.Size = new System.Drawing.Size(75, 30);
             this.textBox6.TabIndex = 14;
             // 
             // comboBox2
             // 
-            this.comboBox2.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox2.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Items.AddRange(new object[] {
             "Rice",
@@ -333,7 +333,7 @@
             "Frozen"});
             this.comboBox2.Location = new System.Drawing.Point(192, 77);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(230, 29);
+            this.comboBox2.Size = new System.Drawing.Size(230, 31);
             this.comboBox2.TabIndex = 13;
             this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
@@ -341,7 +341,7 @@
             // 
             this.listView1.AllowDrop = true;
             this.listView1.AutoArrange = false;
-            this.listView1.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listView1.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listView1.GridLines = true;
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(192, 275);
@@ -354,7 +354,7 @@
             // 
             // comboBox1
             // 
-            this.comboBox1.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "Chicken",
@@ -366,22 +366,22 @@
             "Spices"});
             this.comboBox1.Location = new System.Drawing.Point(192, 198);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(149, 29);
+            this.comboBox1.Size = new System.Drawing.Size(149, 31);
             this.comboBox1.TabIndex = 11;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(11, 202);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(139, 42);
+            this.label4.Size = new System.Drawing.Size(159, 46);
             this.label4.TabIndex = 10;
             this.label4.Text = "Ingredients \r\n+ Quantity/grams:";
             // 
             // button6
             // 
-            this.button6.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.Location = new System.Drawing.Point(192, 233);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(230, 36);
@@ -392,35 +392,35 @@
             // 
             // textBox5
             // 
-            this.textBox5.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox5.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox5.Location = new System.Drawing.Point(192, 118);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(230, 28);
+            this.textBox5.Size = new System.Drawing.Size(230, 30);
             this.textBox5.TabIndex = 8;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(11, 121);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(85, 21);
+            this.label5.Size = new System.Drawing.Size(94, 23);
             this.label5.TabIndex = 7;
             this.label5.Text = "Unit Price:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(11, 80);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(83, 21);
+            this.label6.Size = new System.Drawing.Size(94, 23);
             this.label6.TabIndex = 5;
             this.label6.Text = "Category:";
             // 
             // button1
             // 
-            this.button1.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(289, 463);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(133, 36);
@@ -431,43 +431,43 @@
             // 
             // textBox2
             // 
-            this.textBox2.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.Location = new System.Drawing.Point(192, 37);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(230, 28);
+            this.textBox2.Size = new System.Drawing.Size(230, 30);
             this.textBox2.TabIndex = 3;
             // 
             // textBox1
             // 
-            this.textBox1.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(192, 158);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(230, 28);
+            this.textBox1.Size = new System.Drawing.Size(230, 30);
             this.textBox1.TabIndex = 2;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(11, 42);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(91, 21);
+            this.label2.Size = new System.Drawing.Size(102, 23);
             this.label2.TabIndex = 1;
             this.label2.Text = "Food Item:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(11, 161);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(111, 21);
+            this.label1.Size = new System.Drawing.Size(125, 23);
             this.label1.TabIndex = 0;
             this.label1.Text = "Unit Quantity:";
             // 
             // button5
             // 
-            this.button5.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.Location = new System.Drawing.Point(484, 563);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(82, 36);
@@ -481,10 +481,10 @@
             this.groupBox4.Controls.Add(this.label11);
             this.groupBox4.Controls.Add(this.button7);
             this.groupBox4.Controls.Add(this.textBox9);
-            this.groupBox4.Font = new System.Drawing.Font("Cera Pro", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox4.Font = new System.Drawing.Font("Cera Pro", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.Location = new System.Drawing.Point(484, 387);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(377, 126);
+            this.groupBox4.Size = new System.Drawing.Size(403, 126);
             this.groupBox4.TabIndex = 14;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Show Item Ingredients";
@@ -492,17 +492,17 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(17, 35);
+            this.label11.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(40, 35);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(63, 21);
+            this.label11.Size = new System.Drawing.Size(71, 23);
             this.label11.TabIndex = 10;
             this.label11.Text = "ItemID:";
             // 
             // button7
             // 
-            this.button7.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.Location = new System.Drawing.Point(268, 69);
+            this.button7.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button7.Location = new System.Drawing.Point(289, 69);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(82, 36);
             this.button7.TabIndex = 9;
@@ -512,23 +512,23 @@
             // 
             // textBox9
             // 
-            this.textBox9.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox9.Location = new System.Drawing.Point(148, 32);
+            this.textBox9.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox9.Location = new System.Drawing.Point(169, 32);
             this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(202, 28);
+            this.textBox9.Size = new System.Drawing.Size(202, 30);
             this.textBox9.TabIndex = 7;
             // 
             // textBox11
             // 
-            this.textBox11.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox11.Location = new System.Drawing.Point(284, 223);
+            this.textBox11.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox11.Location = new System.Drawing.Point(303, 223);
             this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(68, 28);
+            this.textBox11.Size = new System.Drawing.Size(68, 30);
             this.textBox11.TabIndex = 17;
             // 
             // comboBox4
             // 
-            this.comboBox4.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox4.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox4.FormattingEnabled = true;
             this.comboBox4.Items.AddRange(new object[] {
             "Chicken",
@@ -538,14 +538,14 @@
             "Garlic",
             "Ginger",
             "Spices"});
-            this.comboBox4.Location = new System.Drawing.Point(148, 222);
+            this.comboBox4.Location = new System.Drawing.Point(167, 222);
             this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(130, 29);
+            this.comboBox4.Size = new System.Drawing.Size(130, 31);
             this.comboBox4.TabIndex = 16;
             // 
             // comboBox5
             // 
-            this.comboBox5.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox5.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox5.FormattingEnabled = true;
             this.comboBox5.Items.AddRange(new object[] {
             "Chicken",
@@ -555,28 +555,28 @@
             "Garlic",
             "Ginger",
             "Spices"});
-            this.comboBox5.Location = new System.Drawing.Point(148, 261);
+            this.comboBox5.Location = new System.Drawing.Point(167, 261);
             this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(204, 29);
+            this.comboBox5.Size = new System.Drawing.Size(204, 31);
             this.comboBox5.TabIndex = 20;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.Location = new System.Drawing.Point(17, 225);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(125, 21);
+            this.label13.Size = new System.Drawing.Size(139, 23);
             this.label13.TabIndex = 22;
             this.label13.Text = "Add Ingredient:";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("CeraPRO-Regular", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.Location = new System.Drawing.Point(17, 261);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(90, 42);
+            this.label14.Size = new System.Drawing.Size(100, 46);
             this.label14.TabIndex = 23;
             this.label14.Text = "Remove \r\nIngredient:";
             // 

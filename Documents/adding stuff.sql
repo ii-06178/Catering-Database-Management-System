@@ -68,7 +68,6 @@ ADD CONSTRAINT PK_OrderbyItem PRIMARY KEY (Orders_OrderID,FoodItem_FoodItemID) *
 
 --get details of rider that appeared most times in orders table
 select * from rider where riderID = (select top(1) Rider_RiderID, count(*) from Orders group by Rider_RiderID)
---select * from rider where RiderID = (select Rider_RiderID from Orders having max(count(*)))
 select top(1) RiderID, RiderName, RiderPhoneNo, RiderCNIC, RiderCompany, RiderEmail, RiderPassword, count(OrderID) as 'No of Orders Delivered' from rider r inner join orders o on r.riderID = o.Rider_RiderID group by riderID, RiderName, RiderPhoneNo, RiderCNIC, RiderCompany, RiderEmail, RiderPassword
 
 
@@ -82,3 +81,12 @@ insert into ingredients_for_fooditem (fooditem_fooditemID, ingredients_ingredien
 end
 select * from Ingredients_for_FoodItem where FoodItem_FoodItemID = 1
 select * from Ingredients
+
+--CREATING VIEWS
+create view showFoodItemIngredients as select itemname 'Food Item', ingredientname 'Ingredients', Quantity_grams 'Quantity (grams)' from fooditem f inner join ingredients_for_fooditem fi on f.fooditemid = fi.fooditem_fooditemID inner join ingredients i on i.ingredientsid = fi.ingredients_ingredientsid 
+
+select * from showFoodItemIngredients where [Item ID] = 1
+
+drop view showFoodItems
+
+

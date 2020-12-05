@@ -177,10 +177,17 @@ namespace CateringDatabaseSystem
                 if (!int.TryParse(textBox7.Text, out temp))
                 {//checking if the value entered is invalid
                     textBox1.Text = "Invalid, please enter a whole number!";
+                    button1.Enabled = false;
                 }
                 else if (int.Parse(textBox7.Text) < int.Parse(dataGridView1.SelectedCells[2].Value.ToString()))
                 {//if quantity is less than unit size
                     textBox1.Text = "Invalid, quantity cannot be below serving size!";
+                    button1.Enabled = false;
+                }
+                else if (int.Parse(textBox7.Text)%int.Parse(dataGridView1.SelectedCells[2].Value.ToString()) != 0)
+                {//if quantity is not multiple of serving
+                    textBox1.Text = "Invalid, quantity must be a multiple of serving size!";
+                    button1.Enabled = false;
                 }
                 else
                 {
@@ -188,6 +195,7 @@ namespace CateringDatabaseSystem
                     string unitprice = dataGridView1.SelectedCells[1].Value.ToString();
                     string unitquantity = dataGridView1.SelectedCells[2].Value.ToString();
                     textBox3.Text = (double.Parse(textBox7.Text) * double.Parse(unitprice) / double.Parse(unitquantity)).ToString();
+                    button1.Enabled = true;
                 }
             } 
         }
@@ -233,10 +241,12 @@ namespace CateringDatabaseSystem
                 if (!double.TryParse(textBox5.Text, out temp))
                 {//checking if the value entered is invalid
                     textBox1.Text = "Invalid, please enter a number!";
+                    button1.Enabled = false;
                 }
                 else if (double.Parse(textBox5.Text) < double.Parse(dataGridView1.SelectedCells[2].Value.ToString()))
                 {//if quantity is less than unit size
                     textBox1.Text = "Invalid, quantity cannot be below serving size!";
+                    button1.Enabled = false;
                 }
                 else
                 {
@@ -244,6 +254,7 @@ namespace CateringDatabaseSystem
                     string unitprice = dataGridView1.SelectedCells[1].Value.ToString();
                     string unitquantity = dataGridView1.SelectedCells[2].Value.ToString();
                     textBox3.Text = (double.Parse(textBox5.Text) * double.Parse(unitprice) / double.Parse(unitquantity)).ToString();
+                    button1.Enabled = true;
                 }
             } 
 

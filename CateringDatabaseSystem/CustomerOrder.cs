@@ -125,7 +125,8 @@ namespace CateringDatabaseSystem
                 {
                     int quantity = int.Parse(row.Cells[1].Value.ToString()); //getting quantity of food item from listview2
                     c.Inserts("insert into orderByItem (orderID, FoodItem_FoodItemID, quantity, discount, unitprice) values ((select max(orderID) from orders), (select foodItemID from foodItem where itemName = '" + row.Cells[0].Value.ToString() + "'), " + quantity + ", " + textBox13.Text + ", (select unitprice from foodItem where itemName = '" + row.Cells[0].Value.ToString() + "')) ");
-                } 
+                }
+                updateIngrStock();
                 MessageBox.Show("Thank You! \nYour order has been recorded.");
                 this.Close();
             }
@@ -172,7 +173,7 @@ namespace CateringDatabaseSystem
         private bool isFoodAvailable()
         {//if quantity entered is possible, calculate price
             ConnectingData c = new ConnectingData();
-            DataTable dt = c.Select("exec GetIngrQtyInItem @ItemName = '" + dataGridView1.SelectedCells[0].Value.ToString() + "'"); //datatable to temporarily store selected items ingredients required and available
+            DataTable dt = c.Select("exec GetIngrQtyInItem @ItemName = '" + dataGridView1.SelectedCells[0].Value.ToString() + "'"); //datatable to temporarily store required and available ingredients of selected fooditem 
             bool isAvailable = true; //to check if entered amount of item is available
             if (textBox5.Enabled)
             {
@@ -312,6 +313,23 @@ namespace CateringDatabaseSystem
 
         } 
 
+        private void updateIngrStock()
+        {//function to update qty of each ingredient after it is added to cart.
+            ConnectingData c = new ConnectingData();
+            
+            foreach (DataGridViewRow item in dataGridView2.Rows)
+            {
+                DataTable dt = c.Select("exec GetIngrQtyInItem @ItemName = '" + item.Cells[0].Value.ToString() + "'"); //datatable to temporarily store ingredient details of selected fooditem 
+                foreach (DataRow row in dt.Rows)
+                {//update qty of each ingredient in database
+                    double unit_quantity = double.Parse(row["unitquantity"].ToString());
+                    double qty_required = (double.Parse(row["Quantity_grams"].ToString()) * (double.Parse(item.Cells[1].Value.ToString()) / unit_quantity)) / 1000; //qty required in KG
+                    c.Inserts("update Ingredients set QtyInStock_kg = QtyInStock_kg - " + qty_required + " where ingredientsID = " + row["ingredientsID"].ToString());
+                }
+            }
+            
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {//add to cart  
             if (textBox3.Text == "0")
@@ -321,12 +339,12 @@ namespace CateringDatabaseSystem
             else
             {
                 if (dataGridView2.Rows.Count <= 0 && cart.Columns.Count <= 0)
-                {
+                {//if cart is empty, create add columns to cart table
                     cart.Columns.Add("Item");
                     cart.Columns.Add("Quantity");
                     cart.Columns.Add("TotalPrice");
                 }
-
+                //add item and qty entered, and price to cart
                 if (textBox5.Enabled)
                 {
                     cart.Rows.Add(dataGridView1.SelectedCells[0].Value, textBox5.Text, textBox3.Text);
@@ -336,7 +354,7 @@ namespace CateringDatabaseSystem
                     cart.Rows.Add(dataGridView1.SelectedCells[0].Value, textBox7.Text, textBox3.Text);
                 }
                 dataGridView2.DataSource = cart;
-                button2.Enabled = true;
+                button2.Enabled = true; //enable remove and clear buttons
                 button4.Enabled = true;
             }
             

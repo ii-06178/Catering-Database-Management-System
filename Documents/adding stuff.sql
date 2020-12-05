@@ -52,6 +52,7 @@ select * from Customers
 select * from Payment
 select * from Orders
 select * from OrderbyItem
+select * from Ingredients
 
 /*
 ALTER TABLE OrderbyItem
@@ -123,9 +124,10 @@ create view RiderDeliveredMostOrders as select top(1) RiderID, RiderName, RiderP
 
 create procedure GetIngrQtyInItem @ItemName varchar(30)
 as
-select ItemName, Quantity_grams, QtyInStock_kg from Ingredients i inner join Ingredients_for_FoodItem fi on i.IngredientsID = fi.Ingredients_IngredientsID inner join FoodItem f on f.FoodItemID = fi.FoodItem_FoodItemID where ItemName = @ItemName
+select ItemName, UnitQuantity, IngredientsID, IngredientName, Quantity_grams, QtyInStock_kg from Ingredients i inner join Ingredients_for_FoodItem fi on i.IngredientsID = fi.Ingredients_IngredientsID inner join FoodItem f on f.FoodItemID = fi.FoodItem_FoodItemID where ItemName = @ItemName
 go
-
-exec GetIngrQtyInItem @ItemName = 'biryani'
+--drop procedure GetIngrQtyInItem 
+exec GetIngrQtyInItem @ItemName = 'chicken tikka roll'
 
 select * from Ingredients
+update Ingredients set QtyInStock_kg = 20

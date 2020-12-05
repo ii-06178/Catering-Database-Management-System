@@ -178,6 +178,10 @@ namespace CateringDatabaseSystem
                 {//checking if the value entered is invalid
                     textBox1.Text = "Invalid, please enter a whole number!";
                 }
+                else if (int.Parse(textBox7.Text) < int.Parse(dataGridView1.SelectedCells[2].Value.ToString()))
+                {//if quantity is less than unit size
+                    textBox1.Text = "Invalid, quantity cannot be below serving size!";
+                }
                 else
                 {
                     textBox1.Text = "";
@@ -196,7 +200,7 @@ namespace CateringDatabaseSystem
             if (radioButton8.Checked == true & comboBox3.Text != "")
             {//populating list box with food items in selected category
                 ConnectingData c = new ConnectingData();
-                dataGridView1.DataSource = c.Select("Select itemname as 'Item', unitprice as 'Price/unit' ,unitquantity 'Serving Size',measuredin as 'Measured In' from fooditem f inner join categories c on f.categories_categoriesid = c.categoriesid  where categoryname = '" + comboBox3.Text + "'");
+                dataGridView1.DataSource = c.Select("Select itemname as 'Item', unitprice as 'Price/unit' ,unitquantity 'Serving Size',measuredin as 'Measured In' from fooditem f inner join categories c on f.categories_categoriesid = c.categoriesid where categoryname = '" + comboBox3.Text + "'");
                 //enabling relevant textbox for quantity
                 foreach (DataGridViewRow row in dataGridView1.SelectedRows)
                 {
@@ -229,6 +233,10 @@ namespace CateringDatabaseSystem
                 if (!double.TryParse(textBox5.Text, out temp))
                 {//checking if the value entered is invalid
                     textBox1.Text = "Invalid, please enter a number!";
+                }
+                else if (double.Parse(textBox5.Text) < double.Parse(dataGridView1.SelectedCells[2].Value.ToString()))
+                {//if quantity is less than unit size
+                    textBox1.Text = "Invalid, quantity cannot be below serving size!";
                 }
                 else
                 {

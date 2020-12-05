@@ -100,6 +100,7 @@ create view ViewOrder as select orderID as 'ID',customers_customerID as 'Custome
 
 select * from ViewOrder 
 
+
 create view ViewOrderExt as select o.orderID as 'ID',customers_customerID as 'Customer ID', paymentType as 'Payment Type', region_regionID as 'Region ID', rider_riderID as 'Rider ID', orderDate as 'Order Date', requiredDate as 'Required Date', shippedDate as 'Shipped Date', OrderStatus as 'Order Status', totalPrice as 'Total Price/Rs.'  from payment p inner join orders o on p.paymentid = o.payment_paymentid inner join orderbyitem oi on o.orderid = oi.orderid
 
 
@@ -115,3 +116,7 @@ select * from OrdersDeliveredByRider where [Rider ID]
 drop view OrdersDeliveredByRider
 
 create view RiderDeliveredMostOrders as select top(1) RiderID, RiderName, RiderPhoneNo, RiderCNIC, RiderCompany, RiderEmail, RiderPassword, count(OrderID) as 'No of Orders Delivered' from rider r inner join orders o on r.riderID = o.Rider_RiderID group by riderID, RiderName, RiderPhoneNo, RiderCNIC, RiderCompany, RiderEmail, RiderPassword
+
+--create view ItemsInCategory as Select itemname as 'Item', unitprice as 'Price/unit' ,unitquantity 'Serving Size',measuredin as 'Measured In' from fooditem f inner join categories c on f.categories_categoriesid = c.categoriesid
+
+--drop view ItemsInCategory

@@ -20,3 +20,25 @@ D:\Documents\Fall 2020\Database\Catering-Database-Management-System\CateringData
 D:\Documents\Fall 2020\Database\Catering-Database-Management-System\CateringDatabaseSystem\obj\Debug\CateringDatabaseSystem.Rider.resources
 D:\Documents\Fall 2020\Database\Catering-Database-Management-System\CateringDatabaseSystem\obj\Debug\CateringDatabaseSystem.CustomerOrder.resources
 D:\Documents\Fall 2020\Database\Catering-Database-Management-System\CateringDatabaseSystem\obj\Debug\CateringDatabaseSystem.IngredientsAdmin.resources
+C:\Users\ifrah\Documents\Uni\HUTOPS\Semesters\3rd Semester\Database Systems\Project\Catering-Database-Management-System\CateringDatabaseSystem\bin\Debug\CateringDatabaseSystem.exe.config
+C:\Users\ifrah\Documents\Uni\HUTOPS\Semesters\3rd Semester\Database Systems\Project\Catering-Database-Management-System\CateringDatabaseSystem\bin\Debug\CateringDatabaseSystem.exe
+C:\Users\ifrah\Documents\Uni\HUTOPS\Semesters\3rd Semester\Database Systems\Project\Catering-Database-Management-System\CateringDatabaseSystem\bin\Debug\CateringDatabaseSystem.pdb
+C:\Users\ifrah\Documents\Uni\HUTOPS\Semesters\3rd Semester\Database Systems\Project\Catering-Database-Management-System\CateringDatabaseSystem\obj\Debug\CateringDatabaseSystem.csprojAssemblyReference.cache
+C:\Users\ifrah\Documents\Uni\HUTOPS\Semesters\3rd Semester\Database Systems\Project\Catering-Database-Management-System\CateringDatabaseSystem\obj\Debug\CateringDatabaseSystem.Admin.resources
+C:\Users\ifrah\Documents\Uni\HUTOPS\Semesters\3rd Semester\Database Systems\Project\Catering-Database-Management-System\CateringDatabaseSystem\obj\Debug\CateringDatabaseSystem.Categories.resources
+C:\Users\ifrah\Documents\Uni\HUTOPS\Semesters\3rd Semester\Database Systems\Project\Catering-Database-Management-System\CateringDatabaseSystem\obj\Debug\CateringDatabaseSystem.CustomerOrder.resources
+C:\Users\ifrah\Documents\Uni\HUTOPS\Semesters\3rd Semester\Database Systems\Project\Catering-Database-Management-System\CateringDatabaseSystem\obj\Debug\CateringDatabaseSystem.CustomersAdminView.resources
+C:\Users\ifrah\Documents\Uni\HUTOPS\Semesters\3rd Semester\Database Systems\Project\Catering-Database-Management-System\CateringDatabaseSystem\obj\Debug\CateringDatabaseSystem.Deals.resources
+C:\Users\ifrah\Documents\Uni\HUTOPS\Semesters\3rd Semester\Database Systems\Project\Catering-Database-Management-System\CateringDatabaseSystem\obj\Debug\CateringDatabaseSystem.FoodItems.resources
+C:\Users\ifrah\Documents\Uni\HUTOPS\Semesters\3rd Semester\Database Systems\Project\Catering-Database-Management-System\CateringDatabaseSystem\obj\Debug\CateringDatabaseSystem.IngredientsAdmin.resources
+C:\Users\ifrah\Documents\Uni\HUTOPS\Semesters\3rd Semester\Database Systems\Project\Catering-Database-Management-System\CateringDatabaseSystem\obj\Debug\CateringDatabaseSystem.OrdersAdminView.resources
+C:\Users\ifrah\Documents\Uni\HUTOPS\Semesters\3rd Semester\Database Systems\Project\Catering-Database-Management-System\CateringDatabaseSystem\obj\Debug\CateringDatabaseSystem.Region.resources
+C:\Users\ifrah\Documents\Uni\HUTOPS\Semesters\3rd Semester\Database Systems\Project\Catering-Database-Management-System\CateringDatabaseSystem\obj\Debug\CateringDatabaseSystem.Rider.resources
+C:\Users\ifrah\Documents\Uni\HUTOPS\Semesters\3rd Semester\Database Systems\Project\Catering-Database-Management-System\CateringDatabaseSystem\obj\Debug\CateringDatabaseSystem.RiderAdminView.resources
+C:\Users\ifrah\Documents\Uni\HUTOPS\Semesters\3rd Semester\Database Systems\Project\Catering-Database-Management-System\CateringDatabaseSystem\obj\Debug\CateringDatabaseSystem.WeeklyMenu.resources
+C:\Users\ifrah\Documents\Uni\HUTOPS\Semesters\3rd Semester\Database Systems\Project\Catering-Database-Management-System\CateringDatabaseSystem\obj\Debug\CateringDatabaseSystem.Form1.resources
+C:\Users\ifrah\Documents\Uni\HUTOPS\Semesters\3rd Semester\Database Systems\Project\Catering-Database-Management-System\CateringDatabaseSystem\obj\Debug\CateringDatabaseSystem.Properties.Resources.resources
+C:\Users\ifrah\Documents\Uni\HUTOPS\Semesters\3rd Semester\Database Systems\Project\Catering-Database-Management-System\CateringDatabaseSystem\obj\Debug\CateringDatabaseSystem.csproj.GenerateResource.cache
+C:\Users\ifrah\Documents\Uni\HUTOPS\Semesters\3rd Semester\Database Systems\Project\Catering-Database-Management-System\CateringDatabaseSystem\obj\Debug\CateringDatabaseSystem.csproj.CoreCompileInputs.cache
+C:\Users\ifrah\Documents\Uni\HUTOPS\Semesters\3rd Semester\Database Systems\Project\Catering-Database-Management-System\CateringDatabaseSystem\obj\Debug\CateringDatabaseSystem.exe
+C:\Users\ifrah\Documents\Uni\HUTOPS\Semesters\3rd Semester\Database Systems\Project\Catering-Database-Management-System\CateringDatabaseSystem\obj\Debug\CateringDatabaseSystem.pdb

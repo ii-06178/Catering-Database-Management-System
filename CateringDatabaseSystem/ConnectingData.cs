@@ -13,7 +13,7 @@ namespace CateringDatabaseSystem
         //data members
 
         // connection string
-        public SqlConnection conn = new SqlConnection(@"Data Source=E-7440;Initial Catalog=cateringSystemDatabase;Integrated Security=SSPI;User ID=sa;Password= ");
+        public SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-V77AVVK;Initial Catalog=cateringSystemDatabase;Integrated Security=SSPI;User ID=sa;Password= ");
         public SqlCommand cmd = new SqlCommand();
 
 

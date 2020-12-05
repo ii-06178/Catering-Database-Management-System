@@ -121,6 +121,11 @@ create view RiderDeliveredMostOrders as select top(1) RiderID, RiderName, RiderP
 
 --drop view ItemsInCategory
 
+create procedure GetIngrQtyInItem @ItemName varchar(30)
+as
+select ItemName, Quantity_grams, QtyInStock_kg from Ingredients i inner join Ingredients_for_FoodItem fi on i.IngredientsID = fi.Ingredients_IngredientsID inner join FoodItem f on f.FoodItemID = fi.FoodItem_FoodItemID where ItemName = @ItemName
+go
 
-select ItemName, IngredientsID, IngredientName, Quantity_grams, ItemsInStock, MeasuredIn from Ingredients i inner join Ingredients_for_FoodItem fi on i.IngredientsID = fi.Ingredients_IngredientsID inner join FoodItem f on f.FoodItemID = fi.FoodItem_FoodItemID
+exec GetIngrQtyInItem @ItemName = 'biryani'
 
+select * from Ingredients

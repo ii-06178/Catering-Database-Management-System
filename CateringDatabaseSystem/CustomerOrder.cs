@@ -169,6 +169,42 @@ namespace CateringDatabaseSystem
             
         }
 
+        private bool isFoodAvailable()
+        {//if quantity entered is possible, calculate price
+            ConnectingData c = new ConnectingData();
+            DataTable dt = c.Select("exec GetIngrQtyInItem @ItemName = '" + dataGridView1.SelectedCells[0].Value.ToString() + "'"); //datatable to temporarily store selected items ingredients required and available
+            bool isAvailable = true; //to check if entered amount of item is available
+            if (textBox5.Enabled)
+            {
+                foreach (DataRow row in dt.Rows)
+                {//check each ingredient for availability
+                    double serving = double.Parse(dataGridView1.SelectedCells[2].Value.ToString());
+                    double qty_required = double.Parse(row["Quantity_grams"].ToString()) * (double.Parse(textBox5.Text) / serving); //calculating quantity of ingredient required for amount of item customer wants
+                    double qty_in_stock = double.Parse(row["QtyInStock_kg"].ToString()) * 1000; //converting to grams
+                    if (qty_required > qty_in_stock)
+                    {
+                        isAvailable = false;
+                        break;
+                    }
+                }
+            }
+            else if (textBox7.Enabled)
+            {
+                foreach (DataRow row in dt.Rows)
+                {//check each ingredient for availability
+                    int serving = int.Parse(dataGridView1.SelectedCells[2].Value.ToString());
+                    int qty_required = int.Parse(row["Quantity_grams"].ToString()) * (int.Parse(textBox7.Text) / serving); //calculating quantity of ingredient required for amount of item customer wants
+                    int qty_in_stock = int.Parse(row["QtyInStock_kg"].ToString()) * 1000; //converting to grams
+                    if (qty_required > qty_in_stock)
+                    {
+                        isAvailable = false;
+                        break;
+                    }
+                }
+            }
+            return isAvailable;
+        }
+
         private void textBox7_TextChanged(object sender, EventArgs e)
         {//calculating and displaying price of amount entered of food item 
             if (textBox7.Text != "Enter Amount")
@@ -191,11 +227,19 @@ namespace CateringDatabaseSystem
                 }
                 else
                 {
-                    textBox1.Text = "";
-                    string unitprice = dataGridView1.SelectedCells[1].Value.ToString();
-                    string unitquantity = dataGridView1.SelectedCells[2].Value.ToString();
-                    textBox3.Text = (double.Parse(textBox7.Text) * double.Parse(unitprice) / double.Parse(unitquantity)).ToString();
-                    button1.Enabled = true;
+                    if (isFoodAvailable())
+                    {
+                        textBox1.Text = "";
+                        string unitprice = dataGridView1.SelectedCells[1].Value.ToString();
+                        string unitquantity = dataGridView1.SelectedCells[2].Value.ToString();
+                        textBox3.Text = (double.Parse(textBox7.Text) * double.Parse(unitprice) / double.Parse(unitquantity)).ToString();
+                        button1.Enabled = true;
+                    }
+                    else
+                    {
+                        button1.Enabled = false;
+                        textBox1.Text = "Quantity entered exceeds availability.";
+                    }
                 }
             } 
         }
@@ -206,7 +250,7 @@ namespace CateringDatabaseSystem
             textBox7.Text = "Enter Amount";
             textBox5.Text = "Enter Weight (Kg)";
             if (radioButton8.Checked == true & comboBox3.Text != "")
-            {//populating list box with food items in selected category
+            {//populating datagridview with food items in selected category
                 ConnectingData c = new ConnectingData();
                 dataGridView1.DataSource = c.Select("Select itemname as 'Item', unitprice as 'Price/unit' ,unitquantity 'Serving Size',measuredin as 'Measured In' from fooditem f inner join categories c on f.categories_categoriesid = c.categoriesid where categoryname = '" + comboBox3.Text + "'");
                 //enabling relevant textbox for quantity
@@ -250,11 +294,19 @@ namespace CateringDatabaseSystem
                 }
                 else 
                 {
-                    textBox1.Text = "";
-                    string unitprice = dataGridView1.SelectedCells[1].Value.ToString();
-                    string unitquantity = dataGridView1.SelectedCells[2].Value.ToString();
-                    textBox3.Text = (double.Parse(textBox5.Text) * double.Parse(unitprice) / double.Parse(unitquantity)).ToString();
-                    button1.Enabled = true;
+                    if (isFoodAvailable())
+                    {
+                        textBox1.Text = "";
+                        string unitprice = dataGridView1.SelectedCells[1].Value.ToString();
+                        string unitquantity = dataGridView1.SelectedCells[2].Value.ToString();
+                        textBox3.Text = (double.Parse(textBox5.Text) * double.Parse(unitprice) / double.Parse(unitquantity)).ToString();
+                        button1.Enabled = true;
+                    }
+                    else
+                    {
+                        button1.Enabled = false;
+                        textBox1.Text = "Quantity entered exceeds availability.";
+                    }
                 }
             } 
 

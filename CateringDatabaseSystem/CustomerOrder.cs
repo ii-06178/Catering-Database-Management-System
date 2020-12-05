@@ -191,6 +191,8 @@ namespace CateringDatabaseSystem
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {//search by category/ category selected changed
             textBox3.Text = "0"; //resetting price to 0
+            textBox7.Text = "Enter Amount";
+            textBox5.Text = "Enter Weight (Kg)";
             if (radioButton8.Checked == true & comboBox3.Text != "")
             {//populating list box with food items in selected category
                 ConnectingData c = new ConnectingData();

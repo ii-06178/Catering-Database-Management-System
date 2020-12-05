@@ -379,11 +379,10 @@
             "Orders",
             "Riders",
             "Food Items",
-            "Weekly Menu",
             "Ingredients",
-            "Deals",
-            "Region",
-            "Categories"});
+            "Categories",
+            "Weekly Menu",
+            "Region"});
             this.comboBox1.Location = new System.Drawing.Point(28, 39);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(272, 31);

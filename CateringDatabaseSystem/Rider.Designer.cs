@@ -178,7 +178,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(138, 115);
+            this.button1.Location = new System.Drawing.Point(138, 119);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(288, 36);
             this.button1.TabIndex = 22;
@@ -195,7 +195,7 @@
             "Clifton",
             "Malir",
             "North Nazimabad"});
-            this.comboBox1.Location = new System.Drawing.Point(138, 80);
+            this.comboBox1.Location = new System.Drawing.Point(138, 82);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(288, 31);
             this.comboBox1.TabIndex = 21;
@@ -204,7 +204,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(22, 83);
+            this.label5.Location = new System.Drawing.Point(31, 85);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(74, 23);
             this.label5.TabIndex = 20;
@@ -222,7 +222,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(22, 49);
+            this.label1.Location = new System.Drawing.Point(31, 49);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(83, 23);
             this.label1.TabIndex = 3;

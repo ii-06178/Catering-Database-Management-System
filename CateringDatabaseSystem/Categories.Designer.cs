@@ -46,9 +46,9 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.textBox4 = new System.Windows.Forms.TextBox();
             this.button5 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -215,9 +215,9 @@
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(296, 166);
+            this.button3.Location = new System.Drawing.Point(275, 166);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(82, 36);
+            this.button3.Size = new System.Drawing.Size(103, 36);
             this.button3.TabIndex = 11;
             this.button3.Text = "Update";
             this.button3.UseVisualStyleBackColor = true;
@@ -259,13 +259,15 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Delete Category";
             // 
-            // textBox4
+            // label8
             // 
-            this.textBox4.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(164, 42);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(213, 30);
-            this.textBox4.TabIndex = 7;
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(21, 45);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(117, 23);
+            this.label8.TabIndex = 10;
+            this.label8.Text = "Category ID:";
             // 
             // button2
             // 
@@ -278,15 +280,13 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // label8
+            // textBox4
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(21, 45);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(117, 23);
-            this.label8.TabIndex = 10;
-            this.label8.Text = "Category ID:";
+            this.textBox4.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox4.Location = new System.Drawing.Point(164, 42);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(213, 30);
+            this.textBox4.TabIndex = 7;
             // 
             // button5
             // 

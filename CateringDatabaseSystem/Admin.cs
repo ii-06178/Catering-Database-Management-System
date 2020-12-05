@@ -106,13 +106,21 @@ namespace CateringDatabaseSystem
             ConnectingData c = new ConnectingData();
             if (textBox11.Text != "" && textBox11.Text != "Enter ID of Admin to update")
             {
-                if (textBox7.Text != "")
+                int i = 0;
+                if (!int.TryParse(textBox11.Text, out i)) // || !int.TryParse(textBox10.Text, out i)
                 {
-                    c.Inserts("Update Admin set Password_2 = '" + textBox7.Text + "' where AdminId = " + textBox11.Text);
+                    MessageBox.Show("Invalid ID: enter digits only.");
                 }
-                if (textBox6.Text != "")
+                else
                 {
-                    c.Inserts("Update Admin set Role = '" + textBox6.Text + "' where AdminId = " + textBox11.Text);
+                    if (textBox7.Text != "")
+                    {
+                        c.Inserts("Update Admin set Password_2 = '" + textBox7.Text + "' where AdminId = " + textBox11.Text);
+                    }
+                    if (textBox6.Text != "")
+                    {
+                        c.Inserts("Update Admin set Role = '" + textBox6.Text + "' where AdminId = " + textBox11.Text);
+                    }
                 }
             }
             else

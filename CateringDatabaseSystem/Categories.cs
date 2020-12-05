@@ -50,7 +50,16 @@ namespace CateringDatabaseSystem
             }
             else
             {
-                c.Inserts("delete from Categories where CategoriesID =" + textBox4.Text);
+                int i = 0;
+                if (!int.TryParse(textBox4.Text, out i)
+                  )
+                {
+                    MessageBox.Show("Invalid ID: enter digits only.");
+                }
+                else
+                {
+                    c.Inserts("delete from Categories where CategoriesID =" + textBox4.Text);
+                }
             }
         }
 
@@ -67,13 +76,22 @@ namespace CateringDatabaseSystem
             }
             else
             {
-                if (textBox3.Text != "")
-                {//name
-                    c.Inserts("update Categories set CategoryName = '" + textBox3.Text + "'" + "where CategoriesID = " + textBox7.Text);
+                int i = 0;
+                if (!int.TryParse(textBox7.Text, out i)
+                  )
+                {
+                    MessageBox.Show("Invalid ID: enter digits only.");
                 }
-                if (comboBox1.Text != "")
-                {//measured in
-                    c.Inserts("update Categories set MeasuredIn = '" + comboBox1.Text + "'" + "where CategoriesID = " + textBox7.Text);
+                else
+                {
+                    if (textBox3.Text != "")
+                    {//name
+                        c.Inserts("update Categories set CategoryName = '" + textBox3.Text + "'" + "where CategoriesID = " + textBox7.Text);
+                    }
+                    if (comboBox1.Text != "")
+                    {//measured in
+                        c.Inserts("update Categories set MeasuredIn = '" + comboBox1.Text + "'" + "where CategoriesID = " + textBox7.Text);
+                    }
                 }
             }
         }

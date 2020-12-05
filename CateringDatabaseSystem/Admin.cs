@@ -64,11 +64,6 @@ namespace CateringDatabaseSystem
                 var Region = new Region();
                 Region.Show();
             }
-            else if (comboBox1.Text.Equals("Deals"))
-            {
-                var Deals = new Deals();
-                Deals.Show();
-            }
         }
 
         private void button7_Click(object sender, EventArgs e)

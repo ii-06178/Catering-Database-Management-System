@@ -159,5 +159,11 @@ namespace CateringDatabaseSystem
             c.Inserts("delete from weeklyMenuItems where weeklyMenuID =" + textBox3.Text);
             c.Inserts("delete from weeklyMenu where weeklyMenuID =" + textBox3.Text);
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {//show menu of selected week using VIEW
+            ConnectingData c = new ConnectingData();
+            dataGridView1.DataSource = c.Select("select * from viewAllMenus where validfrom <= '" + dateTimePicker2.Value.ToString() + "' and validtill >= '" + dateTimePicker2.Value.ToString() + "'");
+        }
     }
 }

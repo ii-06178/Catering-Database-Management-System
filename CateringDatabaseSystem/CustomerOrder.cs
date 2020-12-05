@@ -174,15 +174,32 @@ namespace CateringDatabaseSystem
             ConnectingData c = new ConnectingData();
             DataTable dt = c.Select("exec GetIngrQtyInItem @ItemName = '" + dataGridView1.SelectedCells[0].Value.ToString() + "'"); //datatable to temporarily store selected items ingredients required and available
             bool isAvailable = true; //to check if entered amount of item is available
-            foreach (DataRow row in dt.Rows)
-            {//check each ingredient for availability
-                int serving = int.Parse(dataGridView1.SelectedCells[2].Value.ToString());
-                int qty_required = int.Parse(row["Quantity_grams"].ToString()) * (int.Parse(textBox7.Text)/serving); //calculating quantity of ingredient required for amount of item customer wants
-                int qty_in_stock = int.Parse(row["QtyInStock_kg"].ToString()) * 1000; //converting to grams
-                if (qty_required > qty_in_stock)
-                {
-                    isAvailable = false;
-                    break;
+            if (textBox5.Enabled)
+            {
+                foreach (DataRow row in dt.Rows)
+                {//check each ingredient for availability
+                    double serving = double.Parse(dataGridView1.SelectedCells[2].Value.ToString());
+                    double qty_required = double.Parse(row["Quantity_grams"].ToString()) * (double.Parse(textBox5.Text) / serving); //calculating quantity of ingredient required for amount of item customer wants
+                    double qty_in_stock = double.Parse(row["QtyInStock_kg"].ToString()) * 1000; //converting to grams
+                    if (qty_required > qty_in_stock)
+                    {
+                        isAvailable = false;
+                        break;
+                    }
+                }
+            }
+            else if (textBox7.Enabled)
+            {
+                foreach (DataRow row in dt.Rows)
+                {//check each ingredient for availability
+                    int serving = int.Parse(dataGridView1.SelectedCells[2].Value.ToString());
+                    int qty_required = int.Parse(row["Quantity_grams"].ToString()) * (int.Parse(textBox7.Text) / serving); //calculating quantity of ingredient required for amount of item customer wants
+                    int qty_in_stock = int.Parse(row["QtyInStock_kg"].ToString()) * 1000; //converting to grams
+                    if (qty_required > qty_in_stock)
+                    {
+                        isAvailable = false;
+                        break;
+                    }
                 }
             }
             return isAvailable;

@@ -25,13 +25,13 @@ namespace CateringDatabaseSystem
         private void button1_Click(object sender, EventArgs e)
         {//adding ingredients
             ConnectingData c = new ConnectingData();
-            if (textBox2.Text == "" || textBox6.Text == "" || comboBox2.Text == "")
+            if (textBox2.Text == "" || textBox6.Text == "")
             {
                 MessageBox.Show("Fill all fields!");
             }
             else
             {
-                c.Inserts("insert into ingredients (ingredientsID, ingredientName, itemsInStock, measuredIn) values ((select max(ingredientsID) from ingredients)+1, '" + textBox2.Text + "'," + textBox6.Text + ", '" + comboBox2.Text + "')");
+                c.Inserts("insert into ingredients (ingredientsID, ingredientName, QtyInStock_kg) values ((select max(ingredientsID) from ingredients)+1, '" + textBox2.Text + "'," + textBox6.Text + ")");
             }
         }
 
@@ -48,15 +48,11 @@ namespace CateringDatabaseSystem
                 ConnectingData c = new ConnectingData();
                 if (textBox3.Text != "")
                 {//quantity
-                    c.Inserts("update ingredients set itemsInStock = " + textBox3.Text + "where ingredientsID = " + textBox7.Text);
+                    c.Inserts("update ingredients set QtyInStock_kg = " + textBox3.Text + "where ingredientsID = " + textBox7.Text);
                 }
-                if (comboBox1.Text != "")
-                {//measured in
-                    c.Inserts("update ingredients set measuredIn = '" + comboBox1.Text + "' where ingredientsID = " + textBox7.Text);
-                }
-                if (textBox3.Text == "" && comboBox1.Text == "")
+                else
                 {
-                    MessageBox.Show("Specify value(s) to update.");
+                    MessageBox.Show("Specify quantity to update.");
                 }
             }
             else

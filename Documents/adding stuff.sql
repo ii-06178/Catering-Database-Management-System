@@ -131,3 +131,15 @@ exec GetIngrQtyInItem @ItemName = 'chicken tikka roll'
 
 select * from Ingredients
 update Ingredients set QtyInStock_kg = 20
+
+
+insert into weeklyMenu (weeklyMenuID, ValidFrom, ValidTill) values (1, '2020-11-12', '2020-11-15')
+select * from WeeklyMenu
+select * from WeeklyMenuItems order by WeeklyMenuID
+delete from WeeklyMenu
+delete from WeeklyMenuItems
+
+create view viewAllMenus as
+select w.WeeklyMenuID as 'ID', [WeekDay] as 'Day', FoodItem_FoodItemID as 'Food Item ID', ItemName as 'Food Item', ValidFrom, ValidTill from WeeklyMenu w inner join WeeklyMenuItems wi on w.WeeklyMenuID = wi.WeeklyMenuID inner join FoodItem f on f.FoodItemID = wi.FoodItem_FoodItemID
+
+select * from viewAllMenus

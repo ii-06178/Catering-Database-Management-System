@@ -57,9 +57,9 @@ namespace CateringDatabaseSystem
         }
 
         private void button4_Click(object sender, EventArgs e)
-        {//show all orders
+        {//show all orders using VIEW
             ConnectingData c = new ConnectingData();
-            dataGridView1.DataSource = c.Select("select orderID as 'ID',customers_customerID as 'Customer ID', paymentType as 'Payment Type', region_regionID as 'Region ID', rider_riderID as 'Rider ID', orderDate as 'Order Date', requiredDate as 'Required Date', shippedDate as 'Shipped Date', OrderStatus as 'Order Status', totalPrice as 'Total Price/Rs.'  from payment p inner join orders o on p.paymentid = o.payment_paymentid");
+            dataGridView1.DataSource = c.Select("select * from ViewOrder");
         }
 
         private void button3_Click(object sender, EventArgs e)

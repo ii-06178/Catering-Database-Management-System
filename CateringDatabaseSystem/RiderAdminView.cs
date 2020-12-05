@@ -75,8 +75,8 @@ namespace CateringDatabaseSystem
                 dataGridView1.DataSource = c.Select("select * from rider where riderID = " + textBox3.Text);
             }
             else if (comboBox1.Text == "All Orders Delivered By Rider")
-            {
-                dataGridView1.DataSource = c.Select("select orderID as 'ID',customers_customerID as 'Customer ID', paymentType as 'Payment Type', region_regionID as 'Region ID', rider_riderID as 'Rider ID', orderDate as 'Order Date', requiredDate as 'Required Date', shippedDate as 'Shipped Date', OrderStatus as 'Order Status', totalPrice as 'Total Price/Rs.'  from payment p inner join orders o on p.paymentid = o.payment_paymentid where rider_riderID = " + textBox3.Text);
+            {//VIEW
+                dataGridView1.DataSource = c.Select("select * from OrdersDeliveredByRider where [Rider ID] = " + textBox3.Text);
             }
             else if (comboBox1.Text == "Rider Name")
             {
@@ -87,8 +87,8 @@ namespace CateringDatabaseSystem
                 dataGridView1.DataSource = c.Select("select * from rider where riderCompany = '" + textBox3.Text + "'");
             }
             else if (comboBox1.Text == "Delivered Most Orders")
-            {
-                dataGridView1.DataSource = c.Select("select top(1) RiderID, RiderName, RiderPhoneNo, RiderCNIC, RiderCompany, RiderEmail, RiderPassword, count(OrderID) as 'No of Orders Delivered' from rider r inner join orders o on r.riderID = o.Rider_RiderID group by riderID, RiderName, RiderPhoneNo, RiderCNIC, RiderCompany, RiderEmail, RiderPassword");
+            {//VIEW
+                dataGridView1.DataSource = c.Select("select * from RiderDeliveredMostOrders");
             }
         }
 

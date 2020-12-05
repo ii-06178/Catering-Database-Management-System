@@ -248,7 +248,7 @@ namespace CateringDatabaseSystem
                     textBox1.Text = "Invalid, quantity cannot be below serving size!";
                     button1.Enabled = false;
                 }
-                else
+                else 
                 {
                     textBox1.Text = "";
                     string unitprice = dataGridView1.SelectedCells[1].Value.ToString();

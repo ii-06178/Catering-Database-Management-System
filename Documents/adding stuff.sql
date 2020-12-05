@@ -120,3 +120,7 @@ create view RiderDeliveredMostOrders as select top(1) RiderID, RiderName, RiderP
 --create view ItemsInCategory as Select itemname as 'Item', unitprice as 'Price/unit' ,unitquantity 'Serving Size',measuredin as 'Measured In' from fooditem f inner join categories c on f.categories_categoriesid = c.categoriesid
 
 --drop view ItemsInCategory
+
+
+select ItemName, IngredientsID, IngredientName, Quantity_grams, ItemsInStock, MeasuredIn from Ingredients i inner join Ingredients_for_FoodItem fi on i.IngredientsID = fi.Ingredients_IngredientsID inner join FoodItem f on f.FoodItemID = fi.FoodItem_FoodItemID
+

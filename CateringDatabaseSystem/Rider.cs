@@ -35,12 +35,19 @@ namespace CateringDatabaseSystem
             dt.Columns.Add("TotalPrice");
             dt.Columns.Add("PaymentType");
             //for each selected row, add row to second datagridview
-            foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+            if (dataGridView1.SelectedRows.Count > 0)
             {
-                dt.Rows.Add(row.Cells[0].Value, row.Cells[1].Value, row.Cells[2].Value, row.Cells[3].Value);
+                foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+                {
+                    dt.Rows.Add(row.Cells[0].Value, row.Cells[1].Value, row.Cells[2].Value, row.Cells[3].Value);
+                }
+                dataGridView2.DataSource = dt;
+                button6.Enabled = true;
             }
-            dataGridView2.DataSource = dt;
-            button6.Enabled = true;
+            else
+            {
+                MessageBox.Show("No orders selected.");
+            }
         }
 
         private void Rider_Load(object sender, EventArgs e)
@@ -61,7 +68,14 @@ namespace CateringDatabaseSystem
         private void button1_Click(object sender, EventArgs e)
         {//view orders in region where status = in process and no rider is assigned
             ConnectingData c = new ConnectingData();
-            dataGridView1.DataSource = c.Select("select OrderID, RequiredDate, TotalPrice, PaymentType from orders o inner join payment p on o.payment_paymentID = p.paymentID where region_regionID = (select regionID from region where regionDescription = '" + comboBox1.Text + "') and orderStatus = 'In Process' and rider_riderID is null");
+            if (textBox1.Text != "" && comboBox1.Text != "")
+            {
+                dataGridView1.DataSource = c.Select("select OrderID, RequiredDate, TotalPrice, PaymentType from orders o inner join payment p on o.payment_paymentID = p.paymentID where region_regionID = (select regionID from region where regionDescription = '" + comboBox1.Text + "') and orderStatus = 'In Process' and rider_riderID is null");
+            }
+            else
+            {
+                MessageBox.Show("Enter your ID and region in focus, both.");
+            }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -76,10 +90,18 @@ namespace CateringDatabaseSystem
 
         private void button6_Click(object sender, EventArgs e)
         {//remove selected order
-            foreach (DataGridViewRow row in dataGridView2.SelectedRows)
+            if (dataGridView1.SelectedRows.Count > 0)
             {
-                dataGridView2.Rows.Remove(row);
+                foreach (DataGridViewRow row in dataGridView2.SelectedRows)
+                {
+                    dataGridView2.Rows.Remove(row);
+                }
             }
+            else
+            {
+                MessageBox.Show("Select order to remove.");
+            }
+            
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -106,19 +128,70 @@ namespace CateringDatabaseSystem
         private void button3_Click(object sender, EventArgs e)
         {
             ConnectingData c = new ConnectingData();
-            c.Inserts("update orders set orderstatus = '" + comboBox2.Text + "' where orderID = " + textBox3.Text + "and rider_riderID = " + textBox2.Text);
-            if (comboBox2.Text == "Delivered")
+            if (textBox2.Text == "")
             {
-                c.Inserts("update orders set shippedDate = getdate()");
+                MessageBox.Show("Enter your ID");
             }
-            c.Inserts("update payment set cashreceived = " + textBox7.Text + ", cashreturned = "+textBox6.Text+" where paymentid = (select payment_paymentID from orders where orderID = " + textBox3.Text + ")");
-
+            else if (textBox3.Text == "")
+            {
+                MessageBox.Show("Enter Order ID");
+            }
+            else if (comboBox2.Text == "")
+            {
+                MessageBox.Show("Status not updated.");
+            }
+            else
+            {
+                c.Inserts("update orders set orderstatus = '" + comboBox2.Text + "', shippedDate = getdate() where orderID = " + textBox3.Text + "and rider_riderID = " + textBox2.Text);
+                if (textBox6.Enabled && textBox7.Enabled)
+                {
+                    if (textBox6.Text == "" || textBox7.Text == "")
+                    {
+                        MessageBox.Show("Enter cash received and returned.");
+                    }
+                    else
+                    {
+                        c.Inserts("update payment set cashreceived = " + textBox7.Text + ", cashreturned = " + textBox6.Text + " where paymentid = (select payment_paymentID from orders where orderID = " + textBox3.Text + ")");
+                    }
+                }
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             ConnectingData c = new ConnectingData();
-            c.Inserts("update rider set riderpassword = '" + textBox5.Text + "' where riderID = " + textBox4.Text);
+            if (textBox5.Text != "" && textBox4.Text != "")
+            {
+                c.Inserts("update rider set riderpassword = '" + textBox5.Text + "' where riderID = " + textBox4.Text);
+            }
+            else
+            {
+                MessageBox.Show("Enter your ID and new password.");
+            }
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+            ConnectingData c = new ConnectingData();
+            if (textBox3.Text != "")
+            {
+                DataTable ds = c.Select("select paymentType from orders o inner join payment p on o.payment_paymentID = p.paymentID where orderID = " + textBox3.Text);
+                if (ds.Rows.Count > 0 && ds.Rows[0][0].ToString() == "COD")
+                {
+                    textBox7.Enabled = true;
+                    textBox6.Enabled = true;
+                }
+                else
+                {
+                    textBox7.Enabled = false;
+                    textBox6.Enabled = false;
+                }
+            }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

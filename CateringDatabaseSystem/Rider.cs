@@ -106,19 +106,58 @@ namespace CateringDatabaseSystem
         private void button3_Click(object sender, EventArgs e)
         {
             ConnectingData c = new ConnectingData();
-            c.Inserts("update orders set orderstatus = '" + comboBox2.Text + "' where orderID = " + textBox3.Text + "and rider_riderID = " + textBox2.Text);
-            if (comboBox2.Text == "Delivered")
+            if (textBox2.Text == "")
             {
-                c.Inserts("update orders set shippedDate = getdate()");
+                MessageBox.Show("Enter your ID");
             }
-            c.Inserts("update payment set cashreceived = " + textBox7.Text + ", cashreturned = "+textBox6.Text+" where paymentid = (select payment_paymentID from orders where orderID = " + textBox3.Text + ")");
-
+            else if (textBox3.Text == "")
+            {
+                MessageBox.Show("Enter Order ID");
+            }
+            else if (comboBox2.Text == "")
+            {
+                MessageBox.Show("Status not updated.");
+            }
+            else
+            {
+                c.Inserts("update orders set orderstatus = '" + comboBox2.Text + "', shippedDate = getdate() where orderID = " + textBox3.Text + "and rider_riderID = " + textBox2.Text);
+                if (textBox6.Enabled && textBox7.Enabled)
+                {
+                    if (textBox6.Text == "" || textBox7.Text == "")
+                    {
+                        MessageBox.Show("Enter cash received and returned.");
+                    }
+                    else
+                    {
+                        c.Inserts("update payment set cashreceived = " + textBox7.Text + ", cashreturned = " + textBox6.Text + " where paymentid = (select payment_paymentID from orders where orderID = " + textBox3.Text + ")");
+                    }
+                }
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             ConnectingData c = new ConnectingData();
             c.Inserts("update rider set riderpassword = '" + textBox5.Text + "' where riderID = " + textBox4.Text);
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+            ConnectingData c = new ConnectingData();
+            if (textBox3.Text != "")
+            {
+                DataTable ds = c.Select("select paymentType from orders o inner join payment p on o.payment_paymentID = p.paymentID where orderID = " + textBox3.Text);
+                if (ds.Rows.Count > 0 && ds.Rows[0][0].ToString() == "COD")
+                {
+                    textBox7.Enabled = true;
+                    textBox6.Enabled = true;
+                }
+                else
+                {
+                    textBox7.Enabled = false;
+                    textBox6.Enabled = false;
+                }
+            }
         }
     }
 }

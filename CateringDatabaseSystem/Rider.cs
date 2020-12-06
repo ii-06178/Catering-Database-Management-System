@@ -107,6 +107,10 @@ namespace CateringDatabaseSystem
         {
             ConnectingData c = new ConnectingData();
             c.Inserts("update orders set orderstatus = '" + comboBox2.Text + "' where orderID = " + textBox3.Text + "and rider_riderID = " + textBox2.Text);
+            if (comboBox2.Text == "Delivered")
+            {
+                c.Inserts("update orders set shippedDate = getdate()");
+            }
             c.Inserts("update payment set cashreceived = " + textBox7.Text + ", cashreturned = "+textBox6.Text+" where paymentid = (select payment_paymentID from orders where orderID = " + textBox3.Text + ")");
 
         }

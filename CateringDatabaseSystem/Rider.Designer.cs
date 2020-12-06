@@ -217,6 +217,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(288, 30);
             this.textBox1.TabIndex = 4;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label1
             // 
@@ -224,9 +225,9 @@
             this.label1.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(31, 49);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(83, 23);
+            this.label1.Size = new System.Drawing.Size(78, 23);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Rider ID:";
+            this.label1.Text = "Your ID:";
             // 
             // groupBox2
             // 

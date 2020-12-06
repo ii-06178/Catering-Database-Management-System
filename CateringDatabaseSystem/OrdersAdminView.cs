@@ -75,16 +75,16 @@ namespace CateringDatabaseSystem
                 dataGridView1.DataSource = c.Select("select * from ViewOrder where [Customer ID] = " + textBox2.Text);
             }
             else if (comboBox3.Text != "")
-            {//select by food item
-                dataGridView1.DataSource = c.Select("select o.orderID as 'ID',customers_customerID as 'Customer ID', paymentType as 'Payment Type', region_regionID as 'Region ID', rider_riderID as 'Rider ID', orderDate as 'Order Date', requiredDate as 'Required Date', shippedDate as 'Shipped Date', OrderStatus as 'Order Status', totalPrice as 'Total Price/Rs.'  from payment p inner join orders o on p.paymentid = o.payment_paymentid inner join orderbyitem oi on o.orderid = oi.orderid where fooditem_fooditemid = (select fooditemid from fooditem where itemname = '" + comboBox3.Text + "')");
+            {//select by food item using a stored procedure
+                dataGridView1.DataSource = c.Select("exec viewOrdersByItem @itemname = '" + comboBox3.Text + "'");
             }
             else if (textBox5.Text != "")
-            {//select by order id
-                dataGridView1.DataSource = c.Select("select orderID as 'ID',customers_customerID as 'Customer ID', paymentType as 'Payment Type', region_regionID as 'Region ID', rider_riderID as 'Rider ID', orderDate as 'Order Date', requiredDate as 'Required Date', shippedDate as 'Shipped Date', OrderStatus as 'Order Status', totalPrice as 'Total Price/Rs.'  from payment p inner join orders o on p.paymentid = o.payment_paymentid where orderID = " + textBox5.Text);
+            {//select by order id using VIEW
+                dataGridView1.DataSource = c.Select("select * from ViewOrder where ID = " + textBox5.Text);
             }
             else if (comboBox2.Text != "")
-            {//select by order status
-                dataGridView1.DataSource = c.Select("select orderID as 'ID',customers_customerID as 'Customer ID', paymentType as 'Payment Type', region_regionID as 'Region ID', rider_riderID as 'Rider ID', orderDate as 'Order Date', requiredDate as 'Required Date', shippedDate as 'Shipped Date', OrderStatus as 'Order Status', totalPrice as 'Total Price/Rs.'  from payment p inner join orders o on p.paymentid = o.payment_paymentid where OrderStatus = '" + comboBox2.Text + "'");
+            {//select by order status using VIEW
+                dataGridView1.DataSource = c.Select("select * from ViewOrder where [Order Status] = '" + comboBox2.Text + "'");
             }
         }
 

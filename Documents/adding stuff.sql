@@ -41,10 +41,10 @@ end
 insert into payment (paymentID, paymentType) values (1, 'COD')
 select * from Payment
 
-delete from Payment where PaymentID >= 2 
-delete from Customers where CustomerID >= 5
-delete from Orders where OrderID >= 2
-delete from OrderbyItem
+--delete from Payment where PaymentID >= 2 
+--delete from Customers where CustomerID >= 5
+--delete from Orders where OrderID >= 2
+--delete from OrderbyItem
 
 update orders set Payment_PaymentID = 1 where OrderID = 1
 
@@ -97,16 +97,10 @@ create view ItemsWithIngrnt as select ingredientsID as 'ID', ingredientName as '
 
 --select [Food Item], Ingredient, [Quantity Required (grams)] from ItemsWithIngrnt where ID = 6
 
-create view ViewOrder as select orderID as 'ID',customers_customerID as 'Customer ID', paymentType as 'Payment Type', region_regionID as 'Region ID', rider_riderID as 'Rider ID', orderDate as 'Order Date', requiredDate as 'Required Date', shippedDate as 'Shipped Date', OrderStatus as 'Order Status', totalPrice as 'Total Price/Rs.'  from payment p inner join orders o on p.paymentid = o.payment_paymentid
+create view ViewOrder as select orderID as 'ID',customers_customerID as 'Customer ID', paymentType as 'Payment Type', region_regionID as 'Region ID', rider_riderID as 'Rider ID', orderDate as 'Order Date', requiredDate as 'Required Date', shippedDate as 'Shipped Date', OrderStatus as 'Order Status', totalPrice as 'Total Price/Rs.', CashReceived as 'Cash Received', CashReturned as 'Cash Returned'  from payment p inner join orders o on p.paymentid = o.payment_paymentid
 
 select * from ViewOrder 
-
-
-create view ViewOrderExt as select o.orderID as 'ID',customers_customerID as 'Customer ID', paymentType as 'Payment Type', region_regionID as 'Region ID', rider_riderID as 'Rider ID', orderDate as 'Order Date', requiredDate as 'Required Date', shippedDate as 'Shipped Date', OrderStatus as 'Order Status', totalPrice as 'Total Price/Rs.'  from payment p inner join orders o on p.paymentid = o.payment_paymentid inner join orderbyitem oi on o.orderid = oi.orderid
-
-
-select * from ViewOrder
-select * from ViewOrderExt
+select * from ViewOrder where [Order Status] = 'In Process' 
 
 select * from showAllFoodItems 
 
@@ -114,7 +108,7 @@ create view OrdersDeliveredByRider as select rider_riderID as 'Rider ID', orderI
 
 select * from OrdersDeliveredByRider where [Rider ID]
 
-drop view OrdersDeliveredByRider
+drop view ViewOrder
 
 create view RiderDeliveredMostOrders as select top(1) RiderID, RiderName, RiderPhoneNo, RiderCNIC, RiderCompany, RiderEmail, RiderPassword, count(OrderID) as 'No of Orders Delivered' from rider r inner join orders o on r.riderID = o.Rider_RiderID group by riderID, RiderName, RiderPhoneNo, RiderCNIC, RiderCompany, RiderEmail, RiderPassword
 
@@ -157,3 +151,11 @@ create view viewAllMenus as
 select w.WeeklyMenuID as 'ID', [WeekDay] as 'Day', FoodItem_FoodItemID as 'Food Item ID', ItemName as 'Food Item', ValidFrom, ValidTill from WeeklyMenu w inner join WeeklyMenuItems wi on w.WeeklyMenuID = wi.WeeklyMenuID inner join FoodItem f on f.FoodItemID = wi.FoodItem_FoodItemID
 
 select * from viewAllMenus
+
+create procedure viewOrdersByItem @ItemName varchar(30) as
+select o.orderID as 'ID',customers_customerID as 'Customer ID', paymentType as 'Payment Type', region_regionID as 'Region ID', rider_riderID as 'Rider ID', orderDate as 'Order Date', requiredDate as 'Required Date', shippedDate as 'Shipped Date', OrderStatus as 'Order Status', totalPrice as 'Total Price/Rs.', CashReceived as 'Cash Received', CashReturned as 'Cash Returned'  from payment p inner join orders o on p.paymentid = o.payment_paymentid inner join orderbyitem oi on o.orderid = oi.orderid where fooditem_fooditemid = (select fooditemid from fooditem where itemname = @ItemName)
+
+exec viewOrdersByItem @itemname = 'Pulao'
+
+drop procedure viewOrdersByItem
+

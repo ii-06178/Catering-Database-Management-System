@@ -128,24 +128,22 @@ namespace CateringDatabaseSystem
         private void button3_Click(object sender, EventArgs e)
         {//delete admin - only owner can delete
             ConnectingData c = new ConnectingData();
-            if (textBox9.Text != "" && textBox9.Text != "Enter ID of Admin to remove")
+            DataTable ds = c.Select("select role from admin where adminID = " + textBox8.Text);
+            if (ds.Rows[0][0].ToString() == "Owner")
             {
-                c.Inserts("Delete from Admin where AdminId = " + textBox9.Text);
-            }
-            else
-            {//error message if null
-                MessageBox.Show("Please enter the ID of admin to remove.");
-            }
-
-            /**The if condition isn't working right now, I'll fix it later**/
-            /*if (textBox8.Text == c.Select("Select AdminID from Admin where Role = 'owner'").ToString())
-            {//If the admin deleting another admin is the owner, only then the action will be done.
-                c.Inserts("Delete from Admin where AdminID = " + textBox9.Text);
+                if (textBox9.Text != "" && textBox9.Text != "Enter ID of Admin to remove")
+                {
+                    c.Inserts("Delete from Admin where AdminId = " + textBox9.Text);
+                }
+                else
+                {//error message if null
+                    MessageBox.Show("Please enter the ID of admin to remove.");
+                }
             }
             else
             {
-                System.Windows.Forms.MessageBox.Show("You do not have the right to perform this action.");
-            }*/
+                MessageBox.Show("Only the owner can remove admins.");
+            }
         }
 
         private void groupBox2_Enter(object sender, EventArgs e)
@@ -177,6 +175,49 @@ namespace CateringDatabaseSystem
             ds = c.Select("exec RegionMostOrders @datefrom = '" + dateTimePicker1.Value.ToString() + "', @dateto = '" + dateTimePicker2.Value.ToString() + "'");
             textBox18.Text = ds.Rows[0][1].ToString() + " (ID: " + ds.Rows[0][0].ToString() + ")";
 
+        }
+
+        private void textBox10_TextChanged(object sender, EventArgs e)
+        {
+            ConnectingData c = new ConnectingData();
+            if (textBox10.Text != "")
+            {
+                DataTable ds = c.Select("select role from admin where adminID = " + textBox10.Text);
+                if (ds.Rows.Count > 0)
+                {
+                    if (ds.Rows[0][0].ToString() == "Owner")
+                    {
+                        textBox6.Enabled = true;
+                    }
+                }
+                else
+                {
+                    textBox6.Text = "";
+                    textBox6.Enabled = false;
+                }
+            }
+        }
+
+        private void textBox8_TextChanged(object sender, EventArgs e)
+        {
+            ConnectingData c = new ConnectingData();
+            if (textBox8.Text != "")
+            {
+                DataTable ds = c.Select("select role from admin where adminID = " + textBox8.Text);
+                if (ds.Rows.Count > 0)
+                {
+                    if (ds.Rows[0][0].ToString() == "Owner")
+                    {
+                        textBox9.Enabled = true;
+                        button3.Enabled = true;
+                    }
+                }
+                else
+                {
+                    textBox9.Text = "Enter ID of Admin to remove";
+                    textBox9.Enabled = false;
+                }
+            }
         }
     }
 }

@@ -242,7 +242,7 @@
             // textBox8
             // 
             this.textBox8.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox8.Location = new System.Drawing.Point(197, 163);
+            this.textBox8.Location = new System.Drawing.Point(197, 165);
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(175, 30);
             this.textBox8.TabIndex = 10;
@@ -250,7 +250,7 @@
             // textBox9
             // 
             this.textBox9.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox9.Location = new System.Drawing.Point(197, 124);
+            this.textBox9.Location = new System.Drawing.Point(197, 122);
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(175, 30);
             this.textBox9.TabIndex = 9;

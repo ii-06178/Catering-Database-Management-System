@@ -169,10 +169,13 @@ namespace CateringDatabaseSystem
             textBox1.Text = (int.Parse(ds.Rows[0][0].ToString()) / days).ToString();
             //most frequent customer
             ds = c.Select("exec MostFrequentCustomer @datefrom = '" + dateTimePicker1.Value.ToString() + "', @dateto = '" + dateTimePicker2.Value.ToString() + "'");
-            textBox15.Text = "ID: " + ds.Rows[0][0].ToString() + ", Name: " + ds.Rows[0][1].ToString();
+            textBox15.Text = ds.Rows[0][1].ToString() + " (ID: " + ds.Rows[0][0].ToString() + ")";
             //most popular item
             ds = c.Select("exec MostPopularItem @datefrom = '" + dateTimePicker1.Value.ToString() + "', @dateto = '" + dateTimePicker2.Value.ToString() + "'");
-            textBox16.Text = "ID: " + ds.Rows[0][0].ToString() + ", Item: " + ds.Rows[0][1].ToString();
+            textBox16.Text = ds.Rows[0][1].ToString() + " (ID: " + ds.Rows[0][0].ToString() + ")";
+            //region with most orders
+            ds = c.Select("exec RegionMostOrders @datefrom = '" + dateTimePicker1.Value.ToString() + "', @dateto = '" + dateTimePicker2.Value.ToString() + "'");
+            textBox18.Text = ds.Rows[0][1].ToString() + " (ID: " + ds.Rows[0][0].ToString() + ")";
 
         }
     }

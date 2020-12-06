@@ -80,10 +80,9 @@
             this.textBox15 = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.textBox16 = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.textBox17 = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.textBox18 = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -410,7 +409,6 @@
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.label20);
-            this.groupBox5.Controls.Add(this.textBox17);
             this.groupBox5.Controls.Add(this.label21);
             this.groupBox5.Controls.Add(this.textBox18);
             this.groupBox5.Controls.Add(this.label19);
@@ -434,7 +432,7 @@
             this.groupBox5.Font = new System.Drawing.Font("Cera Pro", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.Location = new System.Drawing.Point(952, 25);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(700, 626);
+            this.groupBox5.Size = new System.Drawing.Size(556, 583);
             this.groupBox5.TabIndex = 2;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Generate Report";
@@ -442,9 +440,9 @@
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(348, 120);
+            this.button4.Location = new System.Drawing.Point(339, 89);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(169, 42);
+            this.button4.Size = new System.Drawing.Size(156, 73);
             this.button4.TabIndex = 20;
             this.button4.Text = "Generate Report";
             this.button4.UseVisualStyleBackColor = true;
@@ -495,7 +493,7 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(96, 89);
+            this.dateTimePicker1.Location = new System.Drawing.Point(99, 89);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(234, 30);
             this.dateTimePicker1.TabIndex = 21;
@@ -504,7 +502,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Cera Pro", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(25, 47);
+            this.label1.Location = new System.Drawing.Point(28, 47);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(180, 23);
             this.label1.TabIndex = 23;
@@ -514,7 +512,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(25, 133);
+            this.label12.Location = new System.Drawing.Point(28, 133);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(35, 23);
             this.label12.TabIndex = 24;
@@ -524,7 +522,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(25, 89);
+            this.label13.Location = new System.Drawing.Point(28, 89);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(60, 23);
             this.label13.TabIndex = 25;
@@ -533,7 +531,7 @@
             // dateTimePicker2
             // 
             this.dateTimePicker2.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker2.Location = new System.Drawing.Point(96, 130);
+            this.dateTimePicker2.Location = new System.Drawing.Point(99, 130);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(234, 30);
             this.dateTimePicker2.TabIndex = 26;
@@ -542,7 +540,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(30, 331);
+            this.label14.Location = new System.Drawing.Point(26, 368);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(243, 23);
             this.label14.TabIndex = 18;
@@ -552,7 +550,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(30, 285);
+            this.label15.Location = new System.Drawing.Point(26, 322);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(219, 23);
             this.label15.TabIndex = 17;
@@ -562,7 +560,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(30, 239);
+            this.label16.Location = new System.Drawing.Point(26, 276);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(256, 23);
             this.label16.TabIndex = 16;
@@ -572,7 +570,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(30, 193);
+            this.label17.Location = new System.Drawing.Point(26, 230);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(232, 23);
             this.label17.TabIndex = 15;
@@ -580,49 +578,49 @@
             // 
             // textBox1
             // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox1.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(292, 331);
+            this.textBox1.Location = new System.Drawing.Point(288, 368);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(207, 23);
+            this.textBox1.Size = new System.Drawing.Size(207, 30);
             this.textBox1.TabIndex = 14;
             // 
             // textBox12
             // 
-            this.textBox12.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox12.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox12.Location = new System.Drawing.Point(292, 285);
+            this.textBox12.Location = new System.Drawing.Point(288, 322);
             this.textBox12.Name = "textBox12";
             this.textBox12.ReadOnly = true;
-            this.textBox12.Size = new System.Drawing.Size(207, 23);
+            this.textBox12.Size = new System.Drawing.Size(207, 30);
             this.textBox12.TabIndex = 13;
             // 
             // textBox13
             // 
-            this.textBox13.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox13.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox13.Location = new System.Drawing.Point(292, 239);
+            this.textBox13.Location = new System.Drawing.Point(288, 276);
             this.textBox13.Name = "textBox13";
             this.textBox13.ReadOnly = true;
-            this.textBox13.Size = new System.Drawing.Size(207, 23);
+            this.textBox13.Size = new System.Drawing.Size(207, 30);
             this.textBox13.TabIndex = 12;
             // 
             // textBox14
             // 
-            this.textBox14.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox14.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox14.Location = new System.Drawing.Point(292, 193);
+            this.textBox14.Location = new System.Drawing.Point(288, 230);
             this.textBox14.Name = "textBox14";
             this.textBox14.ReadOnly = true;
-            this.textBox14.Size = new System.Drawing.Size(207, 23);
+            this.textBox14.Size = new System.Drawing.Size(207, 30);
             this.textBox14.TabIndex = 11;
             // 
             // label18
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(30, 379);
+            this.label18.Location = new System.Drawing.Point(26, 416);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(223, 23);
             this.label18.TabIndex = 28;
@@ -630,19 +628,19 @@
             // 
             // textBox15
             // 
-            this.textBox15.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox15.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox15.Location = new System.Drawing.Point(292, 379);
+            this.textBox15.Location = new System.Drawing.Point(288, 416);
             this.textBox15.Name = "textBox15";
             this.textBox15.ReadOnly = true;
-            this.textBox15.Size = new System.Drawing.Size(207, 23);
+            this.textBox15.Size = new System.Drawing.Size(207, 30);
             this.textBox15.TabIndex = 27;
             // 
             // label19
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(30, 427);
+            this.label19.Location = new System.Drawing.Point(26, 464);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(215, 23);
             this.label19.TabIndex = 30;
@@ -650,39 +648,19 @@
             // 
             // textBox16
             // 
-            this.textBox16.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox16.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox16.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox16.Location = new System.Drawing.Point(292, 427);
+            this.textBox16.Location = new System.Drawing.Point(288, 464);
             this.textBox16.Name = "textBox16";
             this.textBox16.ReadOnly = true;
-            this.textBox16.Size = new System.Drawing.Size(207, 23);
+            this.textBox16.Size = new System.Drawing.Size(207, 30);
             this.textBox16.TabIndex = 29;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(30, 524);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(202, 23);
-            this.label20.TabIndex = 34;
-            this.label20.Text = "No. of New Customers:";
-            // 
-            // textBox17
-            // 
-            this.textBox17.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox17.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox17.Location = new System.Drawing.Point(292, 524);
-            this.textBox17.Name = "textBox17";
-            this.textBox17.ReadOnly = true;
-            this.textBox17.Size = new System.Drawing.Size(207, 23);
-            this.textBox17.TabIndex = 33;
             // 
             // label21
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(30, 476);
+            this.label21.Location = new System.Drawing.Point(26, 513);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(225, 23);
             this.label21.TabIndex = 32;
@@ -690,13 +668,23 @@
             // 
             // textBox18
             // 
-            this.textBox18.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox18.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox18.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox18.Location = new System.Drawing.Point(292, 476);
+            this.textBox18.Location = new System.Drawing.Point(288, 513);
             this.textBox18.Name = "textBox18";
             this.textBox18.ReadOnly = true;
-            this.textBox18.Size = new System.Drawing.Size(207, 23);
+            this.textBox18.Size = new System.Drawing.Size(207, 30);
             this.textBox18.TabIndex = 31;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Cera Pro", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(26, 191);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(73, 23);
+            this.label20.TabIndex = 33;
+            this.label20.Text = "Report:";
             // 
             // Admin
             // 
@@ -779,13 +767,12 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.TextBox textBox13;
         private System.Windows.Forms.TextBox textBox14;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.TextBox textBox17;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox textBox18;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.TextBox textBox16;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox textBox15;
+        private System.Windows.Forms.Label label20;
     }
 }

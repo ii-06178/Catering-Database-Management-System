@@ -28,14 +28,13 @@ select CustomerID, CustomerFName + ' ' + CustomerLName from customers c inner jo
 
 exec MostFrequentCustomer @datefrom = '2020-11-20', @dateto = '2020-12-07'
 
+-- most popular food item
 create procedure MostPopularItem @Datefrom date, @DateTo date
 as
-select FoodItemID, ItemName from FoodItem f inner join OrderbyItem oi on f.FoodItemID = oi.FoodItem_FoodItemID inner join Orders o on o.OrderID = oi.FoodItem_FoodItemID where FoodItemID = (select top(1) CustomerID from Customers full outer join Orders on Orders.Customers_CustomerID=Customers.CustomerID Group by CustomerID,CustomerFName,CustomerLName Order by count(Customers_CustomerID) desc) and OrderDate >= @Datefrom and OrderDate <= @DateTo 
+select FoodItemID, ItemName from FoodItem f inner join OrderbyItem oi on f.FoodItemID = oi.FoodItem_FoodItemID inner join Orders o on o.OrderID = oi.FoodItem_FoodItemID where FoodItemID = (select top(1) FoodItemID from FoodItem f inner join OrderbyItem oi on f.FoodItemID = oi.FoodItem_FoodItemID inner join Orders o on o.OrderID = oi.FoodItem_FoodItemID Group by FoodItemID Order by count(FoodItemID) desc) and OrderDate >= @Datefrom and OrderDate <= @DateTo 
 
-exec MostFrequentCustomer @datefrom = '2020-11-20', @dateto = '2020-12-07'
-
--- most popular food item
+exec MostPopularItem @datefrom = '2020-11-10', @dateto = '2020-12-07'
 -- region with most orders 
 -- total number of new customers
 
-select FoodItemID, ItemName from FoodItem f inner join OrderbyItem oi on f.FoodItemID = oi.FoodItem_FoodItemID inner join Orders o on o.OrderID = oi.FoodItem_FoodItemID
+--select FoodItemID, ItemName, o.OrderID, OrderDate from FoodItem f inner join OrderbyItem oi on f.FoodItemID = oi.FoodItem_FoodItemID inner join Orders o on o.OrderID = oi.FoodItem_FoodItemID

@@ -102,5 +102,19 @@ namespace CateringDatabaseSystem
                 MessageBox.Show("Orders have been selected.");
             }
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            ConnectingData c = new ConnectingData();
+            c.Inserts("update orders set orderstatus = '" + comboBox2.Text + "' where orderID = " + textBox3.Text + "and rider_riderID = " + textBox2.Text);
+            c.Inserts("update payment set cashreceived = " + textBox7.Text + ", cashreturned = "+textBox6.Text+" where paymentid = (select payment_paymentID from orders where orderID = " + textBox3.Text + ")");
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            ConnectingData c = new ConnectingData();
+            c.Inserts("update rider set riderpassword = '" + textBox5.Text + "' where riderID = " + textBox4.Text);
+        }
     }
 }

@@ -178,7 +178,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(138, 119);
+            this.button1.Location = new System.Drawing.Point(138, 126);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(288, 36);
             this.button1.TabIndex = 22;
@@ -195,7 +195,7 @@
             "Clifton",
             "Malir",
             "North Nazimabad"});
-            this.comboBox1.Location = new System.Drawing.Point(138, 82);
+            this.comboBox1.Location = new System.Drawing.Point(138, 85);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(288, 31);
             this.comboBox1.TabIndex = 21;
@@ -204,7 +204,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(31, 85);
+            this.label5.Location = new System.Drawing.Point(31, 88);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(74, 23);
             this.label5.TabIndex = 20;
@@ -351,9 +351,9 @@
             this.label2.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(17, 44);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(83, 23);
+            this.label2.Size = new System.Drawing.Size(78, 23);
             this.label2.TabIndex = 25;
-            this.label2.Text = "Rider ID:";
+            this.label2.Text = "Your ID:";
             // 
             // groupBox3
             // 
@@ -368,7 +368,7 @@
             this.groupBox3.Size = new System.Drawing.Size(452, 183);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Update Rider Password";
+            this.groupBox3.Text = "Update Your Password";
             // 
             // button4
             // 
@@ -413,9 +413,9 @@
             this.label6.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(17, 42);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(83, 23);
+            this.label6.Size = new System.Drawing.Size(78, 23);
             this.label6.TabIndex = 31;
-            this.label6.Text = "Rider ID:";
+            this.label6.Text = "Your ID:";
             // 
             // button5
             // 

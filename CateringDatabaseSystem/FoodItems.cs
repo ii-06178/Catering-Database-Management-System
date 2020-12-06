@@ -24,8 +24,24 @@ namespace CateringDatabaseSystem
 
         private void button6_Click(object sender, EventArgs e)
         {//add ingredient from combobox to listview
-            listView1.Items.Add(comboBox1.Text);
-            listView2.Items.Add(textBox6.Text);
+            if (comboBox1.Text == "" || textBox6.Text == "")
+            {
+                MessageBox.Show("Select ingredient and quantity to add");
+            }
+            else
+            {
+                int i = 0;
+
+                if (!int.TryParse(textBox6.Text, out i))
+                {
+                    MessageBox.Show("Invalid quantity, enter a number.");
+                }
+                else
+                {
+                    listView1.Items.Add(comboBox1.Text);
+                    listView2.Items.Add(textBox6.Text);
+                }
+            }
 
         }
 
@@ -33,20 +49,52 @@ namespace CateringDatabaseSystem
         {//adding each item to fooditems table, and adding itemid and ingid to junction table
             //int i = listView1.Items.Count;
             ConnectingData c = new ConnectingData();
-            c.Inserts("insert into fooditem (fooditemID, itemName, Categories_CategoriesID, unitprice, unitquantity) values ((select max(fooditemID) from fooditem)+1 , '" + textBox2.Text + "', (select categoriesID from categories where categoryname = '" + comboBox2.Text + "'), " + textBox5.Text + ", " + textBox1.Text + ")");
-            for (int i = 0; i < listView1.Items.Count; i++)
+            if (textBox2.Text == "" || comboBox2.Text == "" || textBox5.Text == "" || textBox1.Text == "" || listView1.Items.Count == 0)
             {
-                c.Inserts("insert into ingredients_for_fooditem (fooditem_fooditemID, ingredients_ingredientsID, quantity_grams) values ((select max(fooditemID) from fooditem),(select ingredientsid from ingredients where ingredientname = '" + listView1.Items[i].Text + "')," + listView2.Items[i].Text + ")");
+                MessageBox.Show("Please Fill all fields");
             }
-            listView1.Clear();
-            listView2.Clear();
+            else
+            {
+
+                int j = 0;
+                if (!int.TryParse(textBox5.Text, out j) || !int.TryParse(textBox1.Text, out j)
+                    )
+                {
+                    MessageBox.Show("Incorrect Unit Price or Unit Quantity");
+                }
+                else
+                {
+                    c.Inserts("insert into fooditem (fooditemID, itemName, Categories_CategoriesID, unitprice, unitquantity) values ((select max(fooditemID) from fooditem)+1 , '" + textBox2.Text + "', (select categoriesID from categories where categoryname = '" + comboBox2.Text + "'), " + textBox5.Text + ", " + textBox1.Text + ")");
+                    for (int i = 0; i < listView1.Items.Count; i++)
+                    {
+                        c.Inserts("insert into ingredients_for_fooditem (fooditem_fooditemID, ingredients_ingredientsID, quantity_grams) values ((select max(fooditemID) from fooditem),(select ingredientsid from ingredients where ingredientname = '" + listView1.Items[i].Text + "')," + listView2.Items[i].Text + ")");
+                    }
+                    listView1.Clear();
+                    listView2.Clear();
+                }
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {//delete food item
             ConnectingData c = new ConnectingData();
-            c.Inserts("delete from ingredients_for_fooditem where fooditem_fooditemID =" + textBox4.Text);
-            c.Inserts("delete from fooditem where fooditemID =" + textBox4.Text);
+            if (textBox4.Text == "")
+            {
+                MessageBox.Show("Insert ID of food item to delete");
+            }
+            else
+            {
+                int i = 0;
+                if (!int.TryParse(textBox4.Text, out i))
+                {
+                    MessageBox.Show("Invalid ID");
+                }
+                else
+                {
+                    c.Inserts("delete from ingredients_for_fooditem where fooditem_fooditemID =" + textBox4.Text);
+                    c.Inserts("delete from fooditem where fooditemID =" + textBox4.Text);
+                }
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -54,41 +102,73 @@ namespace CateringDatabaseSystem
             ConnectingData c = new ConnectingData();
             if (textBox7.Text != "")
             {//if ID not null
-                if (textBox3.Text != "")
-                {//updating unitprice
-                    c.Inserts("update fooditem set unitprice = " + textBox3.Text + "where fooditemID = " + textBox7.Text);
-                }
-                if (textBox8.Text != "")
-                {//updating item name
-                    c.Inserts("update fooditem set itemName = '" + textBox8.Text + "' where fooditemID = " + textBox7.Text);
-                }
-                if (comboBox3.Text != "")
-                {//updating item category
-                    c.Inserts("update fooditem set Categories_CategoriesID = (select categoriesID from categories where categoryname = '" + comboBox3.Text + "') where fooditemID = " + textBox7.Text);
-                }
-                if (textBox10.Text != "")
-                {//updating item name
-                    c.Inserts("update fooditem set unitQuantity = " + textBox10.Text + " where fooditemID = " + textBox7.Text);
-                }
-                if (comboBox4.Text != "" && comboBox4.Text != comboBox5.Text) //if ingredient to add and remove are diff
-                {//adding ingredient
-                    if (textBox11.Text != "")
-                    {//if quantity given
-                        c.Inserts("if not exists (select ingredients_ingredientsID from ingredients_for_fooditem where ingredients_ingredientsID = (select ingredientsid from ingredients where ingredientname = '" + comboBox4.Text + "')) begin insert into ingredients_for_fooditem (fooditem_fooditemID, ingredients_ingredientsID, quantity_grams) values (" + textBox7.Text + ",(select ingredientsid from ingredients where ingredientname = '" + comboBox4.Text + "')," + textBox11.Text + ") end");
-                        MessageBox.Show("Note: ingredient will only be added if it does not already exist. There will be no change otherwise.");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Enter ingredient quantity (grams).");
-                    }
-                }
-                else if (comboBox4.Text != "" && comboBox4.Text == comboBox5.Text)
+                int k = 0;
+                if (!int.TryParse(textBox7.Text, out k))
                 {
-                    MessageBox.Show("Cannot add and remove the same ingredient!");
+                    MessageBox.Show("Invalid ID");
                 }
-                if (comboBox5.Text != "")
-                {//removing ingredient
-                    c.Inserts("delete from ingredients_for_fooditem where ingredients_ingredientsID = (select ingredientsid from ingredients where ingredientname = '" + comboBox5.Text + "')");
+                else
+                {
+                    if (textBox3.Text != "")
+                    {//updating unitprice
+                        int i = 0;
+                        if (!int.TryParse(textBox7.Text, out i))
+                        {
+                            MessageBox.Show("Invalid Unit Price");
+                        }
+                        else
+                        {
+                            c.Inserts("update fooditem set unitprice = " + textBox3.Text + "where fooditemID = " + textBox7.Text);
+                        }
+                    }
+                    if (textBox8.Text != "")
+                    {//updating item name
+                        c.Inserts("update fooditem set itemName = '" + textBox8.Text + "' where fooditemID = " + textBox7.Text);
+                    }
+                    if (comboBox3.Text != "")
+                    {//updating item category
+                        c.Inserts("update fooditem set Categories_CategoriesID = (select categoriesID from categories where categoryname = '" + comboBox3.Text + "') where fooditemID = " + textBox7.Text);
+                    }
+                    if (textBox10.Text != "")
+                    {//updating item quantity
+                        int i = 0;
+                        if (!int.TryParse(textBox10.Text, out i))
+                        {
+                            MessageBox.Show("Invalid item quantity");
+                        }
+                        else
+                        {
+                            c.Inserts("update fooditem set unitQuantity = " + textBox10.Text + " where fooditemID = " + textBox7.Text);
+                        }
+                    }
+                    if (comboBox4.Text != "" && comboBox4.Text != comboBox5.Text) //if ingredient to add and remove are diff
+                    {//adding ingredient
+                        if (textBox11.Text != "")
+                        {//if quantity given
+                            int i = 0;
+                            if (!int.TryParse(textBox11.Text, out i))
+                            {
+                                MessageBox.Show("Invalid ingredient quantity");
+                            }
+                            else
+                            {
+                                c.Inserts("if not exists (select ingredients_ingredientsID from ingredients_for_fooditem where ingredients_ingredientsID = (select ingredientsid from ingredients where ingredientname = '" + comboBox4.Text + "')) begin insert into ingredients_for_fooditem (fooditem_fooditemID, ingredients_ingredientsID, quantity_grams) values (" + textBox7.Text + ",(select ingredientsid from ingredients where ingredientname = '" + comboBox4.Text + "')," + textBox11.Text + ") end");
+                                MessageBox.Show("Note: ingredient will only be added if it does not already exist. There will be no change otherwise.");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Enter ingredient quantity (grams).");
+                        }
+                    }
+                    else if (comboBox4.Text != "" && comboBox4.Text == comboBox5.Text)
+                    {
+                        MessageBox.Show("Cannot add and remove the same ingredient!");
+                    }
+                    if (comboBox5.Text != "")
+                    {//removing ingredient
+                        c.Inserts("delete from ingredients_for_fooditem where ingredients_ingredientsID = (select ingredientsid from ingredients where ingredientname = '" + comboBox5.Text + "')");
+                    }
                 }
             }
             else
@@ -108,7 +188,22 @@ namespace CateringDatabaseSystem
         {//show ingredients for selected food item
             ConnectingData c = new ConnectingData();
             //using VIEW
-            dataGridView1.DataSource = c.Select("select * from showFoodItemIngredients where [Item ID] = " + textBox9.Text);
+            if (textBox9.Text == "")
+            {
+                MessageBox.Show("Insert ID");
+            }
+            else
+            {
+                int i = 0;
+                if (!int.TryParse(textBox9.Text, out i))
+                {
+                    MessageBox.Show("Invalid ID");
+                }
+                else
+                {
+                    dataGridView1.DataSource = c.Select("select * from showFoodItemIngredients where [Item ID] = " + textBox9.Text);
+                }
+            }
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)

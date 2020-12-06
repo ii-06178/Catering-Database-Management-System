@@ -156,10 +156,39 @@ namespace CateringDatabaseSystem
         }
 
         private void radioButton7_CheckedChanged(object sender, EventArgs e)
-        {
+        {//todays special - get from weekly menu
             if (radioButton7.Checked == true)
             {
-                comboBox3.Enabled = false;
+                comboBox3.Enabled = false; //disable categories box
+                textBox3.Text = "0"; //resetting price to 0
+                textBox7.Text = "Enter Amount";
+                textBox5.Text = "Enter Weight (Kg)";
+                int dayOfWeek; 
+                int.TryParse(DateTime.Now.DayOfWeek.ToString(), out dayOfWeek);
+                string[] day = { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
+                ConnectingData c = new ConnectingData();
+                //getting item from weekly menu for today if a menu is valid for today
+                dataGridView1.DataSource = c.Select("exec displayTodaysSpecial @weekday = '"+ day[dayOfWeek] + "', @today = '"+DateTime.Today.ToString()+"'");
+                if (dataGridView1.Rows.Count <= 0)
+                {//if no menu exists for today's date
+                    MessageBox.Show("There is no item for Today's Special.");
+                }
+                else
+                {//enabling relevant textbox for quantity
+                    textBox3.Text = "0"; //resetting price to 0
+                    if (dataGridView1.SelectedCells[3].Value.ToString() == "Weight (Kg)")
+                    {//measured in weight 
+                        textBox5.Enabled = true;
+                        textBox7.Text = "Enter Amount"; //reset default
+                        textBox7.Enabled = false; //disable amount textbox
+                    }
+                    else
+                    {//measured in units 
+                        textBox7.Enabled = true;
+                        textBox5.Text = "Enter Weight (Kg)"; //reset default
+                        textBox5.Enabled = false; //disable weight textbox
+                    }
+                }
             }
         }
 
@@ -193,9 +222,9 @@ namespace CateringDatabaseSystem
             {
                 foreach (DataRow row in dt.Rows)
                 {//check each ingredient for availability
-                    int serving = int.Parse(dataGridView1.SelectedCells[2].Value.ToString());
-                    int qty_required = int.Parse(row["Quantity_grams"].ToString()) * (int.Parse(textBox7.Text) / serving); //calculating quantity of ingredient required for amount of item customer wants
-                    int qty_in_stock = int.Parse(row["QtyInStock_kg"].ToString()) * 1000; //converting to grams
+                    double serving = double.Parse(dataGridView1.SelectedCells[2].Value.ToString());
+                    double qty_required = double.Parse(row["Quantity_grams"].ToString()) * (int.Parse(textBox7.Text) / serving); //calculating quantity of ingredient required for amount of item customer wants
+                    double qty_in_stock = double.Parse(row["QtyInStock_kg"].ToString()) * 1000; //converting to grams
                     if (qty_required > qty_in_stock)
                     {
                         isAvailable = false;
@@ -253,7 +282,7 @@ namespace CateringDatabaseSystem
             if (radioButton8.Checked == true & comboBox3.Text != "")
             {//populating datagridview with food items in selected category
                 ConnectingData c = new ConnectingData();
-                dataGridView1.DataSource = c.Select("Select itemname as 'Item', unitprice as 'Price/unit' ,unitquantity 'Serving Size',measuredin as 'Measured In' from fooditem f inner join categories c on f.categories_categoriesid = c.categoriesid where categoryname = '" + comboBox3.Text + "'");
+                dataGridView1.DataSource = c.Select("exec displayItems @categoryName = '" + comboBox3.Text + "'");
                 //enabling relevant textbox for quantity
                 foreach (DataGridViewRow row in dataGridView1.SelectedRows)
                 {
@@ -353,6 +382,8 @@ namespace CateringDatabaseSystem
                 {
                     cart.Rows.Add(dataGridView1.SelectedCells[0].Value, textBox7.Text, textBox3.Text);
                 }
+                dataGridView2.DefaultCellStyle.Font = new Font("CeraPro-Regular", 9);
+                dataGridView2.ColumnHeadersDefaultCellStyle.Font = new Font("Cera Pro", 9);
                 dataGridView2.DataSource = cart;
                 button2.Enabled = true; //enable remove and clear buttons
                 button4.Enabled = true;

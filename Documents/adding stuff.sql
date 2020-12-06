@@ -129,6 +129,20 @@ go
 --drop procedure GetIngrQtyInItem 
 exec GetIngrQtyInItem @ItemName = 'chicken tikka roll'
 
+
+create procedure displayItems @CategoryName varchar(30)
+as 
+Select itemname as 'Item', unitprice as 'Price/unit' ,unitquantity 'Serving Size',measuredin as 'Measured In' from fooditem f inner join categories c on f.categories_categoriesid = c.categoriesid where categoryname = @CategoryName
+go
+
+exec displayItems @categoryName = 'Rice'
+
+create procedure displayTodaysSpecial @WeekDay varchar(25), @today date as
+Select itemname as 'Item', unitprice as 'Price/unit' ,unitquantity 'Serving Size',measuredin as 'Measured In' from fooditem f inner join categories c on f.categories_categoriesid = c.categoriesid where FoodItemID = (select FoodItem_FoodItemID from WeeklyMenu w inner join WeeklyMenuItems wi on w.WeeklyMenuID = wi.WeeklyMenuID where [WeekDay] = @WeekDay and ValidFrom <= @today and ValidTill >= @today) 
+Go
+
+exec displayTodaysSpecial @weekday = 'Saturday', @today = '2020-12-06'
+
 select * from Ingredients
 update Ingredients set QtyInStock_kg = 20
 

@@ -40,18 +40,21 @@ end
 
 insert into payment (paymentID, paymentType) values (1, 'COD')
 select * from Payment
+delete from Region where RegionID = 2
 
-delete from Payment where PaymentID >= 2 
-delete from Customers where CustomerID >= 5
-delete from Orders where OrderID >= 2
-delete from OrderbyItem
+--delete from Payment where PaymentID =8 
+--delete from Customers where CustomerID >= 5
+--delete from Orders where OrderID >= 2
+--delete from OrderbyItem
 
 update orders set Payment_PaymentID = 1 where OrderID = 1
+exec deleteCustomerAndOrder @customer = 8
 
 select * from Customers
 select * from Payment
 select * from Orders
 select * from OrderbyItem
+select * from Ingredients
 
 /*
 ALTER TABLE OrderbyItem
@@ -96,13 +99,77 @@ create view ItemsWithIngrnt as select ingredientsID as 'ID', ingredientName as '
 
 --select [Food Item], Ingredient, [Quantity Required (grams)] from ItemsWithIngrnt where ID = 6
 
-create view ViewOrder as select orderID as 'ID',customers_customerID as 'Customer ID', paymentType as 'Payment Type', region_regionID as 'Region ID', rider_riderID as 'Rider ID', orderDate as 'Order Date', requiredDate as 'Required Date', shippedDate as 'Shipped Date', OrderStatus as 'Order Status', totalPrice as 'Total Price/Rs.'  from payment p inner join orders o on p.paymentid = o.payment_paymentid
+create view ViewOrder as select orderID as 'ID',customers_customerID as 'Customer ID', paymentType as 'Payment Type', region_regionID as 'Region ID', rider_riderID as 'Rider ID', orderDate as 'Order Date', requiredDate as 'Required Date', shippedDate as 'Shipped Date', OrderStatus as 'Order Status', totalPrice as 'Total Price/Rs.', CashReceived as 'Cash Received', CashReturned as 'Cash Returned'  from payment p inner join orders o on p.paymentid = o.payment_paymentid
 
 select * from ViewOrder 
+select * from ViewOrder where [Order Status] = 'In Process' 
 
-create view ViewOrderExt as select o.orderID as 'ID',customers_customerID as 'Customer ID', paymentType as 'Payment Type', region_regionID as 'Region ID', rider_riderID as 'Rider ID', orderDate as 'Order Date', requiredDate as 'Required Date', shippedDate as 'Shipped Date', OrderStatus as 'Order Status', totalPrice as 'Total Price/Rs.'  from payment p inner join orders o on p.paymentid = o.payment_paymentid inner join orderbyitem oi on o.orderid = oi.orderid
+select * from showAllFoodItems 
+
+create view OrdersDeliveredByRider as select rider_riderID as 'Rider ID', orderID as 'Order ID',customers_customerID as 'Customer ID', paymentType as 'Payment Type', region_regionID as 'Region ID', orderDate as 'Order Date', requiredDate as 'Required Date', shippedDate as 'Shipped Date', OrderStatus as 'Order Status', totalPrice as 'Total Price/Rs.'  from payment p inner join orders o on p.paymentid = o.payment_paymentid
+
+select * from OrdersDeliveredByRider where [Rider ID]
+
+drop view ViewOrder
+
+create view RiderDeliveredMostOrders as select top(1) RiderID, RiderName, RiderPhoneNo, RiderCNIC, RiderCompany, RiderEmail, RiderPassword, count(OrderID) as 'No of Orders Delivered' from rider r inner join orders o on r.riderID = o.Rider_RiderID group by riderID, RiderName, RiderPhoneNo, RiderCNIC, RiderCompany, RiderEmail, RiderPassword
+
+--create view ItemsInCategory as Select itemname as 'Item', unitprice as 'Price/unit' ,unitquantity 'Serving Size',measuredin as 'Measured In' from fooditem f inner join categories c on f.categories_categoriesid = c.categoriesid
+
+--drop view ItemsInCategory
+
+create procedure GetIngrQtyInItem @ItemName varchar(30)
+as
+select ItemName, UnitQuantity, IngredientsID, IngredientName, Quantity_grams, QtyInStock_kg from Ingredients i inner join Ingredients_for_FoodItem fi on i.IngredientsID = fi.Ingredients_IngredientsID inner join FoodItem f on f.FoodItemID = fi.FoodItem_FoodItemID where ItemName = @ItemName
+go
+--drop procedure GetIngrQtyInItem 
+exec GetIngrQtyInItem @ItemName = 'chicken tikka roll'
 
 
-select * from ViewOrder
-select * from ViewOrderExt
+create procedure displayItems @CategoryName varchar(30)
+as 
+Select itemname as 'Item', unitprice as 'Price/unit' ,unitquantity 'Serving Size',measuredin as 'Measured In' from fooditem f inner join categories c on f.categories_categoriesid = c.categoriesid where categoryname = @CategoryName
+go
 
+exec displayItems @categoryName = 'Rice'
+
+create procedure displayTodaysSpecial @WeekDay varchar(25), @today date as
+Select itemname as 'Item', unitprice as 'Price/unit' ,unitquantity 'Serving Size',measuredin as 'Measured In' from fooditem f inner join categories c on f.categories_categoriesid = c.categoriesid where FoodItemID = (select FoodItem_FoodItemID from WeeklyMenu w inner join WeeklyMenuItems wi on w.WeeklyMenuID = wi.WeeklyMenuID where [WeekDay] = @WeekDay and ValidFrom <= @today and ValidTill >= @today) 
+Go
+
+exec displayTodaysSpecial @weekday = 'Saturday', @today = '2020-12-06'
+
+select * from Ingredients
+update Ingredients set QtyInStock_kg = 20
+
+
+insert into weeklyMenu (weeklyMenuID, ValidFrom, ValidTill) values (1, '2020-11-12', '2020-11-15')
+select * from WeeklyMenu
+select * from WeeklyMenuItems order by WeeklyMenuID
+delete from WeeklyMenu
+delete from WeeklyMenuItems
+
+create view viewAllMenus as
+select w.WeeklyMenuID as 'ID', [WeekDay] as 'Day', FoodItem_FoodItemID as 'Food Item ID', ItemName as 'Food Item', ValidFrom, ValidTill from WeeklyMenu w inner join WeeklyMenuItems wi on w.WeeklyMenuID = wi.WeeklyMenuID inner join FoodItem f on f.FoodItemID = wi.FoodItem_FoodItemID
+
+select * from viewAllMenus
+
+create procedure viewOrdersByItem @ItemName varchar(30) as
+select o.orderID as 'ID',customers_customerID as 'Customer ID', paymentType as 'Payment Type', region_regionID as 'Region ID', rider_riderID as 'Rider ID', orderDate as 'Order Date', requiredDate as 'Required Date', shippedDate as 'Shipped Date', OrderStatus as 'Order Status', totalPrice as 'Total Price/Rs.', CashReceived as 'Cash Received', CashReturned as 'Cash Returned'  from payment p inner join orders o on p.paymentid = o.payment_paymentid inner join orderbyitem oi on o.orderid = oi.orderid where fooditem_fooditemid = (select fooditemid from fooditem where itemname = @ItemName)
+
+exec viewOrdersByItem @itemname = 'Pulao'
+
+drop procedure viewOrdersByItem
+
+select * from [admin]
+select * from Rider
+
+create procedure OrderRiderView as 
+
+select * from orders o inner join payment p on o.payment_paymentID = p.paymentID
+
+create procedure deleteCustomerAndOrder @customer int as
+delete from Payment where PaymentID = (select payment_paymentID from orders where orderID = (select orderID from orders where Customers_CustomerID = @customer and (OrderStatus = 'In Process' or OrderStatus = 'Dispatched') ))
+delete from OrderbyItem where OrderID = (select orderID from orders where Customers_CustomerID = @customer and (OrderStatus = 'In Process' or OrderStatus = 'Dispatched'))
+delete from Orders where Customers_CustomerID = @customer
+delete from Customers where CustomerID = @customer

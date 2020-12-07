@@ -35,15 +35,54 @@ namespace CateringDatabaseSystem
 
         private void button2_Click(object sender, EventArgs e)
         {//opens forms for role selected
-            if (comboBox1.Text.Equals("Admin"))
+            ConnectingData c = new ConnectingData();
+            if (textBox1.Text == "" || textBox2.Text == "")
             {
-                var Admin = new Admin();
-                Admin.Show();
+                MessageBox.Show("Enter email and password!");
             }
-            else if (comboBox1.Text.Equals("Rider"))
+            else
             {
-                var Rider = new Rider();
-                Rider.Show();
+                if (comboBox1.Text.Equals("Admin"))
+                {
+                    DataTable ds = c.Select("select password_2 from admin where email = '" + textBox1.Text + "'");
+                    if (ds.Rows.Count <= 0)
+                    {
+                        MessageBox.Show("This email does not exist.");
+                    }
+                    else
+                    {
+                        if (ds.Rows[0][0].ToString() == textBox2.Text)
+                        {
+                            var Admin = new Admin();
+                            Admin.Show();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Incorrect Password");
+                        }
+                    }
+                }
+                else if (comboBox1.Text.Equals("Rider"))
+                {
+                    DataTable ds = c.Select("select riderPassword from rider where rideremail = '" + textBox1.Text + "'");
+                    if (ds.Rows.Count <= 0)
+                    {
+                        MessageBox.Show("This email does not exist.");
+                    }
+                    else
+                    {
+                        if (ds.Rows[0][0].ToString() == textBox2.Text)
+                        {
+                            var Rider = new Rider();
+                            Rider.Show();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Incorrect Password");
+                        }
+                    }
+                    
+                }
             }
         }
 

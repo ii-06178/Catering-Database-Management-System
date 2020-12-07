@@ -15,7 +15,6 @@ D:\Documents\Fall 2020\Database\Catering-Database-Management-System\CateringData
 D:\Documents\Fall 2020\Database\Catering-Database-Management-System\CateringDatabaseSystem\obj\Debug\CateringDatabaseSystem.FoodItems.resources
 D:\Documents\Fall 2020\Database\Catering-Database-Management-System\CateringDatabaseSystem\obj\Debug\CateringDatabaseSystem.RiderAdminView.resources
 D:\Documents\Fall 2020\Database\Catering-Database-Management-System\CateringDatabaseSystem\obj\Debug\CateringDatabaseSystem.Categories.resources
-D:\Documents\Fall 2020\Database\Catering-Database-Management-System\CateringDatabaseSystem\obj\Debug\CateringDatabaseSystem.Deals.resources
 D:\Documents\Fall 2020\Database\Catering-Database-Management-System\CateringDatabaseSystem\obj\Debug\CateringDatabaseSystem.Region.resources
 D:\Documents\Fall 2020\Database\Catering-Database-Management-System\CateringDatabaseSystem\obj\Debug\CateringDatabaseSystem.Rider.resources
 D:\Documents\Fall 2020\Database\Catering-Database-Management-System\CateringDatabaseSystem\obj\Debug\CateringDatabaseSystem.CustomerOrder.resources

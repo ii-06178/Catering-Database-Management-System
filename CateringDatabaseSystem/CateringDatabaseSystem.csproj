@@ -71,12 +71,6 @@
     <Compile Include="CustomersAdminView.Designer.cs">
       <DependentUpon>CustomersAdminView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Deals.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Deals.Designer.cs">
-      <DependentUpon>Deals.cs</DependentUpon>
-    </Compile>
     <Compile Include="FoodItems.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,9 +132,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CustomersAdminView.resx">
       <DependentUpon>CustomersAdminView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Deals.resx">
-      <DependentUpon>Deals.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FoodItems.resx">
       <DependentUpon>FoodItems.cs</DependentUpon>

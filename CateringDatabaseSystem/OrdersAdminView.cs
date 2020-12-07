@@ -57,9 +57,9 @@ namespace CateringDatabaseSystem
         }
 
         private void button4_Click(object sender, EventArgs e)
-        {//show all orders
+        {//show all orders using VIEW
             ConnectingData c = new ConnectingData();
-            dataGridView1.DataSource = c.Select("select orderID as 'ID',customers_customerID as 'Customer ID', paymentType as 'Payment Type', region_regionID as 'Region ID', rider_riderID as 'Rider ID', orderDate as 'Order Date', requiredDate as 'Required Date', shippedDate as 'Shipped Date', OrderStatus as 'Order Status', totalPrice as 'Total Price/Rs.'  from payment p inner join orders o on p.paymentid = o.payment_paymentid");
+            dataGridView1.DataSource = c.Select("select * from ViewOrder");
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -74,17 +74,17 @@ namespace CateringDatabaseSystem
             {//select by customer
                 dataGridView1.DataSource = c.Select("select * from ViewOrder where [Customer ID] = " + textBox2.Text);
             }
-            else if (textBox3.Text != "")
-            {//select by food item
-                dataGridView1.DataSource = c.Select("select o.orderID as 'ID',customers_customerID as 'Customer ID', paymentType as 'Payment Type', region_regionID as 'Region ID', rider_riderID as 'Rider ID', orderDate as 'Order Date', requiredDate as 'Required Date', shippedDate as 'Shipped Date', OrderStatus as 'Order Status', totalPrice as 'Total Price/Rs.'  from payment p inner join orders o on p.paymentid = o.payment_paymentid inner join orderbyitem oi on o.orderid = oi.orderid where fooditem_fooditemid = (select fooditemid from fooditem where itemname = '" + textBox3.Text + "')");
+            else if (comboBox3.Text != "")
+            {//select by food item using a stored procedure
+                dataGridView1.DataSource = c.Select("exec viewOrdersByItem @itemname = '" + comboBox3.Text + "'");
             }
             else if (textBox5.Text != "")
-            {//select by order id
-                dataGridView1.DataSource = c.Select("select orderID as 'ID',customers_customerID as 'Customer ID', paymentType as 'Payment Type', region_regionID as 'Region ID', rider_riderID as 'Rider ID', orderDate as 'Order Date', requiredDate as 'Required Date', shippedDate as 'Shipped Date', OrderStatus as 'Order Status', totalPrice as 'Total Price/Rs.'  from payment p inner join orders o on p.paymentid = o.payment_paymentid where orderID = " + textBox5.Text);
+            {//select by order id using VIEW
+                dataGridView1.DataSource = c.Select("select * from ViewOrder where ID = " + textBox5.Text);
             }
             else if (comboBox2.Text != "")
-            {//select by order status
-                dataGridView1.DataSource = c.Select("select orderID as 'ID',customers_customerID as 'Customer ID', paymentType as 'Payment Type', region_regionID as 'Region ID', rider_riderID as 'Rider ID', orderDate as 'Order Date', requiredDate as 'Required Date', shippedDate as 'Shipped Date', OrderStatus as 'Order Status', totalPrice as 'Total Price/Rs.'  from payment p inner join orders o on p.paymentid = o.payment_paymentid where OrderStatus = '" + comboBox2.Text + "'");
+            {//select by order status using VIEW
+                dataGridView1.DataSource = c.Select("select * from ViewOrder where [Order Status] = '" + comboBox2.Text + "'");
             }
         }
 
@@ -94,8 +94,8 @@ namespace CateringDatabaseSystem
             {
                 textBox2.Enabled = true;
                 //disable rest
-                textBox3.Clear();
-                textBox3.Enabled = false;
+                comboBox3.Text = "";
+                comboBox3.Enabled = false;
                 textBox5.Clear();
                 textBox5.Enabled = false;
                 comboBox2.Text = "";
@@ -107,7 +107,7 @@ namespace CateringDatabaseSystem
         {//search by food item selected
             if (radioButton2.Enabled == true)
             {
-                textBox3.Enabled = true;
+                comboBox3.Enabled = true;
                 //disable rest
                 textBox2.Clear();
                 textBox2.Enabled = false;
@@ -126,8 +126,8 @@ namespace CateringDatabaseSystem
                 //disable rest
                 textBox2.Clear();
                 textBox2.Enabled = false;
-                textBox3.Clear();
-                textBox3.Enabled = false;
+                comboBox3.Text = "";
+                comboBox3.Enabled = false;
                 comboBox2.Text = "";
                 comboBox2.Enabled = false;
             }
@@ -141,8 +141,7 @@ namespace CateringDatabaseSystem
                 //disable rest
                 textBox2.Clear();
                 textBox2.Enabled = false;
-                textBox3.Clear();
-                textBox3.Enabled = false;
+                comboBox3.Enabled = false;
                 textBox5.Clear();
                 textBox5.Enabled = false;
             }
@@ -159,6 +158,19 @@ namespace CateringDatabaseSystem
                 textBox6.Clear();
                 textBox6.Enabled = false;
             }
+        }
+
+        private void OrdersAdminView_Load(object sender, EventArgs e)
+        {
+            ConnectingData c = new ConnectingData();
+            DataTable ds = c.Select("Select fooditemID, itemName from fooditem");
+            DataRow row = ds.NewRow(); //adding default null value as first element in combobox
+            row[0] = 0;
+            row[1] = "";
+            ds.Rows.InsertAt(row, 0);
+            comboBox3.DataSource = ds;
+            comboBox3.DisplayMember = "itemName";
+            comboBox3.ValueMember = "fooditemID";
         }
     }
 }

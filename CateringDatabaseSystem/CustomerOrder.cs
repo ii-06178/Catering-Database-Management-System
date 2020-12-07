@@ -123,9 +123,10 @@ namespace CateringDatabaseSystem
                 //adding each food item in order to orderByItem table
                 foreach (DataGridViewRow row in dataGridView2.Rows)
                 {
-                    int quantity = int.Parse(row.Cells[1].Value.ToString()); //getting quantity of food item from listview2
+                    double quantity = double.Parse(row.Cells[1].Value.ToString()); //getting quantity of food item from listview2
                     c.Inserts("insert into orderByItem (orderID, FoodItem_FoodItemID, quantity, discount, unitprice) values ((select max(orderID) from orders), (select foodItemID from foodItem where itemName = '" + row.Cells[0].Value.ToString() + "'), " + quantity + ", " + textBox13.Text + ", (select unitprice from foodItem where itemName = '" + row.Cells[0].Value.ToString() + "')) ");
-                } 
+                }
+                updateIngrStock();
                 MessageBox.Show("Thank You! \nYour order has been recorded.");
                 this.Close();
             }
@@ -155,10 +156,39 @@ namespace CateringDatabaseSystem
         }
 
         private void radioButton7_CheckedChanged(object sender, EventArgs e)
-        {
+        {//todays special - get from weekly menu
             if (radioButton7.Checked == true)
             {
-                comboBox3.Enabled = false;
+                comboBox3.Enabled = false; //disable categories box
+                textBox3.Text = "0"; //resetting price to 0
+                textBox7.Text = "Enter Amount";
+                textBox5.Text = "Enter Weight (Kg)";
+                int dayOfWeek; 
+                int.TryParse(DateTime.Now.DayOfWeek.ToString(), out dayOfWeek);
+                string[] day = { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
+                ConnectingData c = new ConnectingData();
+                //getting item from weekly menu for today if a menu is valid for today
+                dataGridView1.DataSource = c.Select("exec displayTodaysSpecial @weekday = '"+ day[dayOfWeek] + "', @today = '"+DateTime.Today.ToString()+"'");
+                if (dataGridView1.Rows.Count <= 0)
+                {//if no menu exists for today's date
+                    MessageBox.Show("There is no item for Today's Special.");
+                }
+                else
+                {//enabling relevant textbox for quantity
+                    textBox3.Text = "0"; //resetting price to 0
+                    if (dataGridView1.SelectedCells[3].Value.ToString() == "Weight (Kg)")
+                    {//measured in weight 
+                        textBox5.Enabled = true;
+                        textBox7.Text = "Enter Amount"; //reset default
+                        textBox7.Enabled = false; //disable amount textbox
+                    }
+                    else
+                    {//measured in units 
+                        textBox7.Enabled = true;
+                        textBox5.Text = "Enter Weight (Kg)"; //reset default
+                        textBox5.Enabled = false; //disable weight textbox
+                    }
+                }
             }
         }
 
@@ -169,6 +199,42 @@ namespace CateringDatabaseSystem
             
         }
 
+        private bool isFoodAvailable()
+        {//if quantity entered is possible, calculate price
+            ConnectingData c = new ConnectingData();
+            DataTable dt = c.Select("exec GetIngrQtyInItem @ItemName = '" + dataGridView1.SelectedCells[0].Value.ToString() + "'"); //datatable to temporarily store required and available ingredients of selected fooditem 
+            bool isAvailable = true; //to check if entered amount of item is available
+            if (textBox5.Enabled)
+            {
+                foreach (DataRow row in dt.Rows)
+                {//check each ingredient for availability
+                    double serving = double.Parse(dataGridView1.SelectedCells[2].Value.ToString());
+                    double qty_required = double.Parse(row["Quantity_grams"].ToString()) * (double.Parse(textBox5.Text) / serving); //calculating quantity of ingredient required for amount of item customer wants
+                    double qty_in_stock = double.Parse(row["QtyInStock_kg"].ToString()) * 1000; //converting to grams
+                    if (qty_required > qty_in_stock)
+                    {
+                        isAvailable = false;
+                        break;
+                    }
+                }
+            }
+            else if (textBox7.Enabled)
+            {
+                foreach (DataRow row in dt.Rows)
+                {//check each ingredient for availability
+                    double serving = double.Parse(dataGridView1.SelectedCells[2].Value.ToString());
+                    double qty_required = double.Parse(row["Quantity_grams"].ToString()) * (int.Parse(textBox7.Text) / serving); //calculating quantity of ingredient required for amount of item customer wants
+                    double qty_in_stock = double.Parse(row["QtyInStock_kg"].ToString()) * 1000; //converting to grams
+                    if (qty_required > qty_in_stock)
+                    {
+                        isAvailable = false;
+                        break;
+                    }
+                }
+            }
+            return isAvailable;
+        }
+
         private void textBox7_TextChanged(object sender, EventArgs e)
         {//calculating and displaying price of amount entered of food item 
             if (textBox7.Text != "Enter Amount")
@@ -177,13 +243,33 @@ namespace CateringDatabaseSystem
                 if (!int.TryParse(textBox7.Text, out temp))
                 {//checking if the value entered is invalid
                     textBox1.Text = "Invalid, please enter a whole number!";
+                    button1.Enabled = false;
+                }
+                else if (int.Parse(textBox7.Text) < int.Parse(dataGridView1.SelectedCells[2].Value.ToString()))
+                {//if quantity is less than unit size
+                    textBox1.Text = "Invalid, quantity cannot be below serving size!";
+                    button1.Enabled = false;
+                }
+                else if (int.Parse(textBox7.Text)%int.Parse(dataGridView1.SelectedCells[2].Value.ToString()) != 0)
+                {//if quantity is not multiple of serving
+                    textBox1.Text = "Invalid, quantity must be a multiple of serving size!";
+                    button1.Enabled = false;
                 }
                 else
                 {
-                    textBox1.Text = "";
-                    string unitprice = dataGridView1.SelectedCells[1].Value.ToString();
-                    string unitquantity = dataGridView1.SelectedCells[2].Value.ToString();
-                    textBox3.Text = (double.Parse(textBox7.Text) * double.Parse(unitprice) / double.Parse(unitquantity)).ToString();
+                    if (isFoodAvailable())
+                    {
+                        textBox1.Text = "";
+                        string unitprice = dataGridView1.SelectedCells[1].Value.ToString();
+                        string unitquantity = dataGridView1.SelectedCells[2].Value.ToString();
+                        textBox3.Text = (double.Parse(textBox7.Text) * double.Parse(unitprice) / double.Parse(unitquantity)).ToString();
+                        button1.Enabled = true;
+                    }
+                    else
+                    {
+                        button1.Enabled = false;
+                        textBox1.Text = "Quantity entered exceeds availability.";
+                    }
                 }
             } 
         }
@@ -191,10 +277,12 @@ namespace CateringDatabaseSystem
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {//search by category/ category selected changed
             textBox3.Text = "0"; //resetting price to 0
+            textBox7.Text = "Enter Amount";
+            textBox5.Text = "Enter Weight (Kg)";
             if (radioButton8.Checked == true & comboBox3.Text != "")
-            {//populating list box with food items in selected category
+            {//populating datagridview with food items in selected category
                 ConnectingData c = new ConnectingData();
-                dataGridView1.DataSource = c.Select("Select itemname as 'Item', unitprice as 'Price/unit' ,unitquantity 'Serving Size',measuredin as 'Measured In' from fooditem f inner join categories c on f.categories_categoriesid = c.categoriesid  where categoryname = '" + comboBox3.Text + "'");
+                dataGridView1.DataSource = c.Select("exec displayItems @categoryName = '" + comboBox3.Text + "'");
                 //enabling relevant textbox for quantity
                 foreach (DataGridViewRow row in dataGridView1.SelectedRows)
                 {
@@ -227,17 +315,49 @@ namespace CateringDatabaseSystem
                 if (!double.TryParse(textBox5.Text, out temp))
                 {//checking if the value entered is invalid
                     textBox1.Text = "Invalid, please enter a number!";
+                    button1.Enabled = false;
                 }
-                else
+                else if (double.Parse(textBox5.Text) < double.Parse(dataGridView1.SelectedCells[2].Value.ToString()))
+                {//if quantity is less than unit size
+                    textBox1.Text = "Invalid, quantity cannot be below serving size!";
+                    button1.Enabled = false;
+                }
+                else 
                 {
-                    textBox1.Text = "";
-                    string unitprice = dataGridView1.SelectedCells[1].Value.ToString();
-                    string unitquantity = dataGridView1.SelectedCells[2].Value.ToString();
-                    textBox3.Text = (double.Parse(textBox5.Text) * double.Parse(unitprice) / double.Parse(unitquantity)).ToString();
+                    if (isFoodAvailable())
+                    {
+                        textBox1.Text = "";
+                        string unitprice = dataGridView1.SelectedCells[1].Value.ToString();
+                        string unitquantity = dataGridView1.SelectedCells[2].Value.ToString();
+                        textBox3.Text = (double.Parse(textBox5.Text) * double.Parse(unitprice) / double.Parse(unitquantity)).ToString();
+                        button1.Enabled = true;
+                    }
+                    else
+                    {
+                        button1.Enabled = false;
+                        textBox1.Text = "Quantity entered exceeds availability.";
+                    }
                 }
             } 
 
         } 
+
+        private void updateIngrStock()
+        {//function to update qty of each ingredient after it is added to cart.
+            ConnectingData c = new ConnectingData();
+            
+            foreach (DataGridViewRow item in dataGridView2.Rows)
+            {
+                DataTable dt = c.Select("exec GetIngrQtyInItem @ItemName = '" + item.Cells[0].Value.ToString() + "'"); //datatable to temporarily store ingredient details of selected fooditem 
+                foreach (DataRow row in dt.Rows)
+                {//update qty of each ingredient in database
+                    double unit_quantity = double.Parse(row["unitquantity"].ToString());
+                    double qty_required = (double.Parse(row["Quantity_grams"].ToString()) * (double.Parse(item.Cells[1].Value.ToString()) / unit_quantity)) / 1000; //qty required in KG
+                    c.Inserts("update Ingredients set QtyInStock_kg = QtyInStock_kg - " + qty_required + " where ingredientsID = " + row["ingredientsID"].ToString());
+                }
+            }
+            
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {//add to cart  
@@ -248,12 +368,12 @@ namespace CateringDatabaseSystem
             else
             {
                 if (dataGridView2.Rows.Count <= 0 && cart.Columns.Count <= 0)
-                {
+                {//if cart is empty, create add columns to cart table
                     cart.Columns.Add("Item");
                     cart.Columns.Add("Quantity");
                     cart.Columns.Add("TotalPrice");
                 }
-
+                //add item and qty entered, and price to cart
                 if (textBox5.Enabled)
                 {
                     cart.Rows.Add(dataGridView1.SelectedCells[0].Value, textBox5.Text, textBox3.Text);
@@ -262,8 +382,10 @@ namespace CateringDatabaseSystem
                 {
                     cart.Rows.Add(dataGridView1.SelectedCells[0].Value, textBox7.Text, textBox3.Text);
                 }
+                dataGridView2.DefaultCellStyle.Font = new Font("CeraPro-Regular", 9);
+                dataGridView2.ColumnHeadersDefaultCellStyle.Font = new Font("Cera Pro", 9);
                 dataGridView2.DataSource = cart;
-                button2.Enabled = true;
+                button2.Enabled = true; //enable remove and clear buttons
                 button4.Enabled = true;
             }
             

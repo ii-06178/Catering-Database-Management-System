@@ -50,7 +50,16 @@ namespace CateringDatabaseSystem
             }
             else
             {
-                c.Inserts("delete from Categories where CategoriesID =" + textBox4.Text);
+                int i = 0;
+                if (!int.TryParse(textBox4.Text, out i)
+                  )
+                {
+                    MessageBox.Show("Invalid ID: enter digits only.");
+                }
+                else
+                {
+                    c.Inserts("delete from Categories where CategoriesID =" + textBox4.Text);
+                }
             }
         }
 
@@ -67,15 +76,45 @@ namespace CateringDatabaseSystem
             }
             else
             {
-                if (textBox3.Text != "")
-                {//name
-                    c.Inserts("update Categories set CategoryName = '" + textBox3.Text + "'" + "where CategoriesID = " + textBox7.Text);
+                int i = 0;
+                if (!int.TryParse(textBox7.Text, out i)
+                  )
+                {
+                    MessageBox.Show("Invalid ID: enter digits only.");
                 }
-                if (comboBox1.Text != "")
-                {//measured in
-                    c.Inserts("update Categories set MeasuredIn = '" + comboBox1.Text + "'" + "where CategoriesID = " + textBox7.Text);
+                else
+                {
+                    if (textBox3.Text != "")
+                    {//name
+                        c.Inserts("update Categories set CategoryName = '" + textBox3.Text + "'" + "where CategoriesID = " + textBox7.Text);
+                    }
+                    if (comboBox1.Text != "")
+                    {//measured in
+                        c.Inserts("update Categories set MeasuredIn = '" + comboBox1.Text + "'" + "where CategoriesID = " + textBox7.Text);
+                    }
                 }
             }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {//show all food items in this category
+            ConnectingData c = new ConnectingData();
+            dataGridView1.DataSource = c.Select("select * from showAllFoodItems where Category = '" + comboBox3.Text + "'");
+
+        }
+
+        private void Categories_Load(object sender, EventArgs e)
+        {
+            //populating categories combobox with values from the database (categories table)
+            ConnectingData c = new ConnectingData();
+            DataTable ds = c.Select("Select CategoriesID, CategoryName from Categories");
+            DataRow row = ds.NewRow(); //adding default null value as first element in combobox
+            row[0] = 0;
+            row[1] = "";
+            ds.Rows.InsertAt(row, 0);
+            comboBox3.DataSource = ds;
+            comboBox3.DisplayMember = "CategoryName";
+            comboBox3.ValueMember = "CategoriesID";
         }
     }
 }

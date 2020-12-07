@@ -51,9 +51,9 @@
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.button5 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -244,13 +244,13 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.comboBox3);
             this.groupBox3.Controls.Add(this.radioButton4);
             this.groupBox3.Controls.Add(this.comboBox2);
             this.groupBox3.Controls.Add(this.radioButton3);
             this.groupBox3.Controls.Add(this.textBox5);
             this.groupBox3.Controls.Add(this.radioButton2);
             this.groupBox3.Controls.Add(this.radioButton1);
-            this.groupBox3.Controls.Add(this.textBox3);
             this.groupBox3.Controls.Add(this.button5);
             this.groupBox3.Controls.Add(this.textBox2);
             this.groupBox3.Font = new System.Drawing.Font("Cera Pro", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -336,15 +336,6 @@
             this.radioButton1.UseVisualStyleBackColor = true;
             this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
-            // textBox3
-            // 
-            this.textBox3.Enabled = false;
-            this.textBox3.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(168, 109);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(189, 30);
-            this.textBox3.TabIndex = 11;
-            // 
             // button5
             // 
             this.button5.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -365,6 +356,20 @@
             this.textBox2.Size = new System.Drawing.Size(189, 30);
             this.textBox2.TabIndex = 7;
             // 
+            // comboBox3
+            // 
+            this.comboBox3.Enabled = false;
+            this.comboBox3.Font = new System.Drawing.Font("CeraPRO-Regular", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Items.AddRange(new object[] {
+            "In Process",
+            "Dispatched",
+            "Delivered"});
+            this.comboBox3.Location = new System.Drawing.Point(168, 110);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(189, 31);
+            this.comboBox3.TabIndex = 19;
+            // 
             // OrdersAdminView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -380,6 +385,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "OrdersAdminView";
             this.Text = "Orders(Admin Only)";
+            this.Load += new System.EventHandler(this.OrdersAdminView_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -407,7 +413,6 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.RadioButton radioButton2;
@@ -419,5 +424,6 @@
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.RadioButton radioButton6;
         private System.Windows.Forms.RadioButton radioButton5;
+        private System.Windows.Forms.ComboBox comboBox3;
     }
 }

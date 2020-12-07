@@ -40,13 +40,15 @@ end
 
 insert into payment (paymentID, paymentType) values (1, 'COD')
 select * from Payment
+delete from Region where RegionID = 2
 
---delete from Payment where PaymentID >= 2 
+--delete from Payment where PaymentID =8 
 --delete from Customers where CustomerID >= 5
 --delete from Orders where OrderID >= 2
 --delete from OrderbyItem
 
 update orders set Payment_PaymentID = 1 where OrderID = 1
+exec deleteCustomerAndOrder @customer = 8
 
 select * from Customers
 select * from Payment
@@ -166,4 +168,8 @@ create procedure OrderRiderView as
 
 select * from orders o inner join payment p on o.payment_paymentID = p.paymentID
 
-
+create procedure deleteCustomerAndOrder @customer int as
+delete from Payment where PaymentID = (select payment_paymentID from orders where orderID = (select orderID from orders where Customers_CustomerID = @customer and (OrderStatus = 'In Process' or OrderStatus = 'Dispatched') ))
+delete from OrderbyItem where OrderID = (select orderID from orders where Customers_CustomerID = @customer and (OrderStatus = 'In Process' or OrderStatus = 'Dispatched'))
+delete from Orders where Customers_CustomerID = @customer
+delete from Customers where CustomerID = @customer

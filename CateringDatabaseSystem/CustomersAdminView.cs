@@ -1,4 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CateringDatabaseSystem
@@ -149,6 +156,7 @@ namespace CateringDatabaseSystem
         private void button2_Click(object sender, EventArgs e)
         {//delete customer
             ConnectingData c = new ConnectingData();
+            
             if (textBox4.Text == "")
             {
                 MessageBox.Show("Please enter the ID of the customer to delete.");
@@ -163,7 +171,15 @@ namespace CateringDatabaseSystem
                 }
                 else
                 {
-                    c.Inserts("delete from Customers where CustomerID =" + textBox4.Text);
+                    DataTable ds = c.Select("select orderstatus from orders where Customers_CustomerID = " + textBox4.Text);
+                    if (ds.Rows.Count > 0 && ds.Rows[0][0].ToString() != "Delivered")
+                    {
+                        DialogResult dialogResult = MessageBox.Show("This customer has an order that has not been delivered. Deleting them would result in a deletion of the order. Would you like to continue?", "Warning",MessageBoxButtons.YesNo);
+                        if (dialogResult == DialogResult.Yes)
+                        {
+                            c.Inserts("exec deleteCustomerAndOrder @customer = " + textBox4.Text);
+                        }
+                    }
                 }
             }
         }

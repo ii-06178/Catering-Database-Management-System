@@ -123,7 +123,7 @@ namespace CateringDatabaseSystem
                 //adding each food item in order to orderByItem table
                 foreach (DataGridViewRow row in dataGridView2.Rows)
                 {
-                    int quantity = int.Parse(row.Cells[1].Value.ToString()); //getting quantity of food item from listview2
+                    double quantity = double.Parse(row.Cells[1].Value.ToString()); //getting quantity of food item from listview2
                     c.Inserts("insert into orderByItem (orderID, FoodItem_FoodItemID, quantity, discount, unitprice) values ((select max(orderID) from orders), (select foodItemID from foodItem where itemName = '" + row.Cells[0].Value.ToString() + "'), " + quantity + ", " + textBox13.Text + ", (select unitprice from foodItem where itemName = '" + row.Cells[0].Value.ToString() + "')) ");
                 }
                 updateIngrStock();

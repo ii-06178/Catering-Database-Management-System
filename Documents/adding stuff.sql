@@ -159,3 +159,11 @@ exec viewOrdersByItem @itemname = 'Pulao'
 
 drop procedure viewOrdersByItem
 
+select * from [admin]
+select * from Rider
+
+create procedure OrderRiderView as 
+
+select * from orders o inner join payment p on o.payment_paymentID = p.paymentID
+
+
